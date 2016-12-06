@@ -1,0 +1,1 @@
+var scripts=document.getElementsByTagName("script");var path="";if(scripts&&scripts.length>0){for(var i in scripts){if(scripts[i].src&&scripts[i].src.match(/path\.js$/)){path=scripts[i].src.replace(/(.*)path\.js$/,"$1");path=path.replace("/js/","/");break}}};

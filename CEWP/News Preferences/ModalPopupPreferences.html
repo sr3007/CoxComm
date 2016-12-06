@@ -1,0 +1,174 @@
+﻿<script src='https://mod223137.sharepoint.com/sites/coxone/SiteAssets/COXOne/CustomHtml/ModalPreference.js' type='text/javascript'></script>
+<script src='https://mod223137.sharepoint.com/sites/coxone/SiteAssets/COXOne/CustomHtml/CCI_Preferences.js' type='text/javascript'></script>
+<!--<link rel="stylesheet" type="text/css" href="https://mod223137.sharepoint.com/sites/coxone/SiteAssets/COXOne/CustomHtml/ModalCustomPreference.css" />-->
+<!--https://mod223137.sharepoint.com/sites/coxone-->
+
+<div class="Newsbtn">
+    <a class="btn" onclick="javascript: Opendialog();">Customise your News   <img src="/sites/coxone/Style Library/coxone/images/preferences Gear.png" alt="Smiley face"></a>
+</div>
+
+<!--<div id="preferenceDiv" hidden="hidden">
+    <div>
+        <b>Company</b>
+        <div id="companyDiv"></div>
+
+    </div>
+    <div>
+        <b>COE</b>
+        <div id="coeDiv"></div>
+    </div>
+    <div>
+        <b>Departments</b>
+        <div id="departmentsDiv"></div>
+    </div>
+    <div>
+        <b>Division</b>
+        <div id="divisionDiv"></div>
+    </div>
+    <div>
+        <b>Locations</b>
+        <div id="locationsDiv"></div>
+    </div>
+    <div>
+        <b>Industry</b>
+        <div id="industryDiv"></div>
+    </div>
+    <div>
+        <input type="button" id="btn_Apply" value="Apply" onclick="javascript: NewsPreference.SavePreferences(event);" />
+        <input type="button" id="btnSelectAll" value="Select All" onclick="javascript: NewsPreference.SelectDeSelectCheckBox(true);" />
+        <input type="button" id="btnDeSelectAll" value="DeSelect All" onclick="javascript: NewsPreference.SelectDeSelectCheckBox(false);" />
+        <input type="button" value="Close" onclick="javascript: NewsPreference.ShowHidePrefernceDiv(false);">
+    </div>
+</div>-->
+<!--<div class="container main_warpper" id="preferenceDiv" hidden="hidden">
+    <div class="row">
+        <div class="col-sm-12 box_warp">
+            <div class="panel panel-default clearfix">
+                <a class="btn" data-popup-open="popup-1" href="#">Customize Your News</a>
+                <div id="NewsPopup" data-popup="popup-1">
+                    <div class="row" id="NewsPreference">
+                        <div class="col-xs-6 col-sm-4">
+                            <h1>News<br /></h1>​​<span style="line-height: 1.6;">Customize CoxOne News to keep you up-to-date on what matters to you!</span>
+                            <p>Toggle Categories and Topics on and off to select what interests you.</p>
+                            <p>Using these selections helps customize the entire site to fit you.</p>
+                            <div class="text-center">
+                                All On
+                                <label class="switch">
+                                    <input type="checkbox" id="chkboxOnOff" onclick="javascript: NewsPreference.SelectDeSelectCheckBox(true);">
+                                    <div class="slider round"></div>
+                                </label>
+                                All Off​<br />
+                            </div>
+                            <br /> <br />
+                            <div class="text-center"><button class="newsPref" type="button" onclick="javascript: NewsPreference.SavePreferences(event);">​Apply​​​</button></div>
+                        </div>
+                        <div class="col-xs-6 col-sm-4">
+                            <h1>Com​pany</h1>
+                            <ul id="companyDiv"></ul>                    
+                        <h1>​COE<br /></h1>
+                        <ul id="coeDiv">
+                            
+                        </ul>
+                    
+                    <h1>​Departments</h1>
+                    <ul id="departmentsDiv"></ul>
+                </div>
+                
+                <div class="clearfix visible-xs-block">
+                </div>
+                <div class="col-xs-6 col-sm-4">
+                    <h1>Divisions<br /></h1>
+                    <ul id="divisionDiv"></ul>
+                    <h1>Locations​<br /></h1>
+                    <ul id="locationsDiv"></ul>
+                    <h1>Industry</h1>
+                    <ul id="industryDiv"></ul>
+                    <div class="text-left">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>-->
+
+<script type="text/javascript">
+    function Opendialog() {
+        SP.SOD.executeOrDelayUntilScriptLoaded(function () {
+            var element = document.createElement('div');
+            element.innerHTML = '<div class="container main_warpper" id="preferenceDiv">\
+    <div class="row">\
+        <div class="col-sm-12 box_warp">\
+            <div class="panel panel-default clearfix">'+
+                //<a class="btn" data-popup-open="popup-1" href="#">Customize Your News</a>\
+                '<div id="NewsPopup" data-popup="popup-1">\
+                    <div class="row" id="NewsPreference">\
+                        <div class="col-xs-6 col-sm-4">\
+                            <h1>News<br /></h1>​​<span style="line-height: 1.6;">Customize CoxOne News to keep you up-to-date on what matters to you!</span>\
+                            <p>Toggle Categories and Topics on and off to select what interests you.</p>\
+                            <p>Using these selections helps customize the entire site to fit you.</p>\
+                            <div class="text-center">\
+                                All Off\
+                                <label class="switch">\
+                                    <input type="checkbox" id="chkboxOnOff" onclick="javascript: NewsPreference.SelectDeSelectCheckBox(true);">\
+                                    <div class="slider round"></div>\
+                                </label>\
+                                All On​<br />\
+                            </div>\
+                            <br /> <br />\
+                            <div class="text-center"><button class="newsPref" type="button" onclick="javascript: NewsPreference.SavePreferences(event);">​Apply​​​</button></div>\
+                        </div>\
+                        <div class="col-xs-6 col-sm-4">\
+                            <h1>Com​pany</h1>\
+                            <ul id="companyDiv"></ul>\
+                        <h1>​COE<br /></h1>\
+                        <ul id="coeDiv">\
+                        </ul>\
+                    <h1>​Departments</h1>\
+                    <ul id="departmentsDiv"></ul>\
+                </div>\
+                <div class="clearfix visible-xs-block">\
+                </div>\
+                <div class="col-xs-6 col-sm-4">\
+                    <h1>Divisions<br /></h1>\
+                    <ul id="divisionDiv"></ul>\
+                    <h1>Locations​<br /></h1>\
+                    <ul id="locationsDiv"></ul>\
+                    <h1>Industry</h1>\
+                    <ul id="industryDiv"></ul>\
+                    <div class="text-left">\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+</div>\
+    </div>\
+</div>';
+
+            SP.UI.ModalDialog.showModalDialog({
+                html: element,
+                title: 'Customize your News Preferences',
+                allowMaximize: false,
+                width: 1300,
+                height: 500,
+                showClose: true,
+                dialogReturnValueCallback: Function.createDelegate(CloseCallback, null),
+                //autoSize: true
+            });    
+            NewsPreference.init();
+        }, "SP.js");
+        //SP.SOD.executeOrDelayUntilScriptLoaded(function () {
+        //    NewsPreference.init();
+        //}, "Preference.js");
+    }
+
+    function CloseCallback(result, target) {
+        SP.UI.ModalDialog.commonModalDialogClose(SP.UI.DialogResult.cancel);
+    }
+    
+</script>
+
+

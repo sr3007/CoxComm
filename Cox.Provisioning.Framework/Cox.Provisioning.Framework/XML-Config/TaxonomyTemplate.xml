@@ -1,0 +1,218 @@
+﻿<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
+  <pnp:Preferences Generator="OfficeDevPnP.Core, Version=2.6.1608.0, Culture=neutral, PublicKeyToken=3751622786b357c2">
+    <!--<pnp:Parameters>
+      <pnp:Parameter Key="O365TenantName"></pnp:Parameter>
+      <pnp:Parameter Key="NewSiteCollectionUrlName"></pnp:Parameter>
+      <pnp:Parameter Key="CodeProvidedParam" Required="true"/>
+      <pnp:Parameter Key="YammerNetwork">cox.com</pnp:Parameter>
+      <pnp:Parameter Key="lcid">1033</pnp:Parameter>
+      <pnp:Parameter Key="CompanyName">COX Inc.</pnp:Parameter>
+      <pnp:Parameter Key="sitecollectiontermstoreid"></pnp:Parameter>
+      <pnp:Parameter Key="AdminUserNameID"></pnp:Parameter>
+      <pnp:Parameter Key="BaseCoxSiteColumnGroup"></pnp:Parameter>
+      <pnp:Parameter Key="SourceID">http://schemas.microsoft.com/sharepoint/v3</pnp:Parameter>
+    </pnp:Parameters>-->
+  </pnp:Preferences>
+  <pnp:Templates ID="COXOne-Provisioning-TEMPLATES">
+    
+    <pnp:ProvisioningTemplate ID="COXOneTaxonomyTemplate" Version="1">
+      <!--<pnp:TermGroups>
+        <pnp:TermGroup ID="{7D053056-FC05-49D3-AC4E-7C164805EF84}" Name="CoxOne">
+          <pnp:TermSets>
+            <pnp:TermSet Name="Company" ID="{6287E386-CC63-4B84-8983-81C12CA8A836}">
+              <pnp:Terms>
+                <pnp:Term Name="Product" ID="{09886428-79F3-46F1-B55A-2E766B602F37}">
+                </pnp:Term>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Business Unit" ID="{5706B82C-6107-4718-9D52-E800B86C959D}">
+              <pnp:Terms>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="COE" ID="{65B5E2A6-E064-418C-BC19-EBBD11180C0D}">
+              <pnp:Terms>
+                <pnp:Term Name="Customer care" ID="{D1870858-CE4B-42D2-B783-10B82B06CD74}"/>
+                <pnp:Term Name="Retention" ID="{B514AA73-24E0-4832-8135-AF584234F491}"/>
+                <pnp:Term Name="Sales" ID="{D8F58F9D-4D2E-43D9-A6CE-F2C3CC7FFAF1}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Department" ID="{70AFEC62-DF94-4E67-BE91-672E326C56DD}">
+              <pnp:Terms>
+                <pnp:Term Name="Accounting" ID="{C9F528C7-82BE-4655-AF9B-A9F37C39DF20}"/>
+                <pnp:Term Name="Customer Experience" ID="{0255F2C3-4302-492E-920D-11B8399BAA40}"/>
+                <pnp:Term Name="Human Resources" ID="{ABCA6CB8-05D2-43DF-A8DC-7FD4E2B62B0F}"/>
+                <pnp:Term Name="Law and Policy" ID="{098B1AC0-8AF3-4101-ABEA-BF2B28AD3F3C}"/>
+                <pnp:Term Name="Technology" ID="{13F8E0F4-FBEC-4695-B527-C6090FAE02F5}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Division" ID="{2D583F21-4F9E-41C7-81AF-4DDA1B46BFB2}">
+              <pnp:Terms>
+                <pnp:Term Name="Cox Business" ID="{FF2DF5DD-89A5-49C3-A3A3-80E363BE16E8}"/>
+                <pnp:Term Name="Cox Media" ID="{F9E2447F-1D9B-41F1-A0B8-D1C2902D14C4}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Industry" ID="{DF8AFC63-6832-4AA6-AE4F-9122DA7461FB}">
+              <pnp:Terms>
+                <pnp:Term Name="Industry" ID="{2A1F3924-E0F8-45F3-97A2-AE321642FBD9}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Location" ID="{9FB29BD7-4D9E-4E7B-9AA0-D2EF37CB865D}">
+              <pnp:Terms>
+                <pnp:Term Name="Atlanta" ID="{CBBAC9C5-DD45-4BC2-AEB7-89D3E9237B38}"/>
+                <pnp:Term Name="California" ID="{BF7CC425-48E9-447A-A42C-11B18ADFAD14}"/>
+                <pnp:Term Name="Central" ID="{B4CD6700-0430-4A9C-BA3E-DD7A5843D1CD}"/>
+                <pnp:Term Name="Northeast" ID="{59116B29-6030-49C7-B69A-2FC403CE84CC}"/>
+                <pnp:Term Name="Southeast" ID="{9192F652-A211-4F36-9ECA-592C973D3354}"/>
+                <pnp:Term Name="Southwest" ID="{2F61ED49-3E00-4EE1-9715-282616DCB58D}"/>
+                <pnp:Term Name="Virginia" ID="{77C7D127-778D-44A9-A382-0186AD4A431B}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Topic" ID="{C20DB7B0-C925-4C80-BF71-F5FE38B90DB9}">
+              <pnp:Terms>
+                <pnp:Term Name="Contour" ID="{F9A373A8-BE1E-402B-8C29-A53FCD795CCC}"/>
+                <pnp:Term Name="Cox Conserves" ID="{B8CBAED2-72A1-4854-B667-E9376215DE59}"/>
+                <pnp:Term Name="Homelife" ID="{E446627D-D8AB-4C19-B781-33F87EC4D143}"/>
+                <pnp:Term Name="March Madness" ID="{E6C8EF4B-B4D5-4CB6-99C4-8936C4725A37}"/>
+                <pnp:Term Name="WICT" ID="{7ED14007-1EFF-4BC6-B9A8-38FA01E922CA}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Product" ID="{88D73045-0990-46AB-908D-57AA6F396C42}">
+              <pnp:Terms>
+                <pnp:Term Name="Product" ID="{4016D69E-A4EB-4BEE-8484-35CD1871B51B}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="NewsTags" ID="{226D66D3-34F8-4EEC-9C6B-2FC6A5B39705}">
+            </pnp:TermSet>
+            
+          </pnp:TermSets>
+        </pnp:TermGroup>
+      </pnp:TermGroups>-->
+      <pnp:TermGroups>
+        <pnp:TermGroup ID="{7D053056-FC05-49D3-AC4E-7C164805EF84}" Name="CoxOne">
+          <pnp:TermSets>
+            <pnp:TermSet Name="Company" ID="{6287E386-CC63-4B84-8983-81C12CA8A836}">
+              <pnp:Terms>
+                <pnp:Term Name="Product" ID="{09886428-79F3-46F1-B55A-2E766B602F37}">
+                </pnp:Term>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Business Unit" ID="{5706B82C-6107-4718-9D52-E800B86C959D}">
+              <pnp:Terms>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="COE" ID="{65B5E2A6-E064-418C-BC19-EBBD11180C0D}">
+              <pnp:Terms>
+                <pnp:Term Name="Customer care" ID="{D1870858-CE4B-42D2-B783-10B82B06CD74}"/>
+                <pnp:Term Name="Retention" ID="{B514AA73-24E0-4832-8135-AF584234F491}"/>
+                <pnp:Term Name="Sales" ID="{D8F58F9D-4D2E-43D9-A6CE-F2C3CC7FFAF1}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Department" ID="{70AFEC62-DF94-4E67-BE91-672E326C56DD}">
+              <pnp:Terms>
+                <pnp:Term Name="Accounting" ID="{C9F528C7-82BE-4655-AF9B-A9F37C39DF20}"/>
+                <pnp:Term Name="Customer Experience" ID="{0255F2C3-4302-492E-920D-11B8399BAA40}"/>
+                <pnp:Term Name="Human Resources" ID="{ABCA6CB8-05D2-43DF-A8DC-7FD4E2B62B0F}"/>
+                <pnp:Term Name="Law and Policy" ID="{098B1AC0-8AF3-4101-ABEA-BF2B28AD3F3C}"/>
+                <pnp:Term Name="Technology" ID="{13F8E0F4-FBEC-4695-B527-C6090FAE02F5}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+
+            <pnp:TermSet Name="Category" ID="{1F40E1E3-7671-4933-AEC7-4876F618AADC}">
+              <pnp:Terms>
+                <pnp:Term Name="Accounting and FP&amp;A" ID="{482F910C-1EED-4B71-9423-AAED1634DB46}"/>
+                <pnp:Term Name="Customer Experience Operations" ID="{495F7786-67F1-4AC4-B2A1-DD532109C895}"/>
+                <pnp:Term Name="Enterprise Portfolio Management" ID="{5CC511AC-71AE-47FC-ADD7-022D17C12761}"/>
+                <pnp:Term Name="Human Resources" ID="{A016A967-9C67-45A7-B208-4904159BAF83}"/>
+                <pnp:Term Name="Law &amp; Policy" ID="{60F4F470-93A1-47B6-BD69-8B49BB9D08C6}"/>
+                <pnp:Term Name="Marketing &amp; Sales" ID="{42445D62-ED54-48D2-B6D3-BA0A4E04458D}"/>
+                <pnp:Term Name="Operations Process Management" ID="{6293D081-AE5C-4150-92C0-D3072EAA40C6}"/>
+                <pnp:Term Name="Public Affairs" ID="{DC07FAF1-881D-497C-9274-A3F0776FFCA5}"/>
+                <pnp:Term Name="Product Development &amp; Management" ID="{B13BFABA-F5CD-4F3F-92C0-BB14C4978F0F}"/>
+                <pnp:Term Name="Supply Chain" ID="{5BBEA6E4-3C3F-4581-B4D8-3F6EBE7C5D78}"/>
+                <pnp:Term Name="Technology" ID="{5B5ED3FF-F568-446D-A51E-72A1A926ED23}"/>
+                <pnp:Term Name="myHRDashboard" ID="{7E436046-8F33-4DDD-9185-C5AB9B237F3B}"/>                
+              </pnp:Terms>
+            </pnp:TermSet>
+            
+            <pnp:TermSet Name="Division" ID="{2D583F21-4F9E-41C7-81AF-4DDA1B46BFB2}">
+              <pnp:Terms>
+                <pnp:Term Name="Cox Business" ID="{FF2DF5DD-89A5-49C3-A3A3-80E363BE16E8}"/>
+                <pnp:Term Name="Cox Media" ID="{F9E2447F-1D9B-41F1-A0B8-D1C2902D14C4}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Industry" ID="{DF8AFC63-6832-4AA6-AE4F-9122DA7461FB}">
+              <pnp:Terms>
+                <pnp:Term Name="Industry" ID="{2A1F3924-E0F8-45F3-97A2-AE321642FBD9}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Location" ID="{9FB29BD7-4D9E-4E7B-9AA0-D2EF37CB865D}">
+              <pnp:Terms>
+                <pnp:Term Name="Atlanta" ID="{CBBAC9C5-DD45-4BC2-AEB7-89D3E9237B38}"/>
+                <pnp:Term Name="California" ID="{BF7CC425-48E9-447A-A42C-11B18ADFAD14}"/>
+                <pnp:Term Name="Central" ID="{B4CD6700-0430-4A9C-BA3E-DD7A5843D1CD}"/>
+                <pnp:Term Name="Northeast" ID="{59116B29-6030-49C7-B69A-2FC403CE84CC}"/>
+                <pnp:Term Name="Southeast" ID="{9192F652-A211-4F36-9ECA-592C973D3354}"/>
+                <pnp:Term Name="Southwest" ID="{2F61ED49-3E00-4EE1-9715-282616DCB58D}"/>
+                <pnp:Term Name="Virginia" ID="{77C7D127-778D-44A9-A382-0186AD4A431B}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Topic" ID="{C20DB7B0-C925-4C80-BF71-F5FE38B90DB9}">
+              <pnp:Terms>
+                <pnp:Term Name="Contour" ID="{F9A373A8-BE1E-402B-8C29-A53FCD795CCC}"/>
+                <pnp:Term Name="Cox Conserves" ID="{B8CBAED2-72A1-4854-B667-E9376215DE59}"/>
+                <pnp:Term Name="Homelife" ID="{E446627D-D8AB-4C19-B781-33F87EC4D143}"/>
+                <pnp:Term Name="March Madness" ID="{E6C8EF4B-B4D5-4CB6-99C4-8936C4725A37}"/>
+                <pnp:Term Name="WICT" ID="{7ED14007-1EFF-4BC6-B9A8-38FA01E922CA}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Product" ID="{88D73045-0990-46AB-908D-57AA6F396C42}">
+              <pnp:Terms>
+                <pnp:Term Name="Product" ID="{4016D69E-A4EB-4BEE-8484-35CD1871B51B}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Operational Department Subledger" ID="{2C7EB6C5-05A3-4B87-A816-F6A064DD0675}">
+              <pnp:Terms>
+                <pnp:Term Name="Subledger 1" ID="{2E386BF0-7A31-4797-966D-9665EA5A58EF}"/>
+                <pnp:Term Name="Subledger 2" ID="{0956ADBA-3659-4F42-BDA1-748047D6018C}"/>
+                <pnp:Term Name="Subledger 3" ID="{55219985-FD15-4915-BC8B-7301D86CF1D2}"/>
+              </pnp:Terms>
+            </pnp:TermSet>
+            <pnp:TermSet Name="Regular Temp" ID="{0CF2C3FA-97FC-410A-8B86-D961296A74AE}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="Commissioned" ID="{D2F328F3-50A7-4218-B17F-D1FF3764A330}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="Auto Allowance Level" ID="{0DB328FA-45BE-4C5A-9CE6-6D332F54F76C}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="Job Code" ID="{950C5BC1-412F-4AB3-96CE-DDD56B5AF21D}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="NewsTags" ID="{226D66D3-34F8-4EEC-9C6B-2FC6A5B39705}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="Job Subfamily" ID="{17A845EF-EE2C-4BE5-946A-286F1615CD34}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="Career Level" ID="{AD565014-5F08-403C-B259-99209DBF46D1}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="Highly Compensated" ID="{7254FF88-88CE-4F77-BE6F-AE111351E454}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="FLSA Status" ID="{440DF431-76B9-4902-BB23-B30EC170A013}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="Manager Level" ID="{17E90051-A3EC-4F26-AC49-E772F38D8843}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="Time Reporting Indicator" ID="{34F0336B-DF39-4964-B97B-E114050A43CD}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="Operational Department" ID="{DCD07F5A-B30A-4190-B281-EAC32AD08505}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="Task Group" ID="{49F77D7A-1B16-4966-8194-AC1080AFF0EB}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="Job Family" ID="{03760596-5FD2-4765-9AD7-BFF2D2137008}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="Time Reporting Status" ID="{B976E814-D38F-4E86-B5F8-0838C431BE43}">
+            </pnp:TermSet>
+            <pnp:TermSet Name="Regional Business Unit" ID="{C5070B6B-6AC5-4F97-A084-7E5B38D20B6A}">
+            </pnp:TermSet>
+          </pnp:TermSets>
+        </pnp:TermGroup>
+      </pnp:TermGroups>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

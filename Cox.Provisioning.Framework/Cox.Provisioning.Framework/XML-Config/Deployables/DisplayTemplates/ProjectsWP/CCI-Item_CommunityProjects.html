@@ -1,0 +1,93 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>CCI-Item_Community_Projects</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:MasterPageDescription msdt:dt="string">Displays a result tailored for a picture.</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#SearchResults;#Content Web Parts;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:ManagedPropertyMapping msdt:dt="string">&#39;Picture URL&#39;{Picture URL}:&#39;PublishingImage;PictureURL;PictureThumbnailURL;CCI-ImagesOWSIMGE&#39;,&#39;Link URL&#39;{Link URL}:&#39;Path&#39;,&#39;Line 1&#39;{Line 1}:&#39;Title&#39;,&#39;Line 2&#39;{Line 2}:&#39;Description&#39;,&#39;Line 3&#39;{Line 3}:&#39;CCI-URLOWSURLH&#39;</mso:ManagedPropertyMapping>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://mod174499.sharepoint.com/sites/CoxOne/_catalogs/masterpage/CCI-Item_CommunityProjects.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    <div id="Item_SlideImage">
+<!--#_
+try
+{
+var siteURL = SP.PageContextInfo.get_siteServerRelativeUrl();
+var webUrl = SP.PageContextInfo.get_webServerRelativeUrl();
+//var workingOnPage = webUrl+'/pages/WorkingOn.aspx';
+
+//var linkURL = $getItemValue(ctx, "Path");
+//linkURL.overrideValueRenderer($urlHtmlEncode);
+
+var title = $getItemValue(ctx, "Line 1");
+var description = $getItemValue(ctx, "Line 2");
+var linkURL = $getItemValue(ctx, "Line 3");
+var itemurl = linkURL.value[0]["entityLabel"];
+
+linkURL.overrideValueRenderer($urlHtmlEncode);
+
+var pictureURL = '';
+pictureURL = String($getItemValue(ctx, "Picture URL"));
+pictureURL = pictureURL + "?RenditionID=6";
+
+title.overrideValueRenderer($contentLineText);
+description.overrideValueRenderer($contentLineText);
+//linkURL.overrideValueRenderer($contentLineText);
+
+var strTrimmedTitle = "";
+var strTrimmedDesc = "";
+
+if(!title.isEmpty)
+{
+if (title.toString().length > 60) {
+	strTrimmedTitle = title.toString().substring(0,60) + "...";
+}
+else {
+	strTrimmedTitle = title;
+}
+}
+
+if(!description.isEmpty)
+{
+if (description.toString().length > 60) {
+	strTrimmedDesc = description.toString().substring(0,60) + "...";
+}
+else {
+	strTrimmedDesc = description;
+}
+}
+}
+catch(err)
+{
+    CCI_Common.LogException(_spPageContextInfo.userId, 'CommunityProjects App', _spPageContextInfo.siteAbsoluteUrl, err);
+}
+ _#-->
+        <ul class="left_icon_bx">
+            <li>
+                <span class="icon_img">
+                <a href="_#= itemurl =#_" title="_#= title =#_" target="_blank">
+                    <img alt="coxone" src="_#= pictureURL =#_">
+                </a>
+                </span>
+                <a href="_#= itemurl =#_" title="_#= title =#_" target="_blank">
+                    <h3>_#= strTrimmedTitle =#_</h3>
+                </a>
+                <p>
+                    _#= strTrimmedDesc =#_
+                </p>
+</li>
+        </ul>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,662 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="../Assets/dsg/Styles/taxonomypickercontrol.css" rel="stylesheet" />
+
+    <!-- Load the constant variables -->
+    <script type="text/ecmascript" src="../Assets/dsg/config/config.constants.js"></script>
+    <script type="text/ecmascript" src="../Assets/dsg/models/models.js"></script>
+    <!-- Load third party scripts -->
+    <!--  <script type="text/ecmascript" src="../Assets/dsg/scripts/jquery-1.9.1.min.js"></script>
+      <script type="text/ecmascript" src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>-->
+    <!-- AngularJS, Sanitize, resource -->
+    <script type="text/ecmascript" src="../Assets/dsg/scripts/angular.min.js"></script>
+    <script type="text/ecmascript" src="../Assets/dsg/scripts/angular-sanitize.min.js"></script>
+    <script type="text/ecmascript" src="../Assets/dsg/scripts/angular-resource.min.js"></script>
+    <script type="text/ecmascript" src="../Assets/dsg/scripts/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script type="text/ecmascript" src="../Assets/dsg/scripts/ui-bootstrap.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script type="text/ecmascript" src="../Assets/dsg/scripts/taxonomypickercontrol.js"></script>
+    <!-- All of this scripts are used to create the app. -->
+    <script type="text/ecmascript" src="../Assets/dsg/app.js"></script>
+    <script type="text/ecmascript" src="../Assets/dsg/config/config.js"></script>
+    <script type="text/ecmascript" src="../Assets/dsg/config/config.taxonomy.js"></script>
+
+    <script type="text/ecmascript" src="../Assets/dsg/common/common.js"></script>
+    <script type="text/ecmascript" src="../Assets/dsg/common/logging.js"></script>
+    <script type="text/ecmascript" src="../Assets/dsg/controllers/Security.js"></script>
+    <script type="text/ecmascript" src="../Assets/dsg/controllers/controllers.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Arimo|Lobster' rel='stylesheet' type='text/css'>
+    <link href="../Assets/dsg/Styles/bootstrap.css" rel="stylesheet" />
+    <link href="../Assets/dsg/Styles/app.css" rel="stylesheet" />
+    <link href="../Assets/dsg/Styles/taxonomypickercontrol.css" rel="stylesheet" />
+    <!--   <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+       <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">-->
+
+    <style>
+        .dropdown-menu {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="ng-app" data-ng-app="app" data-ng-cloak>
+        <div id="strk" name="strk" data-ng-form="strk" data-ng-cloak>
+            <div class="container" id="sr-header" data-ng-controller="appCtrlr as vm" data-ng-cloak>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h2>Dynamic Security Groups</h2> <br />
+                    </div>
+                </div>
+
+                <label>Enter Group name: <input type="text" name="GroupName" ng-model="groupName" required></label><br>
+                <div role="alert">
+                    <span class="error" ng-show="GroupName.$error.required">
+                        Group Name is Required!
+                    </span>
+                </div>
+                <br />
+
+                <!--Start of Auto Allowance Level-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Auto Allowance Level:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="aalSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsAutoAllowanceLevel" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="044b7232-5250-4b8c-9cb5-06feb1ff39a0" pp-is-multi-valued="{{true}}" id="taxPickerAutoAllowance"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="aalAndOr" value="And">And
+                        <input type="radio" ng-model="aalAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Auto Allowance Level-->
+                <!--Start of Business Unit-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Business Unit:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="buSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <di1v class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsBusinessUnit" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="c316488d-00f8-4176-b874-7f8e7e9bc257" pp-is-multi-valued="{{true}}" id="taxPickerBusinessUnit"></div>
+                        </div>
+                    </di1v>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="buAndOr" value="And">And
+                        <input type="radio" ng-model="buAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--  <div class="row" style="margin-bottom:10px;">
+                      <div class="col-sm-8">
+                          <span>
+                              Selected Terms:
+                          </span>
+                          <span data-ng-repeat="bu in vm.businessUnitTerms track by $index">
+                              {{bu.Name}} <span style="color:BURLYWOOD;">(Path: {{bu.PathOfTerm}})</span><span data-ng-if="!$last">,&nbsp;</span>
+                          </span>
+                      </div>
+                  </div>-->
+                <!--End of Business Unit-->
+                <!--Start of Career Level-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Career Level:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="clSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsCareerLevel" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="bd17adb6-7985-4238-bc5d-cb53c413d644" pp-is-multi-valued="{{true}}" id="taxPickerCareerLevel"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="clAndOr" value="And">And
+                        <input type="radio" ng-model="clAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Career Level-->
+                <!--Start of Commissioned-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Commissioned:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="commissionedSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsCommissioned" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="74c8190a-4677-4af6-b19e-87d07f009710" pp-is-multi-valued="{{true}}" id="taxPickerCommissioned"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="comAndOr" value="And">And
+                        <input type="radio" ng-model="comAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Commissioned-->
+                <!--Start of Department-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Department:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="deptSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsDepartment" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="e950c38d-ee55-4b72-bc0b-bd15e1216fcd" pp-is-multi-valued="{{true}}" id="taxPickerDepartment"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="deptAndOr" value="And">And
+                        <input type="radio" ng-model="deptAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Department-->
+                <!--Start of FLSA Status-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            FLSA Status:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="flsaSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsFLSAStatus" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="e1dcd7ed-b03c-40b5-a21a-08a35a0279bb" pp-is-multi-valued="{{true}}" id="taxPickerFLSAStatus"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="flsaAndOr" value="And">And
+                        <input type="radio" ng-model="flsaAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of FLSA Status-->
+                <!--Start of Highly Compensated-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Highly Compensated:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="highlyComSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsHighlyCompensated" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="704b1bde-ad72-4bb1-88fb-52f39e924f44" pp-is-multi-valued="{{true}}" id="taxPickerHighlyCompensated"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="highlyComAndOr" value="And">And
+                        <input type="radio" ng-model="highlyComAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Highly Compensated-->
+                <!--Start of Job Code-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Job Code:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="jobCodeSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsJobCode" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="a75e36b1-e5b2-4eb3-ba70-38e11d7d6b88" pp-is-multi-valued="{{true}}" id="taxPickerJobCode"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="jobCodeAndOr" value="And">And
+                        <input type="radio" ng-model="jobCodeAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Job Code-->
+                <!--Start of Job Family-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Job Family:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="jobFamilySelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsJobFamily" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="dd892f4e-a901-4a86-88db-16ed86627e60" pp-is-multi-valued="{{true}}" id="taxPickerJobFamily"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="jobFamilyAndOr" value="And">And
+                        <input type="radio" ng-model="jobFamilyAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Job Family-->
+                <!--Start of Job Subfamily-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Job Subfamily:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="jobSubfamilySelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsJobSubfamily" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="d107b21b-f82c-4335-a994-3ee013e71b0c" pp-is-multi-valued="{{true}}" id="taxPickerJobSubfamily"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="jobSubfamilyAndOr" value="And">And
+                        <input type="radio" ng-model="jobSubfamilyAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Job Subfamily-->
+                <!--Start of Location-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Location:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="locationSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsLocation" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="43fb4dc2-652f-41c5-830e-51ff7da3f19f" pp-is-multi-valued="{{true}}" id="taxPickerLocation"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="locationAndOr" value="And">And
+                        <input type="radio" ng-model="locationAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Location-->
+                <!--Start of Manager Level-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Manager Level:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="mgrLevelSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsManagerLevel" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="2c6f5774-8d09-4e74-a0e5-32057d4b4b0f" pp-is-multi-valued="{{true}}" id="taxPickerManagerLevel"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="managerLevelAndOr" value="And">And
+                        <input type="radio" ng-model="managerLevelAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Manager Level-->
+                <!--Start of Operational Department-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Operational Department:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="oprDeptSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsOperationDept" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="53076b6f-12ad-4ac1-bcc3-3f2928945f26" pp-is-multi-valued="{{true}}" id="taxPickerOperationDept"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="oprDeptAndOr" value="And">And
+                        <input type="radio" ng-model="oprDeptAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Operation Department-->
+                <!--Start of Operational Department Sub ledger-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Operational Department Sub ledger:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="oprDeptSLSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsOperationDeptSL" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="f0b7e6db-1951-441d-9779-0ef9570b1bbe" pp-is-multi-valued="{{true}}" id="taxPickerOperationDeptSL"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="oprDeptSLAndOr" value="And">And
+                        <input type="radio" ng-model="oprDeptSLAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Operational Department Sub ledger-->
+                <!--Start of Regional Business Unit-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Regional Business Unit:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="regionalBUSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsRegionalBU" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="0a814277-b30c-4443-b8d1-4bd8dab21b71" pp-is-multi-valued="{{true}}" id="taxPickerRegionalBU"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="regionalBUAndOr" value="And">And
+                        <input type="radio" ng-model="regionalBUAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Regional Business Unit-->
+                <!--Start of Regular Temp-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Regular Temp:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="regularTempSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsRegularTemp" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="fe45b42b-9a07-4e9e-bba6-f99959a97c97" pp-is-multi-valued="{{true}}" id="taxPickerRegularTemp"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="regularTempAndOr" value="And">And
+                        <input type="radio" ng-model="regularTempAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Regular Temp-->
+                <!--Start of Time Reporting Status-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Time Reporting Status:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="timeReportStatusSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsTimeReportStatus" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="1d0516c1-b1ed-4b9e-a58e-0c85210fd364" pp-is-multi-valued="{{true}}" id="taxPickerTimeReportStatus"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="timeReportStatusAndOr" value="And">And
+                        <input type="radio" ng-model="timeReportStatusAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Time Reporting Status-->
+                <!--Start of Time Reporting Indicator-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Time Reporting Indicator:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="timeReportIndicatorSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsTimeReportIndicator" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="0770636e-70c0-4788-a828-f0750b637bf3" pp-is-multi-valued="{{true}}" id="taxPickerTimeReportIndicator"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="timeReportIndicatorAndOr" value="And">And
+                        <input type="radio" ng-model="timeReportIndicatorAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Time Reporting Indicator-->
+                <!--Start of Task Group-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Task Group:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="taskGroupSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.termsTaskGroup" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="de3071e5-a3fb-4f7d-935a-969bd518a2a6" pp-is-multi-valued="{{true}}" id="taxPickerTaskGroup"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="taskGroupAndOr" value="And">And
+                        <input type="radio" ng-model="taskGroupAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Task Group-->
+                <!--Start of Hire Date-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Hire Date:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="hireDateSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForDate"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <!--<input type="date" ng-model="dateHireDate" />-->
+                            <input type="text" ng-model="dateHireDate" jqdatepicker />
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="hireDateAndOr" value="And">And
+                        <input type="radio" ng-model="hireDateAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Hire Date-->
+                <!--Start of Job Entry Date-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Job Entry Date:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="jobEntryDateSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForDate"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="text" ng-model="dateJobEntry" jqdatepicker />
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="jobEntryAndOr" value="And">And
+                        <input type="radio" ng-model="jobEntryAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Job Entry Date-->
+                <!--Start of Last Start Date-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Last Start Date:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="lastStartDateSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForDate"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="text" ng-model="dateLastStart" jqdatepicker />
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="lastStartAndOr" value="And">And
+                        <input type="radio" ng-model="lastStartAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Last Start Date-->
+                <!--Start of Rehire Date-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Rehire Date:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="rehireDateSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForDate"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="text" ng-model="dateRehire" jqdatepicker />
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="rehireAndOr" value="And">And
+                        <input type="radio" ng-model="rehireAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Rehire Date-->
+                <!--Start of Service Date-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Service Date:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="serviceDateSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForDate"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <input type="text" ng-model="dateService" jqdatepicker />
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="serviceAndOr" value="And">And
+                        <input type="radio" ng-model="serviceAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Service Date-->
+                <!--START - DISCONTINUED DUE TO ISSUES WITH MANAGED METADATA FIELDS
+                <div ng-repeat="securityFilter in dsg.securityFilters">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <span>{{ securityFilter.title }}</span>
+                        </div>
+                        <div class="col-sm-3">
+                            <select ng-model="clSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div ui-Taxonomy ng-model="{{securityFilter.departmentTerms}}" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="" pp-is-multi-valued="{{true}}" id="{{securityFilter.termSetID}}"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="radio" ng-model="clAndOr" value="And">And
+                            <input type="radio" ng-model="clAndOr" value="Or">Or
+                        </div>
+                    </div>
+                </div>
+                <!--END - DISCONTINUED DUE TO ISSUES WITH MANAGED METADATA FIELDS-->
+                <!--     <label>Enter Group name: <input type="text" name="GroupName" ng-model="groupName" required></label><br>
+                     <div role="alert">
+                         <span class="error" ng-show="GroupName.$error.required">
+                             Group Name is Required!
+                         </span>
+                     </div>
+                     <br />-->
+                <div>
+                    <button type="button" class="btn btn-primary" ng-click="myFunc()">Submit</button>
+                </div>
+                <!--  <button type="button" ng-click="reloadWithTemplates()">Template</button>-->
+                <br />
+                <br />
+                <p ng-bind-html="statusMessages"></p>
+                <br />
+                <div ng-show="hideUsersList">
+                    <!-- Single button -->
+                    <div class="btn-group" dropdown is-open="status.isopen">
+                        <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
+                            Click here to check the users <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li ng-repeat="upaUser in usersToAdd">{{upaUser}}</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--<div><h4>{{groupExistsMessage}}</h4></div>-->
+                <!--
+                <div class="row" style="display:none;">
+                    <div class="col-sm-2">
+                        <span>
+                            Select Keywords:
+                        </span>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.keywords" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-is-keywords="{{true}}" pp-is-multi-valued="{{true}}" id="taxPickerKeywords"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:10px; display:none;">
+                    <div class="col-sm-8">
+                        <span>
+                            Selected Terms:
+                        </span>
+                        <span data-ng-repeat="r in vm.keywords track by $index">
+                            {{r.Name}} <span style="color:BURLYWOOD;">(Path: {{r.PathOfTerm}})</span><span data-ng-if="!$last">,&nbsp;</span>
+                        </span>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+	var g_duration = 364;
+var g_iisLatency = 1;
+var g_requireJSDone = new Date().getTime();
+</script>

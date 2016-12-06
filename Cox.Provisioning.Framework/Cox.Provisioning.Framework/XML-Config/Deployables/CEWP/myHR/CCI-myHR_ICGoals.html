@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>myHR IC Goals</title>
+    <script data-require="angular.js@1.5.9" data-semver="1.5.9" src="https://code.angularjs.org/1.5.8/angular.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/ng/SiteAssets/js/CCI_Common.js"></script>
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/ng/SiteAssets/js/CCI-myHR_ICGoals.js"></script>
+
+<link href="https://sr0101.sharepoint.com/sites/ng/SiteAssets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="https://sr0101.sharepoint.com/sites/ng/SiteAssets/css/animate.css" media="screen">
+<link rel="stylesheet" type="text/css" href="https://sr0101.sharepoint.com/sites/ng/SiteAssets/css/font-awesome.css" media="screen">
+<link href="https://sr0101.sharepoint.com/sites/ng/SiteAssets/css/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body data-ng-app="myHRICGoals" data-ng-cloak>
+    <div id="page" data-ng-controller="ctrlmyHRICGoals">
+        <div class="inner_pages news">
+            <div class="container main_warpper">
+                <div class="row custom_space">
+                    <div class="col-sm-8 box_warp">
+                        <div class="panel panel-default custom-box-warp news_box resource_bx clearfix">
+                            <h2 class="panel-title">{{AppHeading}}</h2>
+                            <div data-ng-if="displayTable">
+                                <div class="emp-row">
+                                    <div class="pull-left">{{ICGoals[0].NAME}}</div>
+                                    <div class="pull-right">Date Last Updated: <span ng-bind="ICGoals[0].AS_OF_DATE | date:'MM/dd/yyyy'"></span></div>
+                                </div>
+                                <div class="goals-table table-responsive clearfix">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-bordered">
+                                        <tr class="blue-bg">
+                                            <th>Months: January - December {{ICGoals[0].VC_PAYOUT_PRD_ID}}<br />Title: {{ICGoals[0].JOBCODE_DESCR}}</th>
+                                            <th>Plan: {{ICGoals[0].VC_PLAN_ID}}<br />Target:  {{ICGoals[0].CC_TARGET_PCT}}%</th>
+                                            <th>Salary:  %</th>
+                                        </tr>
+                                        <tr class="gray-bg">
+                                            <td colspan="2">Goals</td>
+                                            <td>Weight</td>
+                                        </tr>
+                                        <tr data-ng-repeat="ICGoal in ICGoals">
+                                            <td colspan="2">{{ICGoal.DESCR50}} - {{ICGoal.DESCR100}}</td>
+                                            <td>{{ICGoal.VC_WEIGHT_PERCENT}}%</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+       </div>
+    </div>
+</body>
+</html>

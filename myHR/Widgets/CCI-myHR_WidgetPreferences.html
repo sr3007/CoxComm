@@ -1,0 +1,665 @@
+﻿<!DOCTYPE html>
+<html ng-app="appNotifications">
+<head>
+    <script data-require="angular.js@1.5.9" data-semver="1.5.9" src="https://code.angularjs.org/1.5.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script src="../../SiteAssets/CoxOne/js/highcharts.js"></script>
+    <script src="../../SiteAssets/CoxOne/js/highcharts-more.js"></script>
+    <script src="../../SiteAssets/CoxOne/js/solid-gauge.js"></script>
+
+    <script src="../../SiteAssets/CoxOne/js/CCI-myHR_WidgetPreferences.js"></script>
+
+    <script src="../../Style%20Library/coxone/js/jquery-ui.min.js"></script>
+    <script src="../../SiteAssets/coxone/js/jquery-ui-slider-pips.js"></script>
+    <link rel="stylesheet" href="../../Style%20Library/coxone/css/jquery-ui.css">
+
+    <style>
+        .ms-webpart-zone {
+            background: transparent !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="CoxOnemyHRWidgets" ng-controller="ModalDemoCtrl">
+        <script type="text/ng-template" id="WidgetPreferences.html">
+            <div class="ms-dlgContent white">
+                <span id="dlgTitleBtns" class="ms-dlgTitleBtns">
+                    <a id="DlgClosed0eef6fc-af20-493f-88f8-a0d0715c6709" class="ms-dlgCloseBtn" title="Close dialog" href="" ng-click="cancel()" accesskey="C">
+                        <span style="padding:8px;height:16px;width:16px;display:inline-block">
+                            <span style="height:16px;width:16px;position:relative;display:inline-block;overflow:hidden;" class="s4-clust">
+                                <img src="/_layouts/15/images/fgimg.png?rev=44" alt="Close dialog" style="left:-0px !important;top:-645px !important;position:absolute;" class="ms-dlgCloseBtnImg">
+                            </span>
+                        </span>
+                    </a>
+                </span>
+                <div class="ms-dlgFrameContainer">
+                    <h3 title="Widget Preferences" class="ms-dlgTitleText ms-accentText ms-dlg-heading">Widget Preferences</h3>
+                    <p>Customized your HR Dashboard with the widgets that matter most to you</p>
+                    <p>Toogle widgets on an off to select what you want, and use the order dropdowns to select the order you want the widgets to display.</p>
+                </div>
+                <div class="ms-dlgFrameContainer">
+                    <div id="preferenceDiv">
+                        <div class="row">
+                            <div class="col-sm-12 box_warp">
+                                <div class="panel panel-default clearfix">
+                                    <div id="NewsPopup" data-popup="popup-1">
+                                        <div class="row" id="NewsPreference">
+                                            <div class="col-sm-12">
+                                                <div class="widgetHeader">
+                                                    <h4>Widget</h4>
+                                                    <h4>Order</h4>
+                                                </div>
+                                                <ul id="companyDiv">
+                                                    <!--Start PTO-->
+                                                    <li class="MR20 pull-left width40per">
+                                                        <label class="switch">
+                                                            <input type="checkbox" ng-model="chkPTO" ng-change="checkUniqueOrder();" title="Product2">
+                                                            <div class="slider round"></div>
+                                                        </label>
+                                                        <label>Paid Time Off (PTO)</label>
+                                                    </li>
+                                                    <li class="pull-left width40per">
+                                                        <select ng-model="ddlPTO" ng-change="checkUniqueOrder();" ng-options="orderNumber for orderNumber in orderNumbers">
+                                                            <!--<option value="">--</option>-->
+                                                        </select>
+                                                    </li>
+                                                    <!--End PTO-->
+                                                    <!--Start Paycheck Quick View-->
+                                                    <li class="MR20 pull-left width40per">
+                                                        <!--<input type="checkbox" ng-model="chkPQV" />-->
+                                                        <label class="switch">
+                                                            <input type="checkbox" ng-model="chkPQV" ng-change="checkUniqueOrder();" title="Product1">
+                                                            <div class="slider round"></div>
+                                                        </label>
+                                                        <label>Paycheck Quick View</label>
+                                                    </li>
+                                                    <li class="pull-left width40per">
+                                                        <select ng-model="ddlPQV" ng-change="checkUniqueOrder();" ng-options="orderNumber for orderNumber in orderNumbers">
+                                                            <!--<option value="">--</option>-->
+                                                        </select>
+                                                    </li>
+                                                    <!--End Paycheck Quick View-->
+                                                    <!--Start IC Goals-->
+                                                    <li class="MR20 pull-left width40per">
+                                                        <!--<input type="checkbox" ng-model="chkICGoals" />-->
+                                                        <label class="switch">
+                                                            <input type="checkbox" ng-model="chkICGoals" ng-change="checkUniqueOrder();" title="Product">
+                                                            <div class="slider round"></div>
+                                                        </label>
+                                                        <label>IC Goals</label>
+                                                    </li>
+                                                    <li class="pull-left width40per">
+                                                        <select ng-model="ddlICGoals" ng-change="checkUniqueOrder();" ng-options="orderNumber for orderNumber in orderNumbers">
+                                                            <!--<option value="">--</option>-->
+                                                        </select>
+                                                    </li>
+                                                    <!--End IC Goals-->
+                                                    <!--Start Career Framework-->
+                                                    <li class="MR20 pull-left width40per">
+                                                        <label class="switch">
+                                                            <input type="checkbox" ng-model="chkCFW" ng-change="checkUniqueOrder();" title="Product3">
+                                                            <div class="slider round"></div>
+                                                        </label>
+                                                        <label>Career Framework</label>
+                                                    </li>
+                                                    <li class="pull-left width40per">
+                                                        <select ng-model="ddlCFW" ng-change="checkUniqueOrder();" ng-options="orderNumber for orderNumber in orderNumbers">
+                                                            <!--<option value="">--</option>-->
+                                                        </select>
+                                                    </li>
+                                                    <!--End Career Framework-->
+                                                </ul>
+                                            </div>
+                                            <br /> <br />
+
+                                            <div class="col-sm-12">
+                                                <span class="width40per" style="float:left; font-weight:bold">&nbsp;</span>
+                                                <span class="width40per" style="float:left">
+                                                    <button class="btn" ng-click="ok()" ng-if="DisplaySave">Apply</button>
+                                                    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                                                    <span style="font-weight:bold" ng-if="DisplaySave == false">&nbsp;{{UniqueOrderMessage}}</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+        <!-- <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>-->
+        <div class="panel panel-default clearfix">
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="height:35px">
+                        <div class="Newsbtn">
+                            <a class="btn" ng-click="open()">Customize Your Widgets   <img src="../../Style Library/coxone/images/preferences Gear.png" alt="Customize Your Widgets"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/ng-template" id="PayrollQuickView.html">
+            <div id="page" data-ng-controller="ctrlmyHRPayrollQuickView">
+                <div class="inner_pages my_workspace" data-ng-if="displayPQV == false">
+                    <div class="panel panel-default custom-box-warp mobile-custom-space paycheck-wrap clearfix">
+                        <h2 class="panel-title mob_accordian">Paycheck Quick View</h2>
+                        <h2 class="panel-title mob_accordian">{{NonEmpMessage}}</h2>
+                    </div>
+                </div>
+                <div class="inner_pages my_workspace" data-ng-if="displayPQV">
+                    <div class="panel panel-default custom-box-warp mobile-custom-space paycheck-wrap clearfix">
+                        <h2 class="panel-title mob_accordian">Paycheck Quick View</h2>
+                        <div class="content_row box_accordian clearfix">
+                            <div class="row" data-ng-repeat="item in itemDetails | orderBy: 'Position'">
+                                <div ng-if="$even">
+                                    <div class="col-sm-6">
+                                        <div class="paycheck-inner">
+                                            <a target="_blank" href="{{itemDetails[$index].LinkUrl}}"><span class="icon_img"><i class={{itemDetails[$index].ImageUrl}}></i></span></a>
+                                            <a target="_blank" href="{{itemDetails[$index].LinkUrl}}"><h3>{{itemDetails[$index].Title}}</h3></a>
+                                            <p>{{itemDetails[$index].Description}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="paycheck-inner">
+                                            <a target="_blank" href="{{itemDetails[$index+1].LinkUrl}}"><span class="icon_img"><i class={{itemDetails[$index+1].ImageUrl}}></i></span></a>
+                                            <a target="_blank" href="{{itemDetails[$index+1].LinkUrl}}"><h3>{{itemDetails[$index+1].Title}}</h3></a>
+                                            <p>{{itemDetails[$index+1].Description}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="payroll-wrap">
+                                        <p>Next Payday - <span ng-bind="nextPayDay | date:'MM/dd/yyyy'"></span></p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="payroll-wrap">
+                                        <p>Payroll Center</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/ng-template" id="ICGoals.html">
+            <div id="icgpage" data-ng-controller="ctrlmyHRICGoals">
+                <div class="inner_pages news" data-ng-if="displayICGoals == false">
+                    <div class="panel panel-default custom-box-warp clearfix ICGoal">
+                        <h2 class="panel-title mob_accordian">{{AppHeading}}</h2>
+                        <h2 class="panel-title mob_accordian">{{NonEmpMessage}}</h2>
+                    </div>
+                </div>
+                <div class="inner_pages news" data-ng-if="displayICGoals">
+                    <div class="panel panel-default custom-box-warp clearfix ICGoal">
+                        <h2 class="panel-title mob_accordian">{{AppHeading}}</h2>
+                        <div class="row ICGoalCointainer box_accordian">
+                            <div class="ICGoalCointainerLeft col-md-4">
+                                <p>Cox's Incentive Compensation Plan is designed to recognize and reward individuals in key positions who contribute to achieving our business objectives.</p>
+                                <a ng-href="{{ICPlanUrl}}" class="ICGoalbutton ICGoalFAQ">IC Plan Document</a>
+                                <a ng-href="{{ICPayoutUrl}}" class="ICGoalbutton ICGoalFAQ">IC Payout Calculation</a>
+                                <a ng-href="{{ICFAQUrl}}" class="ICGoalbutton ICGoalFAQ">FAQs</a>
+                            </div>
+                            <div class="ICGoalCointainerRight col-md-8">
+                                <a data-ng-if="displayCurrentYear" href="" ng-click="ICGoalCurrentYear()" class="ICGoalbutton ICGoalMyJob">{{CurrentYearTitle}}</a>
+                                <a data-ng-if="displayPriorYear" href="" ng-click="ICGoalPriorYear()" class="ICGoalbutton ICGoalMyJob">{{PriorYearTitle}}</a>
+                                <a data-ng-if="displayResults" href="" ng-click="ICGoalResults()" class="ICGoalbutton ICGoalMyJob">{{ResultsTitle}}</a>
+
+                                <p class="paragraph">Visit <span><a href="">CoxTotalComp</a></span> today to team more about your total compensation package, including your estimated retirement benefit</p>
+                            </div>
+                        </div>
+
+                        <!--Start My Current Year IC Goals -->
+                        <div class="panel panel-default custom-box-warp clearfix ICGoalMyJobDetails1" data-ng-if="1 == 2">
+                            <h2 class="panel-title">My Current Year IC Goals</h2>
+                            <div class="content_row clearfix" data-ng-if="displayTable">
+                                <div class="emp-row">
+                                    <div class="pull-left">{{ICGoals[0].NAME}}</div>
+                                    <div class="pull-right">Date Last Updated: <span ng-bind="ICGoals[0].AS_OF_DATE | date:'MM/dd/yyyy'"></span></div>
+                                </div>
+                                <div class="goals-table table-responsive clearfix">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-bordered">
+                                        <tr class="blue-bg">
+                                            <th>Months: January - December {{ICGoals[0].VC_PAYOUT_PRD_ID}}<br />Title: {{ICGoals[0].JOBCODE_DESCR}}</th>
+                                            <th>Plan: {{ICGoals[0].VC_PLAN_ID}}<br />Target:  {{ICGoals[0].CC_TARGET_PCT}}%</th>
+                                            <th>Salary: {{ICGoals[0].ANNUAL_RT | currency:"$":0}}</th>
+                                        </tr>
+                                        <tr class="gray-bg">
+                                            <td colspan="2">Goals</td>
+                                            <td>Weight</td>
+                                        </tr>
+                                        <tr data-ng-repeat="ICGoal in ICGoals">
+                                            <td colspan="2">{{ICGoal.DESCR50}} - {{ICGoal.DESCR100}}</td>
+                                            <td>{{ICGoal.VC_WEIGHT_PERCENT}}%</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Current Year IC Goals-->
+
+                        <!--Start New Current Year IC Goals-->
+                        <div class="panel panel-default custom-box-warp mobile-custom-space clearfix ICGoalsCurrentYearEmpty" data-ng-if="CurrentYearEmpty">
+                            <div class="HRpto">
+                                <h2 class="panel-title mob_accordian">{{NonEmpMessage}}</h2>
+                            </div>
+                        </div>
+
+                        <div class="content_row custom-box-warp clearfix ICGoalCurrentYearDetails" data-ng-if="CurrentYearH1">
+                            <div class="emp-row">
+                                <div class="pull-left">{{CurrentYearICGoalsHeadings[0].NAME}}</div>
+                                <div class="pull-right">Date Last Updated: <span ng-bind="CurrentYearICGoalsHeadings[0].AS_OF_DATE | date:'MM/dd/yyyy'"></span></div>
+                            </div>
+                            <div class="goals-table table-responsive clearfix">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table margin-bottom0">
+                                    <tbody>
+                                        <tr class="blue-bg">
+                                            <th class="ng-binding">Months: <span ng-bind="CurrentYearICGoalsHeadings[0].PRD_BGN_DT | date:'MMMM'"></span> - <span ng-bind="CurrentYearICGoalsHeadings[0].PRD_END_DT | date:'MMMM'"></span> <span ng-bind="CurrentYearICGoalsHeadings[0].PRD_BGN_DT | date:'yyyy'"></span><br>Title: {{CurrentYearICGoalsHeadings[0].JOBCODE_DESCR}}</th>
+                                            <th class="ng-binding">Plan: {{CurrentYearICGoalsHeadings[0].DESCR}}<br>Target: {{CurrentYearICGoalsHeadings[0].CC_TARGET_PCT}}%&nbsp;&nbsp;&nbsp;Salary: {{CurrentYearICGoalsHeadings[0].ANNUAL_RT | currency:"$":0}}</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-bordered">
+                                    <tbody>
+                                        <tr class="gray-bg">
+                                            <td colspan="2">Goals</td>
+                                            <td>Weight</td>
+                                        </tr>
+
+                                        <tr data-ng-repeat="CurrentYearICGoalsContentH1 in CurrentYearICGoalsContent" class="ng-scope" data-ng-if="(CurrentYearICGoalsContentH1.PRD_BGN_DT | date:'M') == 1">
+                                            <td colspan="2">
+                                                <b>{{CurrentYearICGoalsContentH1.DESCR50}} -</b>
+                                                <ul>
+                                                    <li>{{CurrentYearICGoalsContentH1.DESCR100}}</li>
+                                                </ul>
+                                            </td>
+                                            <td>{{CurrentYearICGoalsContentH1.VC_WEIGHT_PERCENT}}%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="goals-table table-responsive clearfix" data-ng-if="CurrentYearH2">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table margin-bottom0">
+                                    <tbody>
+                                        <tr class="blue-bg">
+                                            <th class="ng-binding">Months: <span ng-bind="CurrentYearICGoalsHeadings[1].PRD_BGN_DT | date:'MMMM'"></span> - <span ng-bind="CurrentYearICGoalsHeadings[1].PRD_END_DT | date:'MMMM'"></span> <span ng-bind="CurrentYearICGoalsHeadings[1].PRD_BGN_DT | date:'yyyy'"></span><br>Title: {{CurrentYearICGoalsHeadings[1].JOBCODE_DESCR}}</th>
+                                            <th class="ng-binding">Plan: {{CurrentYearICGoalsHeadings[1].VC_PLAN_ID}}<br>Target: {{CurrentYearICGoalsHeadings[1].CC_TARGET_PCT}}%</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-bordered">
+                                    <tbody>
+                                        <tr class="gray-bg">
+                                            <td colspan="2">Goals</td>
+                                            <td>Weight</td>
+                                        </tr>
+
+                                        <tr data-ng-repeat="CurrentYearICGoalsContentH1 in CurrentYearICGoalsContent" class="ng-scope" data-ng-if="(CurrentYearICGoalsContentH1.PRD_BGN_DT | date:'M') != 1">
+                                            <td colspan="2">
+                                                <b>{{CurrentYearICGoalsContentH1.DESCR50}} -</b>
+                                                <ul>
+                                                    <li>{{CurrentYearICGoalsContentH1.DESCR100}}</li>
+                                                </ul>
+                                            </td>
+                                            <td>{{CurrentYearICGoalsContentH1.VC_WEIGHT_PERCENT}}%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--End New Current Year IC Goals-->
+
+                        <!--Start Prior Year IC Goals-->
+                        <div class="panel panel-default custom-box-warp mobile-custom-space clearfix ICGoalsPriorYearEmpty" data-ng-if="PriorYearEmpty">
+                            <div class="HRpto">
+                                <h2 class="panel-title mob_accordian">{{NonEmpMessage}}</h2>
+                            </div>
+                        </div>
+                        <div class="content_row custom-box-warp clearfix ICGoalPriorYearDetails" data-ng-if="PriorYearH1">
+                            <div class="emp-row">
+                                <div class="pull-left">{{PriorYearICGoalsHeadings[0].NAME}}</div>
+                                <div class="pull-right">Date Last Updated: <span ng-bind="PriorYearICGoalsHeadings[0].AS_OF_DATE | date:'MM/dd/yyyy'"></span></div>
+                            </div>
+                            <div class="goals-table table-responsive clearfix">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table margin-bottom0">
+                                    <tbody>
+                                        <tr class="blue-bg">
+                                            <th class="ng-binding" colspan="2">Months: <span ng-bind="PriorYearICGoalsHeadings[0].PRD_BGN_DT | date:'MMMM'"></span> - <span ng-bind="PriorYearICGoalsHeadings[0].PRD_END_DT | date:'MMMM'"></span> <span ng-bind="PriorYearICGoalsHeadings[0].PRD_BGN_DT | date:'yyyy'"></span><br>Title: {{PriorYearICGoalsHeadings[0].JOBCODE_DESCR}}</th>
+                                            <th class="ng-binding">Plan: {{PriorYearICGoalsHeadings[0].DESCR}}<br>Target: {{PriorYearICGoalsHeadings[0].CC_TARGET_PCT}}%&nbsp;&nbsp;&nbsp;Salary: {{PriorYearICGoalsHeadings[0].ANNUAL_RT | currency:"$":0}}</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-bordered">
+                                    <tbody>
+                                        <tr class="gray-bg">
+                                            <td colspan="2">Goals</td>
+                                            <td>Weight</td>
+                                        </tr>
+
+                                        <tr data-ng-repeat="PriorYearICGoalsContentH1 in PriorYearICGoalsContent" class="ng-scope" data-ng-if="(PriorYearICGoalsContentH1.PRD_BGN_DT | date:'M') == 1">
+                                            <td colspan="2">
+                                                <b>{{PriorYearICGoalsContentH1.DESCR50}} - </b>
+                                                <ul>
+                                                    <li>{{PriorYearICGoalsContentH1.DESCR100}}</li>
+                                                </ul>
+                                            </td>
+                                            <td>{{PriorYearICGoalsContentH1.VC_WEIGHT_PERCENT}}%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="goals-table table-responsive clearfix" data-ng-if="PriorYearH2">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table margin-bottom0">
+                                    <tbody>
+                                        <tr class="blue-bg">
+                                            <th class="ng-binding">Months: <span ng-bind="PriorYearICGoalsHeadings[1].PRD_BGN_DT | date:'MMMM'"></span> - <span ng-bind="PriorYearICGoalsHeadings[1].PRD_END_DT | date:'MMMM'"></span> <span ng-bind="PriorYearICGoalsHeadings[1].PRD_BGN_DT | date:'yyyy'"></span><br>Title: {{PriorYearICGoalsHeadings[1].JOBCODE_DESCR}}</th>
+                                            <th class="ng-binding">Plan: {{PriorYearICGoalsHeadings[1].VC_PLAN_ID}}<br>Target: {{PriorYearICGoalsHeadings[1].CC_TARGET_PCT}}%</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-bordered">
+                                    <tbody>
+                                        <tr class="gray-bg">
+                                            <td colspan="2">Goals</td>
+                                            <td>Weight</td>
+                                        </tr>
+
+                                        <tr data-ng-repeat="PriorYearICGoalsContentH1 in PriorYearICGoalsContent" class="ng-scope" data-ng-if="(PriorYearICGoalsContentH1.PRD_BGN_DT | date:'M') != 1">
+                                            <td colspan="2">
+                                                <b>{{PriorYearICGoalsContentH1.DESCR50}} - </b>
+                                                <ul>
+                                                    <li>{{PriorYearICGoalsContentH1.DESCR100}}</li>
+                                                </ul>
+                                            </td>
+                                            <td>{{PriorYearICGoalsContentH1.VC_WEIGHT_PERCENT}}%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--End Prior Year IC Goals-->
+
+                        <!--Start Results IC Goals-->
+                        <div class="panel panel-default custom-box-warp mobile-custom-space clearfix ICGoalsResultsEmpty" data-ng-if="ResultsEmpty">
+                            <div class="HRpto">
+                                <h2 class="panel-title mob_accordian">{{NonEmpMessage}}</h2>
+                            </div>
+                        </div>
+                        <div class="content_row ICGoalMyJobDetails clearfix ICGoalResults" data-ng-if="ResultsH1">
+                            <div class="emp-row">
+                                <div class="pull-left ng-binding">{{ResultsICGoalsHeadings[0].NAME}}</div>
+                                <div class="pull-right">Total IC Award: {{ResultsICGoalsHeadings[0].VC_AWARD_VALUE | currency:"$":0}}</div>
+                            </div>
+                            <div class="goals-table table-responsive clearfix">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-striped table-bordered">
+                                    <tbody>
+                                        <tr class="blue-bg">
+                                            <th class="ng-binding" colspan="2">Months: <span ng-bind="ResultsICGoalsHeadings[0].PRD_BGN_DT | date:'MMMM'"></span> - <span ng-bind="ResultsICGoalsHeadings[0].PRD_END_DT | date:'MMMM'"></span> <span ng-bind="ResultsICGoalsHeadings[0].PRD_BGN_DT | date:'yyyy'"></span><br>Title: {{ResultsICGoalsHeadings[0].JOBCODE_DESCR}}</th>
+                                            <th class="ng-binding" colspan="3">Plan: {{ResultsICGoalsHeadings[0].DESCR}}<br>Target: {{ResultsICGoalsHeadings[0].CC_TARGET_PCT}}%&nbsp;&nbsp;&nbsp;Salary: {{ResultsICGoalsHeadings[0].ANNUAL_RT | currency:"$":0}}</th>
+                                        </tr>
+                                        <tr class="gray-bg">
+                                            <td colspan="2">Goals</td>
+                                            <td>Weight</td>
+                                            <td>Goal Attainment</td>
+                                            <td>Weighted Result</td>
+                                        </tr>
+
+                                        <tr data-ng-repeat="ResultsICGoalsContentH1 in ResultsICGoalsContent" class="ng-scope" data-ng-if="(ResultsICGoalsContentH1.PRD_BGN_DT | date:'M') == 1">
+                                            <td colspan="2">
+                                                <b>{{ResultsICGoalsContentH1.DESCR50}} - </b>
+                                                <ul>
+                                                    <li>{{ResultsICGoalsContentH1.DESCR100}}</li>
+                                                </ul>
+                                            </td>
+                                            <td>{{ResultsICGoalsContentH1.VC_WEIGHT_PERCENT}}%</td>
+                                            <td>{{ResultsICGoalsContentH1.VC_PCT_ATTAINED}}%</td>
+                                            <td>{{ResultsICGoalsContentH1.CC_WEIGHTED_RESULT}}%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--End Results IC Goals-->
+
+                        </div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/ng-template" id="PTO.html">
+            <div id="ptopage" data-ng-controller="ctrlmyHRPTO" class="inner_pages">
+                <div class="panel panel-default custom-box-warp mobile-custom-space clearfix" data-ng-if="displayPTO == false">
+                    <div class="HRpto">
+                        <h2 class="panel-title mob_accordian">{{PTOHeading}}</h2>
+                        <h2 class="panel-title mob_accordian">{{NonEmpMessage}}</h2>
+                    </div>
+                </div>
+                <div class="panel panel-default custom-box-warp mobile-custom-space clearfix">
+                    <!--HRPTO-->
+                    <div class="HRpto">
+                        <p class="HRptoHeading panel-title mob_accordian">{{PTOHeading}}</p>
+                        <div class="HRptocointainer box_accordian">
+                            <p class="HRptocontent">{{PTOHelp}}</p>
+                            <div class="col-md-5 col-sm-5">
+
+                                <p class="HRptoGraphText">{{PTODisclaimer}}</p>
+                                <div id="HRptoGraph"></div>
+                                <p class="HRptoBalance">Balance as of <span id="HRptobalancedate" ng-bind="DateBalanceAsOf | date:'MM/dd/yy'"></span></p>
+                                <p>Next Payday - <span ng-bind="nextPayDay | date:'MM/dd/yyyy'"></span></p>
+                            </div>
+                            <div class="col-md-7 col-sm-7">
+                                <!--<a href="" ng-click="PTOToday()" class="ICGoalbutton ICGoalFAQ">Today</a>-->
+                                <button ng-click="PTOToday()" ng-disabled="disableToday" class="ICGoalbutton ICGoalFAQ">Today</button>
+                                <br /><div id="ptoSlider"></div>
+                                <div class="sliderrangeContent">
+                                    <div class="sliderrangeContentInner">
+                                        <span id="maxhour">{{PTOForEmp[0].MAX_HOURS}}</span>
+                                        <p>Max Hours Earned</p>
+                                    </div>
+                                    <div class="sliderrangeContentInner">
+                                        <span id="carryover">{{PTOForEmp[0].HRS_CARRYOVER}}</span>
+                                        <p>Carry Over</p>
+                                    </div>
+                                    <div class="sliderrangeContentInner">
+                                        <span id="earnedytd">{{PTOForEmp[0].HRS_EARNED_YTD}}</span>
+                                        <p>Earned YTD</p>
+                                        <div class="rangecolor blue"></div>
+                                    </div>
+                                    <div class="sliderrangeContentInner">
+                                        <span id="takenytd">{{PTOForEmp[0].HRS_TAKEN_YTD}}</span>
+                                        <p>Taken YTD</p>
+                                        <div class="rangecolor orange"></div>
+                                    </div>
+                                    <div class="sliderrangeContentInner">
+                                        <span id="ytdbalance">{{PTOForEmp[0].CC_HRS_YTD_BALANCE}}</span>
+                                        <p>YTD Balance</p>
+                                        <div class="rangecolor green"></div>
+                                    </div>
+                                    <div class="sliderrangeContentInner ptopolicy">
+                                        <a ng-href="{{PTOPolicyUrl}}">{{PTOPolicyText}}</a>
+                                        <a ng-href="{{PTOHolidayUrl}}">{{PTOHolidayText}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/ng-template" id="CFW.html">
+            <div id="cfwpage" data-ng-controller="ctrlmyHRCFW">
+                <div class="panel panel-default custom-box-warp clearfix CareerFramework" data-ng-if="displayCFW == false">
+                    <h2 class="panel-title mob_accordian">Career Framework</h2>
+                    <h2 class="panel-title mob_accordian">{{NonEmpMessage}}</h2>
+                </div>
+                <div class="panel panel-default custom-box-warp clearfix CareerFramework" data-ng-if="displayCFW">
+                    <h2 class="panel-title mob_accordian">Career Framework</h2>
+                    <div class="row CareerFrameworkCointainer box_accordian">
+                        <div class="CareerFrameworkCointainerLeft col-md-4">
+                            <p>Curious about other departments? Here's a high-level overview of your job and the range of job families found at Cox</p>
+                            <a href="/sites/CoxOne/Pages/FAQ.aspx?Category=myHRDashboard" class="CareerFrameworkbutton CareerFrameworkFAQ">FAQ</a>
+                        </div>
+                        <div class="CareerFrameworkCointainerRight col-md-8">
+                            <a href="" ng-click="CareerFrameworkMyJob()" class="CareerFrameworkbutton CareerFrameworkMyJob">My Job</a>
+                            <a href="" ng-click="CareerFrameworkFamilies()" class="CareerFrameworkbutton CareerFrameworkFamilies">Job Families at Cox</a>
+                            <p>Visit <span><a href="">About Compass</a></span> to learn how you can take ownership of your career development and professional growth at Cox</p>
+                        </div>
+                    </div>
+
+                    <!-- Start My Job -->
+                    <div class="panel panel-default custom-box-warp clearfix MyJobDisplay">
+                        <h2 class="panel-title">My Job Display</h2>
+                        <div class="MyJobDisplayDetails">
+                            <div class="MyJobDisplayContent">
+                                <div class="MyJobDisplayContentleft">
+                                    <p>Job Title</p>
+                                </div>
+                                <div class="MyJobDisplayContentright">
+                                    <p>Mgr, Web Communcation</p>
+                                </div>
+                            </div>
+                            <div class="MyJobDisplayContent">
+                                <div class="MyJobDisplayContentleft">
+                                    <p>Job Family</p>
+                                </div>
+                                <div class="MyJobDisplayContentright">
+                                    <p>Human Resources</p>
+                                </div>
+                            </div>
+                            <div class="MyJobDisplayContent">
+                                <div class="MyJobDisplayContentleft">
+                                    <p>Job Sub-Family</p>
+                                </div>
+                                <div class="MyJobDisplayContentright">
+                                    <p>HR Technology</p>
+                                </div>
+                            </div>
+                            <div class="MyJobDisplayContent">
+                                <div class="MyJobDisplayContentleft">
+                                    <p>Career Level</p>
+                                </div>
+                                <div class="MyJobDisplayContentright">
+                                    <p>Mgr, Web Communcation</p>
+                                </div>
+                            </div>
+                            <div class="MyJobDisplayContent">
+                                <div class="MyJobDisplayContentleft">
+                                    <p>What does this Job Sub-Family do?</p>
+                                </div>
+                                <div class="MyJobDisplayContentright">
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                                </div>
+                            </div>
+                            <div class="MyJobDisplayContent">
+                                <div class="MyJobDisplayContentleft">
+                                    <p>What are the typical accoutabilities and tasks of your job?</p>
+                                </div>
+                                <div class="MyJobDisplayContentright">
+                                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum.</p>
+                                </div>
+                            </div>
+                            <div class="MyJobDisplayContent">
+                                <div class="MyJobDisplayContentleft">
+                                    <p>&nbsp;</p>
+                                </div>
+                                <div class="MyJobDisplayContentright">
+                                    <p>&nbsp;</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End My Job -->
+                    <!--Start Job Families -->
+                    <div class="panel panel-default custom-box-warp clearfix MyJobFamilies" data-ng-controller="ctrlmyHRCFWJobFamilies">
+                        <h2 class="panel-title">{{JobFamilyHeading}}</h2>
+                        <div class="job-families panel-group" id="accordion">
+                            <h3 class="title-job">Job Family</h3>
+
+                            <div data-ng-repeat="JFItem in JobFamily">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <a href="javascript:;" data-toggle="collapse" data-parent="#accordion" data-target="#{{(((JFItem.JobFamilyHeading.split(' ').join('')).split('&').join('')).split('/').join('')).split(',').join('')}}" class="collapsed">{{JFItem.JobFamilyHeading}}</a>
+                                    </div>
+                                    <div id="{{(((JFItem.JobFamilyHeading.split(' ').join('')).split('&').join('')).split('/').join('')).split(',').join('')}}" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ul>
+                                                <li data-ng-repeat="JFSubItem in JFItem.JobFamilySubDetails">
+                                                    <a class="jfDetails" ng-click="openJFDetails($event)">{{JFSubItem.JobFamilySubName}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--End Job Families -->
+                </div>
+            </div>
+        </script>
+
+        <script type="text/ng-template" id="CFWJobFamilyDetails.html">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">{{selectedSF}}</h4>
+                    </div>
+                    <div class="modal-body JobFamilyContent">
+                        Description of {{selectedSF}}
+                        <div data-ng-repeat="itemCL in JFCL" class="roles">
+                            <ul>
+                                <li>{{itemCL.DESCR}}</li>
+                            </ul>
+                        </div>
+
+                        <div class="MyJobDisplayDetails" data-ng-repeat="JFAccItem in JFAccountability">
+                            <div class="MyJobDisplayContenttitle" data-ng-repeat="JFAssItem in JFAccItem|limitTo:1">{{JFAssItem.DESCR1}} - {{JFAssItem.DESCR}}</div>
+                            <div class="MyJobDisplayContent">
+                                <div class="MyJobDisplayContentleft">
+                                    <p>Typical Responsibilities and Duties</p>
+                                </div>
+                                <div class="MyJobDisplayContentright">
+                                    <ul>
+                                        <li data-ng-repeat="JFAssItem in JFAccItem">{{JFAssItem.COMMENTS}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<a href="#" class="backtotop" ng-click="goToTop()">back to top</a>-->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" ng-click="cancel()">Close</button>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <div ng-include src="firstTemplate"></div>
+        <div ng-include src="secondTemplate"></div>
+        <div ng-include src="thirdTemplate"></div>
+        <div ng-include src="fourthTemplate"></div>
+        <div ng-include src="fifthTemplate"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    $(function () {
+        $('.JobfamilySubGroupTitle').click(function () {
+            $('.myModalJobFamily .modal-title').text($(this).text());
+        })
+    });
+
+</script>

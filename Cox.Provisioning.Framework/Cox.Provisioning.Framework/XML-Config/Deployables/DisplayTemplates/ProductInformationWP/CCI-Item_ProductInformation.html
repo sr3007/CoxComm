@@ -1,0 +1,99 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>CCI-Item_ProductInformation</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:MasterPageDescription msdt:dt="string">Displays a result tailored for a picture.</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#SearchResults;#Content Web Parts;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:ManagedPropertyMapping msdt:dt="string">&#39;Title&#39;:&#39;Title&#39;,&#39;Path&#39;:&#39;Path&#39;,&#39;Description&#39;:&#39;Description&#39;, 'Line 1'{ImageURL}:'CCI-ImagesOWSIMGE', 'Line 2'{ProductInfoURL}:'CCI-URLOWSURLH', 'Line 3'{ResiorBusiCategory}:'CCICategory'</mso:ManagedPropertyMapping>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://mod223137.sharepoint.com/sites/coxone/_catalogs/masterpage/Display Templates/Search/CCI-Item_ProductInformation.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+    <body>
+        <div id="Item_SlideImage_ProductInformation">
+                <!--#_
+            var siteURL = SP.PageContextInfo.get_siteServerRelativeUrl();
+            var linkURL = $getItemValue(ctx, "Path");
+            linkURL.overrideValueRenderer($urlHtmlEncode);
+            var title = $getItemValue(ctx, "Title");
+            var imageurl = $getItemValue(ctx, "Line 1");
+            var CurrentitemIndex = ctx.CurrentItemIdx;
+            var imgdivtag = "img" + CurrentitemIndex;
+            var RenditionpictureURL = imageurl + "?RenditionID=4"
+            var productinfourl =  $getItemValue(ctx, "Line 2");
+            var resiorbusicategory=  $getItemValue(ctx, "Line 3");
+            var itemurl ="";
+            var strTrimmedTitle = "";
+            var iResCount=0;
+			var iBusCount=0;
+
+
+            if(!title.isEmpty)
+            {
+            if (title.toString().length > 12) {
+	            strTrimmedTitle = title.toString().substring(0,12) + "...";
+            }
+            else {
+	            strTrimmedTitle = title;
+            }
+            }
+
+                    
+            if(!productinfourl.isEmpty){
+                itemurl = productinfourl.value[0]["entityLabel"];
+                }
+
+            if(!resiorbusicategory.isEmpty)
+            {
+            if (resiorbusicategory == "Residential") {
+                if(ctx.iResCount < 4) {
+				    ctx.iResCount++;
+                
+            _#-->
+                <div class="Residential col-xs-6" > 
+                    <div class="_#= iResCount =#_"></div>
+                    <div id="_#= imgdivtag =#_" class="res_box " style="margin-bottom: 10px; border: 1px solid #eee">
+                            <a href="_#= itemurl =#_" title="_#= title =#_" target="_blank">
+                                <img src="_#= RenditionpictureURL =#_ " class="img-responsive">
+                            </a>
+                            <span style="padding: 5px 0; display: block;"> _#= strTrimmedTitle =#_</span>
+</div>
+                </div>
+            <!--#_
+                }
+         }
+         else {
+                if(ctx.iBusCount < 4) {
+			        ctx.iBusCount++;
+           
+      _#-->
+
+
+            <div class="Business col-xs-6">
+                <div id="_#= imgdivtag =#_" class="res_box " style="margin-bottom: 10px; border: 1px solid #eee">
+                    <a href="_#= itemurl =#_" title="_#= title =#_" target="_blank">
+                        <img src="_#= RenditionpictureURL =#_ " class="img-responsive"> </a>
+                    <span style="padding: 5px 0; display: block;"> _#= strTrimmedTitle =#_</span>
+                </div>
+            </div>
+
+          
+        <!--#_
+            }
+                     }
+                     }
+             _#-->
+
+		</div>
+    </body>
+</html>
+ 
+              

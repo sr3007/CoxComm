@@ -1,0 +1,126 @@
+<link href='https://fonts.googleapis.com/css?family=Arimo|Lobster' rel='stylesheet' type='text/css'>
+<link href="../Assets/SG/Styles/bootstrap.css" rel="stylesheet" />
+<link href="../Assets/SG/Styles/app.css" rel="stylesheet" />
+
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+
+
+<style>
+        .dropdown-menu {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+</style>
+
+<div id="ng-app" data-ng-app="app" data-ng-cloak>
+    <div id="strk" name="strk" data-ng-form="strk" data-ng-cloak>
+        <div class="container" id="sr-header" data-ng-controller="appCtrlr as vm" data-ng-cloak>
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2>Super Groups</h2> <br />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <span>
+                        Select a Group:
+                    </span>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <select ng-model="vm.groupSelected" ng-options="existingGroup.GroupName as existingGroup.GroupName for existingGroup in vm.existingGroups | orderBy:'GroupName'" ng-change="update(vm.groupSelected)">
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" ng-show="vm.groupSelected=='--Create New Super Group--'">
+                <div class="col-sm-2">
+                    <span>
+                        Group Name:
+                    </span>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <input type="text" name="groupName" ng-model="newGrpName" required>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="row" ng-show="vm.groupSelected!=''">
+                <div class="col-sm-2">
+                    <span>
+                        Select User/Group:
+                    </span>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="sr-only" for="multiPeoplePicker"></label>
+                        <div data-ng-disabled="{{false}}" ui-people ng-model="vm.data.mu" pp-is-multiuser="{{true}}" pp-width="220px" pp-account-type="User,DL,SecGroup,SPGroup" id="peoplePickerDivAP" pp-web-url="{{vm.webUrl}}"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div ng-show="vm.groupSelected!=''">
+                <button type="button" class="btn btn-primary" ng-click="btnSubmitClick()">Submit</button>
+            </div>
+            <br />
+            <br />
+            <p ng-bind-html="statusMessages"></p>
+            <br />
+            <div ng-show="hideUsersList">
+                <!-- Single button -->
+                <div class="btn-group" dropdown is-open="status.isopen">
+                    <button type="button" class="btn btn-primary dropdown-toggle" ng-disabled="disabled">
+                    Click here to check the users <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-repeat="upaUser in usersToAdd">{{upaUser}}</li>
+                    </ul>
+                </div>
+            </div>
+       <!--     <div class="row">
+                <div class="col-sm-2">
+                    <span>
+                        User/Group Values:
+                    </span>
+                </div>
+                <div class="col-sm-6">
+                    <p>
+                        <span data-ng-repeat="r in vm.data.mu.results track by $index">
+                            <span data-ng-bind-html="vm.getPresence(r.Name, r.Title)"></span>&nbsp;
+                        </span>
+                    </p>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</div>
+<!-- Load third party scripts required by the people picker -->
+<script type="text/ecmascript" src="/_layouts/15/SP.UI.Controls.js"></script>
+<script type="text/ecmascript" src="/_layouts/15/clienttemplates.js"></script>
+<script type="text/ecmascript" src="/_layouts/15/clientforms.js"></script>
+<script type="text/ecmascript" src="/_layouts/15/clientpeoplepicker.js"></script>
+<script type="text/ecmascript" src="/_layouts/15/autofill.js"></script>
+<script type="text/ecmascript" src="/_layouts/15/sp.RequestExecutor.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<!-- AngularJS-->
+<script type="text/ecmascript" src="../Assets/DSG/scripts/angular.min.js"></script>
+<script type="text/ecmascript" src="../Assets/DSG/scripts/angular-sanitize.min.js"></script>
+<script type="text/ecmascript" src="../Assets/DSG/scripts/angular-resource.min.js"></script>
+<script type="text/ecmascript" src="../Assets/DSG/scripts/angular-route.min.js"></script>
+<!-- All of this scripts are used to create the app. -->
+<script type="text/ecmascript" src="../Assets/SG/app.js"></script>
+<!-- ****** The following script contains the people picker directive. ****** -->
+<script type="text/ecmascript" src="../Assets/SG/config/config.peoplepicker.js"></script>
+<!-- ****** The following script contains the controller. ****** -->
+<script type="text/ecmascript" src="../Assets/SG/controller/UserService.js"></script>
+<script type="text/ecmascript" src="../Assets/SG/controller/controllers.js"></script>
+
+<!--<script type="text/ecmascript" src="../Assets/js/CCI_DSG_Common.js"></script>-->
+<script type="text/javascript">
+	var g_duration = 124;
+var g_iisLatency = 2;
+var g_requireJSDone = new Date().getTime();
+</script>

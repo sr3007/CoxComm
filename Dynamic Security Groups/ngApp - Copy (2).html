@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/Styles/taxonomypickercontrol.css" rel="stylesheet" />
+
+    <!-- Load the constant variables -->
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/config/config.constants.js"></script>
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/models/models.js"></script>
+    <!-- Load third party scripts -->
+    <!-- AngularJS, Sanitize, resource -->
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/scripts/angular.min.js"></script>
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/scripts/angular-sanitize.min.js"></script>
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/scripts/angular-resource.min.js"></script>
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/scripts/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/scripts/ui-bootstrap.js"></script>
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/scripts/taxonomypickercontrol.js"></script>
+    <!-- All of this scripts are used to create the app. -->
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/app.js"></script>
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/config/config.js"></script>
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/config/config.taxonomy.js"></script>
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/common/common.js"></script>
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/common/logging.js"></script>
+    <script type="text/ecmascript" src="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/controllers/controllers.js"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Arimo|Lobster' rel='stylesheet' type='text/css'>
+    <link href="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/Styles/bootstrap.css" rel="stylesheet" />
+    <link href="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/Styles/app.css" rel="stylesheet" />
+    <link href="https://sr0101.sharepoint.com/sites/DevSite/SiteAssets/ngPeoplePicker/Styles/taxonomypickercontrol.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="ng-app" data-ng-app="app" data-ng-cloak>
+        <div id="strk" name="strk" data-ng-form="strk" data-ng-cloak>
+            <div class="container" id="sr-header" data-ng-controller="appCtrlr as vm" data-ng-cloak>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h1>Dynamic Security Groups</h1> <br />
+                    </div>
+                </div>
+                
+                <!--Start of Auto Allowance Level-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Auto Allowance Level:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="aalSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.autoAllowanceLevelTerms" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="dc2f7522-e724-49e2-bbe6-5db4c52e462e" pp-is-multi-valued="{{true}}" id="taxPickerAutoAllowance"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="aalAndOr" value="And">And
+                        <input type="radio" ng-model="aalAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Auto Allowance Level-->
+
+                <!--Start of Business Unit-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Business Unit:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="buSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <di1v class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.businessUnitTerms" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="a6b38a76-9cc2-4825-9773-6955b4758751" pp-is-multi-valued="{{true}}" id="taxPickerBusinessUnit"></div>
+                        </div>
+                    </di1v>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="buAndOr" value="And">And
+                        <input type="radio" ng-model="buAndOr" value="Or">Or
+                    </div>
+                </div>
+              <!--  <div class="row" style="margin-bottom:10px;">
+                    <div class="col-sm-8">
+                        <span>
+                            Selected Terms:
+                        </span>
+                        <span data-ng-repeat="bu in vm.businessUnitTerms track by $index">
+                            {{bu.Name}} <span style="color:BURLYWOOD;">(Path: {{bu.PathOfTerm}})</span><span data-ng-if="!$last">,&nbsp;</span>
+                        </span>
+                    </div>
+                </div>-->
+                <!--End of Business Unit-->
+
+                <!--Start of Career Level-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Career Level:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="clSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.careerLevelTerms" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="dc2f7522-e724-49e2-bbe6-5db4c52e462e" pp-is-multi-valued="{{true}}" id="taxPickerCareerLevel"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="clAndOr" value="And">And
+                        <input type="radio" ng-model="clAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Career Level-->
+
+                <!--Start of Commissioned-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Commissioned:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="commissionedSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.commissionedTerms" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="dc2f7522-e724-49e2-bbe6-5db4c52e462e" pp-is-multi-valued="{{true}}" id="taxPickerCommissioned"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="comAndOr" value="And">And
+                        <input type="radio" ng-model="comAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Commissioned-->
+
+                <!--Start of Department-->
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>
+                            Department:
+                        </span>
+                    </div>
+                    <div class="col-sm-3">
+                        <select ng-model="deptSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.departmentTerms" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="dc2f7522-e724-49e2-bbe6-5db4c52e462e" pp-is-multi-valued="{{true}}" id="taxPickerDepartment"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" ng-model="deptAndOr" value="And">And
+                        <input type="radio" ng-model="deptAndOr" value="Or">Or
+                    </div>
+                </div>
+                <!--End of Department-->
+
+
+                <div ng-repeat="securityFilter in dsg.securityFilters">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <span>{{ securityFilter.title }}</span>
+                        </div>
+                        <div class="col-sm-3">
+                            <select ng-model="clSelectedOption" ng-options="mmdOption.id as mmdOption.name for mmdOption in compareOptionsForMMD"></select>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div ui-Taxonomy ng-model="vm.careerLevelTerms" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-termsetid="" pp-is-multi-valued="{{true}}" id="{{securityFilter.termSetID}}"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="radio" ng-model="clAndOr" value="And">And
+                            <input type="radio" ng-model="clAndOr" value="Or">Or
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" ng-click="myFunc()">Submit</button>
+
+                <!--
+                <div class="row" style="display:none;">
+                    <div class="col-sm-2">
+                        <span>
+                            Select Keywords:
+                        </span>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <div ui-Taxonomy ng-model="vm.keywords" pp-ready-to-load="{{vm.loadTaxonomyPickers}}" pp-is-keywords="{{true}}" pp-is-multi-valued="{{true}}" id="taxPickerKeywords"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom:10px; display:none;">
+                    <div class="col-sm-8">
+                        <span>
+                            Selected Terms:
+                        </span>
+                        <span data-ng-repeat="r in vm.keywords track by $index">
+                            {{r.Name}} <span style="color:BURLYWOOD;">(Path: {{r.PathOfTerm}})</span><span data-ng-if="!$last">,&nbsp;</span>
+                        </span>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

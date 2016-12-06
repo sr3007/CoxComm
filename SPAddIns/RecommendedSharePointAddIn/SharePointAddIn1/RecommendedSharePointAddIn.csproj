@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{97180C44-4C57-4FC5-95C9-74BDBC492EE3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RecommendedSharePointAddIn</RootNamespace>
+    <AssemblyName>RecommendedSharePointAddIn</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>16.1</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <MinimumOfficeToolsVersion>12.2</MinimumOfficeToolsVersion>
+    <IncludeAssemblyInPackage>False</IncludeAssemblyInPackage>
+    <ProjectMode>SharePointApp</ProjectMode>
+    <AppFeaturePartId>{1dd2e00a-a5e0-47a1-819d-1ab584b8ee4d}</AppFeaturePartId>
+    <WspPartId>{908521fe-7c18-450a-a820-12d520ed2989}</WspPartId>
+    <WorkflowPartId>{80664727-db48-4439-b77c-5800848ba8e8}</WorkflowPartId>
+    <CspkgPartId>{c7f09600-be74-4995-9a80-8c7d7c74dc5e}</CspkgPartId>
+    <SqlPackagePartId>{283b0448-da3b-4cd8-b639-d4c1b58a8a95}</SqlPackagePartId>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="COXONE\css\fonts\fontawesome-webfont.eot" />
+    <None Include="COXONE\css\fonts\fontawesome-webfont.ttf" />
+    <None Include="COXONE\css\fonts\fontawesome-webfont.woff" />
+    <None Include="COXONE\css\fonts\FontAwesome.otf" />
+    <None Include="COXONE\css\fonts\icomoon.eot" />
+    <None Include="COXONE\css\fonts\icomoon.ttf" />
+    <None Include="COXONE\css\fonts\icomoon.woff" />
+    <None Include="COXONE\css\fonts\selection.json" />
+    <None Include="COXONE\css\fonts\slick.eot" />
+    <None Include="COXONE\css\fonts\slick.ttf" />
+    <None Include="COXONE\css\fonts\slick.woff" />
+    <None Include="packages.config" />
+    <None Include="Pages\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{56687669-037c-42ca-af38-f4cc869d22f4}</SharePointProjectItemId>
+    </None>
+    <Content Include="COXONE\css\animate.css" />
+    <Content Include="COXONE\css\bootstrap.css" />
+    <Content Include="COXONE\css\font-awesome-app.css" />
+    <Content Include="COXONE\css\font-awesome.css" />
+    <Content Include="COXONE\css\fonts.css" />
+    <Content Include="COXONE\css\fonts\fontawesome-webfont.svg" />
+    <Content Include="COXONE\css\fonts\icomoon.svg" />
+    <Content Include="COXONE\css\fonts\slick.svg" />
+    <Content Include="COXONE\css\main.css" />
+    <Content Include="COXONE\css\slick-theme.css" />
+    <Content Include="COXONE\css\slick.css" />
+    <Content Include="COXONE\images\account-team01.jpg" />
+    <Content Include="COXONE\images\account-team02.jpg" />
+    <Content Include="COXONE\images\account-team03.jpg" />
+    <Content Include="COXONE\images\account-team04.jpg" />
+    <Content Include="COXONE\images\anna-colernan.jpg" />
+    <Content Include="COXONE\images\avtar.jpg" />
+    <Content Include="COXONE\images\banner-accounting.jpg" />
+    <Content Include="COXONE\images\benefits-icon.jpg" />
+    <Content Include="COXONE\images\career-journey.jpg" />
+    <Content Include="COXONE\images\community_manager.jpg" />
+    <Content Include="COXONE\images\coz-slider.jpg" />
+    <Content Include="COXONE\images\dashboard.jpg" />
+    <Content Include="COXONE\images\donate-blood.jpg" />
+    <Content Include="COXONE\images\donet.jpg" />
+    <Content Include="COXONE\images\favration.jpg" />
+    <Content Include="COXONE\images\flowchart-dashboard.jpg" />
+    <Content Include="COXONE\images\footer_bg.png" />
+    <Content Include="COXONE\images\graph-accounting.jpg" />
+    <Content Include="COXONE\images\graph.jpg" />
+    <Content Include="COXONE\images\header-img.jpg" />
+    <Content Include="COXONE\images\header_bg.png" />
+    <Content Include="COXONE\images\health_living.jpg" />
+    <Content Include="COXONE\images\icon_notification.png" />
+    <Content Include="COXONE\images\icon_ques.png" />
+    <Content Include="COXONE\images\icon_search.png" />
+    <Content Include="COXONE\images\img-girl.jpg" />
+    <Content Include="COXONE\images\img_small.jpg" />
+    <Content Include="COXONE\images\items-1.jpg" />
+    <Content Include="COXONE\images\items-2.jpg" />
+    <Content Include="COXONE\images\items-3.jpg" />
+    <Content Include="COXONE\images\items-4.jpg" />
+    <Content Include="COXONE\images\items-5.jpg" />
+    <Content Include="COXONE\images\items-6.jpg" />
+    <Content Include="COXONE\images\items-7.jpg" />
+    <Content Include="COXONE\images\items-8.jpg" />
+    <Content Include="COXONE\images\leadership_img.jpg" />
+    <Content Include="COXONE\images\leave-calender.jpg" />
+    <Content Include="COXONE\images\line_chat_icon.jpg" />
+    <Content Include="COXONE\images\local-las-vegas.jpg" />
+    <Content Include="COXONE\images\localized-sun.jpg" />
+    <Content Include="COXONE\images\logo.png" />
+    <Content Include="COXONE\images\nav_bg.png" />
+    <Content Include="COXONE\images\news-2.jpg" />
+    <Content Include="COXONE\images\pay-icon.jpg" />
+    <Content Include="COXONE\images\personal-info.jpg" />
+    <Content Include="COXONE\images\pro-info01.jpg" />
+    <Content Include="COXONE\images\pro-info02.jpg" />
+    <Content Include="COXONE\images\pro-info03.jpg" />
+    <Content Include="COXONE\images\pro-info04.jpg" />
+    <Content Include="COXONE\images\product01.jpg" />
+    <Content Include="COXONE\images\product02.jpg" />
+    <Content Include="COXONE\images\product03.jpg" />
+    <Content Include="COXONE\images\product04.jpg" />
+    <Content Include="COXONE\images\product05.jpg" />
+    <Content Include="COXONE\images\product06.jpg" />
+    <Content Include="COXONE\images\product07.jpg" />
+    <Content Include="COXONE\images\product08.jpg" />
+    <Content Include="COXONE\images\projects_01.jpg" />
+    <Content Include="COXONE\images\projects_02.jpg" />
+    <Content Include="COXONE\images\projects_03.jpg" />
+    <Content Include="COXONE\images\projects_04.jpg" />
+    <Content Include="COXONE\images\resourcesimg1.jpg" />
+    <Content Include="COXONE\images\slice\images\account-team01.jpg" />
+    <Content Include="COXONE\images\slice\images\account-team02.jpg" />
+    <Content Include="COXONE\images\slice\images\account-team03.jpg" />
+    <Content Include="COXONE\images\slice\images\account-team04.jpg" />
+    <Content Include="COXONE\images\slice\images\atena.jpg" />
+    <Content Include="COXONE\images\slice\images\benefits-icon.jpg" />
+    <Content Include="COXONE\images\slice\images\benefits.jpg" />
+    <Content Include="COXONE\images\slice\images\calendar.jpg" />
+    <Content Include="COXONE\images\slice\images\career-journey.jpg" />
+    <Content Include="COXONE\images\slice\images\community_manager.jpg" />
+    <Content Include="COXONE\images\slice\images\cox-travel.jpg" />
+    <Content Include="COXONE\images\slice\images\coxu.jpg" />
+    <Content Include="COXONE\images\slice\images\dashboard.jpg" />
+    <Content Include="COXONE\images\slice\images\discounts.jpg" />
+    <Content Include="COXONE\images\slice\images\esc.jpg" />
+    <Content Include="COXONE\images\slice\images\health_living.jpg" />
+    <Content Include="COXONE\images\slice\images\insite.jpg" />
+    <Content Include="COXONE\images\slice\images\jobs-at-cox.jpg" />
+    <Content Include="COXONE\images\slice\images\leave-calender.jpg" />
+    <Content Include="COXONE\images\slice\images\line_chat_icon.jpg" />
+    <Content Include="COXONE\images\slice\images\my-career.jpg" />
+    <Content Include="COXONE\images\slice\images\pay-icon.jpg" />
+    <Content Include="COXONE\images\slice\images\payroll.jpg" />
+    <Content Include="COXONE\images\slice\images\performance-management.jpg" />
+    <Content Include="COXONE\images\slice\images\personal-info.jpg" />
+    <Content Include="COXONE\images\slice\images\policies.jpg" />
+    <Content Include="COXONE\images\slice\images\projects_01.jpg" />
+    <Content Include="COXONE\images\slice\images\projects_02.jpg" />
+    <Content Include="COXONE\images\slice\images\projects_03.jpg" />
+    <Content Include="COXONE\images\slice\images\projects_04.jpg" />
+    <Content Include="COXONE\images\slice\images\sun_img.jpg" />
+    <Content Include="COXONE\images\slice\images\time-clock.jpg" />
+    <Content Include="COXONE\images\slice\images\time-icon.jpg" />
+    <Content Include="COXONE\images\slice\images\time-money.jpg" />
+    <Content Include="COXONE\images\slice\images\timesheet.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_01.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_02.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_04.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_06.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_08.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_09.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_10.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_11.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_15.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_16.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_17.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_21.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_22.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_23.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_26.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_27.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_30.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_31.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_33.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_35.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_37.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_38.jpg" />
+    <Content Include="COXONE\images\slice\images\Untitled-4_39.jpg" />
+    <Content Include="COXONE\images\slice\images\user_scach.jpg" />
+    <Content Include="COXONE\images\slice\images\vanguard.jpg" />
+    <Content Include="COXONE\images\slider1.jpg" />
+    <Content Include="COXONE\images\star_img.jpg" />
+    <Content Include="COXONE\images\sun_img.jpg" />
+    <Content Include="COXONE\images\time-icon.jpg" />
+    <Content Include="COXONE\images\time-money.jpg" />
+    <Content Include="COXONE\images\user_scach.jpg" />
+    <Content Include="COXONE\images\video-img.jpg" />
+    <Content Include="COXONE\images\video-slide01.jpg" />
+    <Content Include="COXONE\images\video-slide02.jpg" />
+    <Content Include="COXONE\images\working-slider01.jpg" />
+    <Content Include="COXONE\images\working-slider02.jpg" />
+    <Content Include="COXONE\js\bootstrap.js" />
+    <Content Include="COXONE\js\bootstrapValidator.js" />
+    <Content Include="COXONE\js\custom.js" />
+    <Content Include="COXONE\js\html5shiv.js" />
+    <Content Include="COXONE\js\jquery.dlmenu.js" />
+    <Content Include="COXONE\js\jquery.nicescroll.min.js" />
+    <Content Include="COXONE\js\jquery2.1.0.js" />
+    <Content Include="COXONE\js\modernizr.custom.js" />
+    <Content Include="COXONE\js\slick.min.js" />
+    <Content Include="Elements.xml" />
+    <Content Include="Pages\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Pages\Default.aspx" />
+    <None Include="SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{af9f5268-832b-4054-b8d5-5771c2e0a482}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RecommendedArticlesAppPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7eaf976e-5742-479a-94d7-dbff457ca2f4}</SharePointProjectItemId>
+    </None>
+    <None Include="Scripts\jquery-1.9.1.min.map" />
+    <None Include="Scripts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{283b0448-da3b-4cd8-b639-d4c1b58a8a95}</SharePointProjectItemId>
+    </None>
+    <Content Include="Pages\RecommendedArticlesAppPart.aspx" />
+    <Content Include="RecommendedArticlesAppPart\Elements.xml">
+      <OpcRelationship>feature-elementmanifest</OpcRelationship>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\CCI_Persona.js" />
+    <Content Include="Scripts\Elements.xml" />
+    <Content Include="Scripts\App.js" />
+    <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.1.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1bc318e2-c538-4748-8b67-5b60bf19c03b}</SharePointProjectItemId>
+    </None>
+    <Content Include="Content\Elements.xml" />
+    <Content Include="Content\App.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\AppIcon.png">
+      <OpcRelationship>manifest-icon</OpcRelationship>
+    </Content>
+    <Content Include="Images\Elements.xml" />
+    <None Include="Images\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d862da16-99d8-46e8-a15f-0b41e46c5f7e}</SharePointProjectItemId>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Package\Package.package">
+      <PackageId>{759d8b8a-ff3d-4113-a63c-4aa08fd6f88e}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{b8456044-e984-48ff-9523-b1398bf9ff6a}</FeatureId>
+    </None>
+    <None Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AppManifestFile Include="AppManifest.xml">
+      <SubType>Designer</SubType>
+    </AppManifestFile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="LikeSection">
+        <span class="likecount" onclick="LikePage()"></span>
+        <a href="#" class="LikeButton" style="display:none;"></a>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    var listGuid = "727F2770-8875-43E5-8EBD-17E489D99D90";
+    var itemId = 1;
+    var context;
+
+    $(document).ready(function () {
+        $.getScript(_spPageContextInfo.siteAbsoluteUrl + "/_layouts/15/SP.js", function () {
+            $.getScript(_spPageContextInfo.siteAbsoluteUrl + "/_layouts/15/reputation.js", function () { getLikes(listGuid, itemId) });
+        });
+
+        //getLikes(listGuid, itemId);
+    })
+
+    function getLikes(listId, itemId) {
+        //var context = SP.ClientContext(_spPageContextInfo.siteAbsoluteUrl);
+        context = SP.ClientContext.get_current();
+        var list = context.get_web().get_lists().getById(listId);
+        var item = list.getItemById(itemId);
+
+        var camlQuery = new SP.CamlQuery();
+        camlQuery.set_viewXml('<View><Query><Where><Eq><FieldRef Name=\'ID\'/>' +
+            '<Value Type=\'Counter\'>' + itemId + '</Value></Eq></Where></Query><RowLimit>1</RowLimit></View>');
+        this.collListItem = list.getItems(camlQuery);
+        context.load(collListItem);
+        context.executeQueryAsync(Function.createDelegate(this, this.onQuerySucceeded),
+            Function.createDelegate(this, this.onQueryFailed));
+    }
+
+    function onQuerySucceeded(sender, args) {
+        var likeDisplay = true;
+        var result = '';
+        var listItemEnumerator = collListItem.getEnumerator();
+        while (listItemEnumerator.moveNext()) {
+            var oListItem = listItemEnumerator.get_current();
+            var likesCountInfo = oListItem.get_item('LikesCount');
+            var members = oListItem.get_item('LikedBy');
+
+            if (members != null) {
+                for (i = 0; i < members.length; i++) {
+                    var member = members[i];
+                    if (member.get_email().trim().toLowerCase() === _spPageContextInfo.userLoginName) {
+                        //display unlike  
+                        likeDisplay = false;
+                    }
+                    result += member.get_lookupValue() + '\n';
+                    //  alert(result);
+                }
+            }
+        }
+        ChangeLikeText(likeDisplay, likesCountInfo);
+    }
+
+    function onQueryFailed(sender, args) {
+    }
+
+
+    function ChangeLikeText(like, count) {
+        if (like) {
+            $("a.LikeButton").text('Like');
+        }
+        else {
+            $("a.LikeButton").text('Unlike');
+        }
+        var htmlstring = String(count) + "<img alt=\"\" src=\"/_layouts/15/images/LikeFull.11x11x32.png\" />";
+        var htmlstring1 = String(count) + "<img alt=\"\" src=\"/_layouts/15/images/formatmap16x16.png\" />";
+        if (count > 0)
+        $(".likecount").html(htmlstring)
+    else
+            $(".likecount").html(htmlstring1);
+    }
+
+    function LikePage()
+    {
+        var like = false;
+        var likeButtonText = $("a.LikeButton").text();
+        if (likeButtonText != "")
+        {
+            if (likeButtonText == "Like")
+                like = true;
+
+            EnsureScriptFunc('reputation.js', 'Microsoft.Office.Server.ReputationModel.Reputation', function () {
+                Microsoft.Office.Server.ReputationModel.Reputation.setLike(context, listGuid, itemId, like);
+                context.executeQueryAsync(
+                    function () {
+                        ExecuteOrDelayUntilScriptLoaded(function () { getLikes(listGuid, itemId) }, "sp.js");
+                    }, function (sender, args) {
+                        // Do something if error
+                    });
+            });
+        }
+    }
+   
+
+
+
+</script>

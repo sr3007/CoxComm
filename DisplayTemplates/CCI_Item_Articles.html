@@ -1,0 +1,417 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <style>
+        ul.cbs-List {
+            display: block !important;
+        }
+    </style>
+    <title>CoxOne Articles</title>
+
+    <!--[if gte mso 9]><xml>
+    <mso:CustomDocumentProperties>
+    <mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+    <mso:ManagedPropertyMapping msdt:dt="string">&#39;Picture URL&#39;{Picture URL}:&#39;PubImage;PublishingImage;PictureURL;PictureThumbnailURL;CCI-NewsArticleImageOWSIMGE&#39;,&#39;Link URL&#39;{Link URL}:&#39;Path&#39;,&#39;Work Email&#39;{Work Email}:&#39;WorkEmail&#39;,&#39;MainAuthor&#39;{MainAuthor}:&#39;AuthorOWSUSER&#39;,&#39;Line 1&#39;{Line 1}:&#39;CCI-NewsHeadLineOWSTEXT&#39;,&#39;Line 2&#39;{Line 2}:&#39;PublishingPageContentOWSHTML&#39;,&#39;Line 3&#39;{Line 3}:&#39;ModifiedDateTime&#39;,&#39;Line 4&#39;{Line 4}:&#39;ReplyCount&#39;,&#39;Line 5&#39;{Line 5}:&#39;LikesCount&#39;,&#39;Line 6&#39;{Line 6}:&#39;LastReplyByOWSUSER&#39;,&#39;Line 7&#39;{Line 7}:&#39;DisplayAuthor&#39;,&#39;Line 8&#39;{Line 8}:&#39;ListItemId&#39;,&#39;Line 9&#39;{Line 9}:&#39;NewsCommentsOWSMTXT&#39;,&#39;Line 10&#39;{Line 10}:&#39;ListId&#39;,&#39;Line 11&#39;{Line 11}:&#39;RefinableString118&#39;,&#39;Line 12&#39;{Line 12}:&#39;CCI-BylineOWSTEXT&#39;</mso:ManagedPropertyMapping>
+    <mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a 100x100 picture of the item on the left. The title and the default item description will display to the right of the picture with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
+    <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+    <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
+    <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+    <mso:HtmlDesignStatusAndPreview msdt:dt="string">https://coxcomminc.sharepoint.com/sites/coxoneqa/_catalogs/masterpage/Display%20Templates/Content%20Web%20Parts/CCI_Item_Articles.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+    <mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+    <mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+    <mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+    </mso:CustomDocumentProperties>
+    </xml><![endif]-->
+</head>
+
+<body>
+
+    <!--
+            Warning: Do not try to add HTML to this section. Only the contents of the first <div>
+            inside the <body> tag will be used while executing Display Template code. Any HTML that
+            you add to this section will NOT become part of your Display Template.
+    -->
+    <script>
+        $includeLanguageScript(this.url, "~sitecollection/_catalogs/masterpage/Display Templates/Language Files/{Locale}/CustomStrings.js");
+    </script>
+
+    <!--
+        Use the div below to author your Display Template. Here are some things to keep in mind:
+        * Surround any JavaScript logic as shown below using a "pound underscore" (#_ ... _#) token
+        inside a comment.
+
+        * Use the values assigned to your variables using an "underscore pound equals"
+        (_#= ... =#_) token.
+    -->
+
+    <div id="Item_Picture3Lines">
+
+        <!--#_
+                var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_picture3Lines_");
+                //alert(ctx.ClientControl.get_nextUniqueId());
+                var linkURL = $getItemValue(ctx, "Link URL");
+                linkURL.overrideValueRenderer($urlHtmlEncode);
+
+                var line1 = $getItemValue(ctx, "Line 1");
+                var line2 = $getItemValue(ctx, "Line 2");
+                var line3 = $getItemValue(ctx, "Line 3");
+                var line4 = $getItemValue(ctx, "Line 4");
+                var line5 = $getItemValue(ctx, "Line 5");
+                var line6 = $getItemValue(ctx, "Line 6");
+                var line7 = $getItemValue(ctx, "Line 7");
+                var line8 = $getItemValue(ctx, "Line 8");
+                var line9 = $getItemValue(ctx, "Line 9");
+                var line10 = $getItemValue(ctx, "Line 10");
+                var line11 = $getItemValue(ctx, "Line 11");
+                var line12 = $getItemValue(ctx, "Line 12");
+
+                var liked = '';
+                var pictureURL = $getItemValue(ctx, "Picture URL");
+
+                var pictureId = encodedId + "picture";
+                var pictureMarkup = Srch.ContentBySearch.getPictureMarkup(pictureURL, 100, 100, ctx.CurrentItem, "cbs-picture3LinesImg", line1, pictureId);
+
+                if(pictureURL.value != null)
+                {
+                    if(pictureURL.value.indexOf("src=") > -1)
+                    {
+                        var startPos = pictureURL.value.indexOf("src=")+5;
+                        var endPos = pictureURL.value.indexOf("style")-2;
+                        pictureMarkup = pictureURL.value.substring(startPos, endPos);
+                    }
+                    pictureMarkup = pictureMarkup + "?RenditionID=12";
+                }
+
+                line1.overrideValueRenderer($contentLineText);
+                line2.overrideValueRenderer($contentLineText);
+                line3.overrideValueRenderer($contentLineText);
+                line4.overrideValueRenderer($contentLineText);
+                line5.overrideValueRenderer($contentLineText);
+                line6.overrideValueRenderer($contentLineText);
+                line7.overrideValueRenderer($contentLineText);
+                line8.overrideValueRenderer($contentLineText);
+                line9.overrideValueRenderer($contentLineText);
+                line10.overrideValueRenderer($contentLineText);
+                line11.overrideValueRenderer($contentLineText);
+                line12.overrideValueRenderer($contentLineText);
+
+                var containerId = encodedId + "container";
+                var pictureLinkId = encodedId + "pictureLink";
+                var pictureContainerId = encodedId + "pictureContainer";
+                var dataContainerId = encodedId + "dataContainer";
+                var line1LinkId = encodedId + "line1Link";
+                var line1Id = encodedId + "line1";
+                var line2Id = encodedId + "line2";
+                var line3Id = encodedId + "line3";
+                var line4Id = encodedId + "line4";
+                var line5Id = encodedId + "line5";
+                var line6Id = encodedId + "line6";
+                var line7Id = encodedId + "line7";
+                var line8Id = encodedId + "line8";
+                var line9Id = encodedId + "line9";
+                var line10Id = encodedId + "line10";
+                var line11Id = encodedId + "line11";
+                var line12Id = encodedId + "line12";
+
+                if(!line5.value)
+                {
+                    line5.value = 0;
+                }
+                if(!line4.value)
+                {
+                    line4.value = 0;
+                }
+                if(line6.value)
+                {
+                    line6.value = 'Last Reply by: ' + line6.value;
+                }
+                else
+                {
+                    line6.value = '';
+                }
+                //alert(line11.value);
+                var authors2=line7.value;
+                var author =authors2.split(";", 1);
+                var dataDisplayTemplateTitle = "ItemPicture3Lines";
+                var parseDate = new Date(line3.value);
+                var formattedDate = parseDate.format('MMM dd, yyyy') + ' at ' + parseDate.format('hh:mm tt');
+                //alert(line7.value);
+                            if(!$isNull(ctx.CurrentItem) && !$isNull(ctx.ClientControl))
+                            {
+                                var NoOfLikes = 0;
+                                var NoOfReplies = 0;
+                                if(ctx.CurrentItem.LikesCount != null)
+                                {
+                                    NoOfLikes=ctx.CurrentItem.LikesCount;
+                                }
+                                if(ctx.CurrentItem.ReplyCount != null)
+                                {
+                                    NoOfReplies=ctx.CurrentItem.ReplyCount;
+                                }
+                            }
+                    NoOfReplies=0;
+                    if(line9.value != null)
+                    {
+                        NoOfReplies = String(line9.value).split('<div>').length-1;
+                    }
+                    var listGuid;
+                    var listItemId;
+                    listGuid = line10.value;
+                    listItemId = line8.value;
+                    var articleLink = _spPageContextInfo.siteAbsoluteUrl + "/pages/NewsArticle.aspx?ListItemID=" + listItemId;
+                    //alert(line11.value);
+                    var endPos = String(line11.value).indexOf("GP0")-1;
+                    var temp = String(line11.value).substring(0, endPos);
+                    var tags = String(temp).split(';');
+                    var newstags='';
+                    for (var i = 0; i < tags.length; i++) {
+                        newstags += tags[i] + ", ";
+                    }
+                    newstags = newstags.substring(0,newstags.length-2);
+            /*
+                    function newCallback(dialogResult, returnValue) {
+                       //SP.UI.ModalDialog.RefreshPage(SP.UI.DialogResult.OK);
+                        //alert('Message from callback function!!!');
+                        //location.reload(true);
+                    }
+            */
+                    var source = GetUrlKeyValue("Source", false, location.href);
+                    var newsChannel = GetUrlKeyValue("NewsChannel", false, location.href);
+
+                    if(source === "Carousal")
+                        newsChannel = 'Company';
+                    else if(source === "NewsGrid")
+                    {
+                            if(newsChannel === "New")
+                                newsChannel = 'Latest';
+                            else
+                                newsChannel = newsChannel;
+                    }
+                    else
+                        newsChannel = source;
+
+                    newsChannel = newsChannel + " News";
+
+                    AddPostRenderCallback(ctx, function(){
+                    var listItemId = line8.value;
+                    var modal = document.getElementById("myModal"+listItemId);
+
+                    // Get the image and insert it inside the modal - use its "alt" text as a caption
+                    var img = document.getElementById("myImg"+listItemId);
+                    var modalImg = document.getElementById("img01"+listItemId);
+                    var captionText = document.getElementById("caption"+listItemId);
+            /*
+                    img.onclick = function(){
+                        modal.style.display = "block";
+
+
+                        var someimage = document.getElementById("myImg"+listItemId);
+                        var myimg = someimage.getElementsByTagName('img')[0];
+                        var mysrc = myimg.src;
+                        var newsrc =mysrc.split("?", 1);
+
+                        modalImg.src = newsrc;
+
+
+                    }
+            */
+                    // Get the <span> element that closes the
+                    var span = document.getElementById("closeBtn"+listItemId);
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() {
+                        modal.style.display = "none";
+                    }
+
+                    $('.comments').hide();
+
+                    var restUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('CCI-NewsDiscussions')/items?$select=ID,Title,FileRef,Created,Author/Title,Folder/ItemCount&$expand=Author,Folder&$filter=NewsArticleID eq " + listItemId;
+                    //alert(restUrl);
+                        $.ajax({
+                            url: restUrl,
+                            type: "GET",
+                            headers: {
+                                "Accept": "application/json; odata=verbose",
+                                "Content-Type": "application/json; odata=verbose",
+                                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                            },
+                            success: function (data) {
+                                var webUrl = _spPageContextInfo.webServerRelativeUrl;
+                                var pageUrl;
+                                var commentcount = 0;
+
+                                if (data.d.results.length > 0) {
+                                    //pageUrl = webUrl + '/Lists/CCINewsDiscussions/Flat.aspx?IsDlg=1&RootFolder=' + webUrl + '/Lists/CCINewsDiscussions/' + line1.value;
+                                    pageUrl = webUrl + '/Lists/CCINewsDiscussions/Flat.aspx?ListItemId=' + listItemId + '&IsDlg=1&RootFolder=' + data.d.results[0]["FileRef"];
+
+                                    $.each(data.d.results, function (index, item) {
+                                        commentcount = item.Folder["ItemCount"];
+                                    });
+                                    commentcount++;
+                                }
+                                else
+                                {
+                                    pageUrl = webUrl + '/Lists/CCINewsDiscussions/NewForm.aspx?NewsArticleID=' + listItemId + '&Title=' + line1.value + '&Source=' + webUrl + '/Pages/NewsCommentsIntermediatePage.aspx?ListItemId=' + listItemId;
+                                }
+
+                                    $("#lnkViewComments" + line8.value).text('Add/View Comments (' + commentcount + ')');
+                                    $('#discussions' + line8.value).attr('src', pageUrl);
+                                    $("#lnkViewComments" + line8.value).click(function(){
+                                        $('.comments').toggle();
+                                        //alert(pageUrl);
+                                        /*
+                                        SP.UI.ModalDialog.showModalDialog(
+                                         {
+                                           url: pageUrl,
+                                           width:1000,
+                                           height:1000,
+                                           title: line1.value,
+                                            dialogReturnValueCallback: newCallback
+                                         }
+                                       );
+                                       */
+
+                                    });
+                            },
+                            error: function (error) {
+                                CCI_Common.LogException(_spPageContextInfo.userId, 'News Article App', _spPageContextInfo.siteAbsoluteUrl, JSON.stringify(error));
+                            }
+                        });
+
+                    if(String(listGuid).indexOf("{") > -1)
+                        listGuid = listGuid.substring(1,listGuid.length-1);
+
+                    var articleLink = _spPageContextInfo.siteAbsoluteUrl + "/pages/NewsArticle.aspx?ListItemID=" + listItemId;
+                    var formattedBody = "Article Title: " + line1.value + "\n Article Link: " + articleLink;
+                    $("#share" + listItemId).attr("href", "mailto:?subject=" + line1.value + "&body=" + encodeURIComponent(formattedBody));
+
+                    //getLikes(listGuid, listItemId, 'newsarticle');
+
+            $.ajax({
+                url: _spPageContextInfo.siteAbsoluteUrl + "/_api/contextinfo",
+                type: "POST",
+                headers: { "Accept": "application/json; odata=verbose"},
+                success: function (data) {
+                    $('#__REQUESTDIGEST').val(data.d.GetContextWebInformation.FormDigestValue);
+
+                    //var restUrl = _spPageContextInfo.siteAbsoluteUrl + "/NewsArtifacts/_api/web/lists/GetById('" + listGuid + "')/GetItems(query=@v1)?@v1={\"ViewXml\":\"<View><Query><Where><Eq><FieldRef Name='ID'/><Value Type='Counter'>" + listItemId + //"</Value></Eq></Where></Query><RowLimit>1</RowLimit></View>\"}";
+                    //alert(restUrl);
+
+                    var restUrl = _spPageContextInfo.siteAbsoluteUrl + "/" + CCI_Common.GetConfig('NewsPageLibrarySourceSite') + "/_api/web/lists/GetById('" + listGuid + "')/items(" + listItemId + ")?$select=Title,LikesCount,LikedBy/ID,LikedBy/Title&$expand=LikedBy";
+
+                    var likeDisplay = true;
+                    var result = '';
+                    var likesCountInfo = 0;
+                    $.ajax(
+                        {
+                            url: restUrl,
+                            type: "POST",
+                            headers: {
+                                "Accept": "application/json; odata=verbose",
+                                "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                            },
+                                success: function (data) {
+                                            if (data.d.LikesCount > 0)
+                                            {
+                                                likesCountInfo = data.d.LikesCount;
+
+                                                $.each(data.d.LikedBy.results, function (index, item) {
+                                                    /*
+                                                    if(item.LikedByStringId != null)
+                                                    {
+                                                        likesCountInfo = item.LikesCount;
+                                                        var members = item.LikedByStringId.results;
+                                                        if (members != null) {
+                                                            for (i = 0; i < members.length; i++) {
+                                                                var member = members[i];
+                                                                if(parseInt(member) === _spPageContextInfo.userId)
+                                                                    likeDisplay = false;
+                                                            }
+                                                        }
+                                                    }
+                                                    */
+
+                                                    if(parseInt(item.ID) === _spPageContextInfo.userId)
+                                                        likeDisplay = false;
+                                                });
+                                            }
+
+                                                var likebuttonid = "newsarticlelikebutton" + listItemId;
+                                                var likecountid = "newsarticlelikecount" + listItemId;
+                                                if (likeDisplay) {
+                                                    $("#" + likebuttonid).text('Like');
+                                                }
+                                                else {
+                                                    $("#" + likebuttonid).text('Unlike');
+                                                }
+                                                var htmlstring = String(likesCountInfo);
+                                                var htmlstring1 = String(likesCountInfo);
+                                                if (likesCountInfo > 0)
+                                                {
+                                                    $("#" + likecountid).html(htmlstring)
+                                                }
+                                                else
+                                                {
+                                                        $("#" + likecountid).html(htmlstring1);
+                                                }
+                                        },
+                                        error: function (error) {
+                                            //alert(JSON.stringify(error));
+                                            CCI_Common.LogException(_spPageContextInfo.userId, 'News Articles App', _spPageContextInfo.siteAbsoluteUrl, JSON.stringify(error));
+                                        }
+                        });
+                },
+                error: function (data, errorCode, errorMessage) {
+                    //alert(errorMessage);
+                    CCI_Common.LogException(_spPageContextInfo.userId, 'News Articles App', _spPageContextInfo.siteAbsoluteUrl, errorMessage);
+                }
+                    });
+
+        });
+                 _#-->
+        <div class="ms-webpart-chrome-title"><span><h2 class="ms-webpart-titleText">_#= newsChannel =#_ </h2></span></div>
+        <div class="row news_box top-new-box">
+            <div class="box_accordian padd_comon">
+                <div class="share_like_row">
+                    <div class="left_side">
+
+                        <h3>_#= line1.value =#_</h3>
+                        <div><h5>_#= line12.value =#_</h5></div>
+                    </div>
+                    <div class="share_social">
+                        <ul>
+                            <!--<li> <a href="#" class="like"><span> (_#= NoOfLikes =#_)</span> <i class="fa fa-thumbs-up"></i></a></li>-->
+                            <li>
+                                <div class="LikeSection">
+                                    <a class="likecount" id="newsarticlelikecount_#= line8.value =#_"></a>
+                                    <a href="#" class="like" onclick="javascript: LikePage('_#= line10.value =#_', '_#= line8.value =#_', 'newsarticle')">
+                                        <i class='fa fa-thumbs-up'></i>
+                                        <a href="#" class="LikeButton" id="newsarticlelikebutton_#= line8.value =#_" style="display:none;"></a>
+                                    </a>
+                                </div>
+                            </li>
+                            <li><a href="#" id="share_#= line8.value =#_" class="share_icon"><i class="fa fa-share-alt"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content_row">
+                    <!--<div id="myImg_#= line8.value =#_" class="img_data left_side_img"><img class="image_fit" src="_#= pictureMarkup =#_" /></div>-->
+                    _#= line2.value =#_
+
+                    <!-- The Modal -->
+                    <div id="myModal_#= line8.value =#_" class="modal">
+                        <span id="closeBtn_#= line8.value =#_" class="close">x</span>
+                        <img class="modal-content" id="img01_#= line8.value =#_">
+                        <div id="caption_#= line8.value =#_"></div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div>_#= newstags =#_</div>
+                    <div class="clearfix"></div>
+                    <a href="#" id="lnkViewComments_#= line8.value =#_" class="comments-view"></a>
+                    <div class="comments"><iframe id="discussions_#= line8.value =#_" width="500px" height="500px" scrolling="yes" class="discussionframe"></iframe></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

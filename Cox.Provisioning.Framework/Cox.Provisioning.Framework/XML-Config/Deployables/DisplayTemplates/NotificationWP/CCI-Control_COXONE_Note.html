@@ -1,0 +1,114 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>COXONE Control Note</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:MasterPageDescription msdt:dt="string">This Control Display Template will show a picture slideshow that rotates through a set of items every 5 seconds. It will show one item at a time with the title of the item overlaying the picture.</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106601</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://mod223137.sharepoint.com/sites/vg/_catalogs/masterpage/Display Templates/Search/CCI-Control_COXONE_Note.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    <script>
+        $includeLanguageScript(this.url, "~sitecollection/_catalogs/masterpage/Display Templates/Language Files/{Locale}/CustomStrings.js");
+    </script>
+    <style>
+        
+    </style>
+<div id="imageSliderControl">
+<!--#_if (!$isNull(ctx.ClientControl) && !$isNull(ctx.ClientControl.shouldRenderControl) && !ctx.ClientControl.shouldRenderControl()){return "";}
+try{
+    
+ctx.ListDataJSONGroupsKey = "ResultTables";
+ctx["CurrentItems"] = ctx.ListData.ResultTables[0].ResultRows;
+var siteURL = SP.PageContextInfo.get_siteAbsoluteUrl();
+var loadingImageURL = siteURL + "/style library/coxone/images/loading.gif";
+
+var boolDots=true;
+var dtlProp= CCI_Common.GetCarouselProperties('MyHR Notification');
+var str_array = dtlProp.split('|');
+var boolArrows= str_array[0];
+var strDots= str_array[1];
+var strTransitionTime=str_array[2];
+var intTransitionTime = parseInt(strTransitionTime);	
+if(strDots === "false")
+{
+	boolDots = false;
+}
+
+var rowsPerPage_ctrl = ctx.ClientControl.get_numberOfItems();
+var totalRows_ctrl=Math.min(ctx.DataProvider.get_totalRows(),rowsPerPage_ctrl);
+if(totalRows_ctrl<=1){
+    boolArrows=false;
+}
+ctx.OnPostRender = function() {
+	$.getScript(siteURL + "/style library/coxone/js/slides.min.jquery.js", function(){
+		$(".note-image-slider .note-slides").slides({
+			generatePagination: boolDots,
+			preload: true,
+			preloadImage: loadingImageURL,
+			play: intTransitionTime,
+			pause: 0,
+			hoverPause: true,
+			animationStart: function(current){
+				$('.caption').animate({
+					bottom:-35
+				},100);
+			},
+			animationComplete: function(current){
+				$('.caption').animate({
+					bottom:0
+				},200);
+			},
+			slidesLoaded: function() {
+				$('.caption').animate({
+					bottom:0
+				},200);
+			}
+		});
+		
+		$('.caption').hover(
+			function(){
+				$('.caption').animate({
+					height:$('.caption').height($('.caption').height() + 50)
+				},200);
+			}, 
+			function () {
+				$('.caption').animate({
+					height:$('.caption').height($('.caption').height() - 50)
+				},200);
+		});
+	});
+};
+}
+catch(err) {
+    CCI_Common.LogException(_spPageContextInfo.userLoginName, "CCI-Control_COXONE_Note.html", _spPageContextInfo.serverRequestPath, JSON.stringify(err));                   
+}
+
+_#-->
+    <div class="note-slider note-image-slider">
+        <div class="container">
+
+            <div class="note-slides">
+                <div class="slides_container">
+                    _#= ctx.RenderItems(ctx) =#_
+                </div>
+				<!--#_if (boolArrows)
+				{_#-->
+					<a href="#" class="prev"><i class="fa fa-angle-left" style="font-size: 40px; color:#BBB"></i><!-- <img src="_#= siteURL =#_/style library/coxone/images/arrow-prev.png" width="24" height="43" alt="Arrow Prev"> --></a>
+					<a href="#" class="next"><i class="fa fa-angle-right" style="font-size: 40px; color:#BBB"></i><!-- <img src="_#= siteURL =#_/style library/coxone/images/arrow-next.png" width="24" height="43" alt="Arrow Next"> --></a>
+				<!--#_}_#-->
+			</div>            
+        </div>
+    </div>
+</div>
+</body>
+</html>

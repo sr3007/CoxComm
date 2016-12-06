@@ -1,0 +1,71 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>CCI-Control_ProductInformation</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:MasterPageDescription msdt:dt="string"></mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106601</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#SearchResults;#Content Web Parts;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://mod223137.sharepoint.com/sites/coxone/_catalogs/masterpage/Display Templates/Search/CCI-Control_ProductInformation.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    <div id="ProductInformation">
+        <!--#_
+        
+            if (!$isNull(ctx.ClientControl) && !$isNull(ctx.ClientControl.shouldRenderControl) && !ctx.ClientControl.shouldRenderControl()){return "";}
+            ctx.ListDataJSONGroupsKey = "ResultTables";
+            ctx["CurrentItems"] = ctx.ListData.ResultTables[0].ResultRows;
+            ctx.Myvar="This Works!";
+            window.ThisisGlobal="this as well works!";
+            var siteURL = SP.PageContextInfo.get_siteAbsoluteUrl();
+            var loadingImageURL = siteURL + "/style library/coxone/images/loading.gif";
+             ctx.ccCategory="";
+            
+       _#-->
+
+        <div class="box_warp">
+            <div class="panel panel-default custom-box-warp custom_option_box">
+                <div class="box_accordian">
+                    <div class="btn-row">
+					    <ul class="nav nav-tabs">
+                            <li class="active"><a id="Residential" data-toggle="tab" href="#residential-tab">Residential</a>
+                           </li>
+                            <li><a id="Business" data-toggle="tab" href="#business-tab">Business</a>
+                                
+                            </li>
+                        </ul>
+                    </div>
+					
+            <div class="tab-content col-sm-12 product-information-content">
+			
+                <center><div>_#= ctx.RenderItems(ctx) =#_</div></center>
+                    <!--<div id="residential-tab" class="tab-pane fade in active col-sm-12">
+                        <div  class="col-sm-10" style="margin: 0 auto">
+                           <center><div>_#= ctx.RenderItems(ctx) =#_</div></center>
+					    </div>
+					</div>-->
+					
+					
+					 <!--<div id="business-tab" class="tab-pane fade in col-sm-12">
+                        <div  class="col-sm-10" style="margin: 0 auto">
+                            <center><div>this is Business tab</div></center>
+					    </div>
+					</div>-->
+                
+			</div>		
+              </div>
+            </div>
+        </div>
+   </div>
+</body>
+</html>
+
+

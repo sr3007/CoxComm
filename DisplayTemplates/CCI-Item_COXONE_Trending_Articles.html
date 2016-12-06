@@ -1,0 +1,242 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <title>CCI-COX ONE Trending Articles</title>
+
+    <!--[if gte mso 9]><xml>
+    <mso:CustomDocumentProperties>
+    <mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+    <mso:ManagedPropertyMapping msdt:dt="string">'Picture URL'{Picture URL}:'PubImage;PublishingImage;PictureURL;PictureThumbnailURL;CCI-NewsArticleImageOWSIMGE','Link URL'{Link URL}:'Path','Work Email'{Work Email}:'WorkEmail','Line 1'{Line 1}:'CCI-NewsHeadLineOWSTEXT','Line 2'{Line 2}:'BodyOWSMTXT','Line 3'{Line 3}:'ModifiedDateTime','Line 4'{Line 4}:'ReplyCount','Line 5'{Line 5}:'LikesCount','Line 6'{Line 6}:'LastReplyByOWSUSER','Line 7'{Line 7}:'AuthorOWSUSER','Line 8'{Line 8}:'ListItemId','Line 9'{Line 9}:'ListId','Line 10'{Line 10}:'CCI-DescriptionOWSMTXT'</mso:ManagedPropertyMapping>
+    <mso:MasterPageDescription msdt:dt="string">Minimal group display template for using RSWP like CSWP</mso:MasterPageDescription>
+    <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+    <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#SearchResults;#</mso:TargetControlType>
+    <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+    <mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+    <mso:HtmlDesignStatusAndPreview msdt:dt="string">https://mod223137.sharepoint.com/sites/NewCoxOne/_catalogs/masterpage/Display%20Templates/Content%20Web%20Parts/CCI-Item_COXONE_Trending_Articles.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+    <mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+    <mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+    <mso:UIVersion msdt:dt="string">;#15;#</mso:UIVersion>
+    <mso:DisplayTemplateLevel msdt:dt="string">Item</mso:DisplayTemplateLevel>
+    </mso:CustomDocumentProperties>
+    </xml><![endif]-->
+</head>
+
+<body>
+
+    <!--
+            Warning: Do not try to add HTML to this section. Only the contents of the first <div>
+            inside the <body> tag will be used while executing Display Template code. Any HTML that
+            you add to this section will NOT become part of your Display Template.
+    -->
+    <script>
+        $includeLanguageScript(this.url, "~sitecollection/_catalogs/masterpage/Display Templates/Language Files/{Locale}/CustomStrings.js");
+    </script>
+
+    <!--
+        Use the div below to author your Display Template. Here are some things to keep in mind:
+        * Surround any JavaScript logic as shown below using a "pound underscore" (#_ ... _#) token
+        inside a comment.
+
+        * Use the values assigned to your variables using an "underscore pound equals"
+        (_#= ... =#_) token.
+    -->
+
+    <div id="Item_Picture3Lines">
+
+        <!--#_
+        try
+        {
+        var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_picture2Lines_");
+
+        var linkURL = $getItemValue(ctx, "Link URL");
+        linkURL.overrideValueRenderer($urlHtmlEncode);
+
+        var line1 = $getItemValue(ctx, "Line 1");
+        var line2 = $getItemValue(ctx, "Line 2");
+        var line3 = $getItemValue(ctx, "Line 3");
+        var line4 = $getItemValue(ctx, "Line 4");
+        var line5 = $getItemValue(ctx, "Line 5");
+        var line6 = $getItemValue(ctx, "Line 6");
+        var line7 = $getItemValue(ctx, "Line 7");
+        var line8 = $getItemValue(ctx, "Line 8");
+        var line9 = $getItemValue(ctx, "Line 9");
+        var line10 = $getItemValue(ctx, "Line 10");
+
+        var pictureURL = '';
+        pictureURL = String($getItemValue(ctx, "Picture URL"));
+        //alert(pictureURL);
+        if(pictureURL.indexOf("src=") > -1)
+        {
+            var startPos = pictureURL.indexOf("src=")+10;
+            var endPos = pictureURL.indexOf("style")-7;
+            pictureURL = pictureURL.substring(startPos, endPos);
+        }
+        //pictureURL = pictureURL + "?RenditionID=14";
+        var pictureId = encodedId + "picture";
+        var pictureMarkup = Srch.ContentBySearch.getPictureMarkup(pictureURL, 100, 100, ctx.CurrentItem, "cbs-picture3LinesImg", line1, pictureId);
+        //alert(pictureMarkup);
+
+        line1.overrideValueRenderer($contentLineText);
+        line2.overrideValueRenderer($contentLineText);
+        line3.overrideValueRenderer($contentLineText);
+        line4.overrideValueRenderer($contentLineText);
+        line5.overrideValueRenderer($contentLineText);
+        line6.overrideValueRenderer($contentLineText);
+        line7.overrideValueRenderer($contentLineText);
+        line8.overrideValueRenderer($contentLineText);
+        line9.overrideValueRenderer($contentLineText);
+        line10.overrideValueRenderer($contentLineText);
+
+        var containerId = encodedId + "container";
+        var pictureLinkId = encodedId + "pictureLink";
+        var pictureContainerId = encodedId + "pictureContainer";
+        var dataContainerId = encodedId + "dataContainer";
+        var line1LinkId = encodedId + "line1Link";
+        var line1Id = encodedId + "line1";
+        var line2Id = encodedId + "line2";
+        var line3Id = encodedId + "line3";
+        var line4Id = encodedId + "line4";
+        var line5Id = encodedId + "line5";
+        var line6Id = encodedId + "line6";
+        var line7Id = encodedId + "line7";
+        var line8Id = encodedId + "line8";
+        var line9Id = encodedId + "line9";
+        var line10Id = encodedId + "line9";
+
+        if(!line5.value)
+        {
+            line5.value = 0;
+        }
+        if(!line4.value)
+        {
+            line4.value = 0;
+        }
+        if(line6.value)
+        {
+            line6.value = 'Last Reply by: ' + line6.value;
+        }
+        else
+        {
+            line6.value = '';
+        }
+        var dataDisplayTemplateTitle = "ItemPicture3Lines";
+        var parseDate = new Date(line3.value);
+        var formattedDate = parseDate.format('MMM dd, yyyy') + ' at ' + parseDate.format('hh:mm tt');
+
+        var webUrl = _spPageContextInfo.webServerRelativeUrl;
+        var webAbsUrl = _spPageContextInfo.siteAbsoluteUrl;
+        //var articlePage = webUrl+'/pages/NewsArticle.aspx?ListID='+ line9.value + '&ListItemID='+line8.value ;
+        var articlePage = webUrl+'/pages/NewsArticle.aspx?ListItemID='+line8.value + '&Source=Trending';
+
+        var title = line1.value;
+        var NewsShortDescription = line10.value;
+
+        if (title.length > 83) {
+            title = title.substring(0, 83) + "...";
+        }
+        if (NewsShortDescription != null) {
+            if (NewsShortDescription.length > 196) {
+                NewsShortDescription = NewsShortDescription.substring(0, 196) + " ...";
+            }
+        }
+        else
+        {
+            NewsShortDescription = "";
+        }
+
+        AddPostRenderCallback(ctx, function(){
+                        var listGuid;
+                        var listItemId;
+                        listGuid = line9.value;
+                        listItemId = line8.value;
+            //alert(itemId);
+            //getLikes(listGuid, listItemId, 'TrendingNews');
+            $.ajax({
+                        url: _spPageContextInfo.siteAbsoluteUrl + "/_api/contextinfo",
+                        type: "POST",
+                        headers: { "Accept": "application/json; odata=verbose"},
+                        success: function (data) {
+                            $('#__REQUESTDIGEST').val(data.d.GetContextWebInformation.FormDigestValue);
+
+                            //var restUrl = _spPageContextInfo.siteAbsoluteUrl + "/NewsArtifacts/_api/web/lists/GetById('" + listGuid + "')/GetItems(query=@v1)?@v1={\"ViewXml\":\"<View><Query><Where><Eq><FieldRef Name='ID'/><Value Type='Counter'>" + listItemId + //"</Value></Eq></Where></Query><RowLimit>1</RowLimit></View>\"}";
+                            //alert(restUrl);
+
+                            var restUrl = _spPageContextInfo.siteAbsoluteUrl + "/NewsArtifacts/_api/web/lists/GetById('" + listGuid + "')/items(" + listItemId + ")?$select=Title,LikesCount,LikedBy/ID,LikedBy/Title&$expand=LikedBy";
+                            var likeDisplay = true;
+                            var result = '';
+                            var likesCountInfo = 0;
+                            $.ajax(
+                                {
+                                    url: restUrl,
+                                    type: "POST",
+                                    headers: {
+                                        "Accept": "application/json; odata=verbose",
+                                        "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                                    },
+                                        success: function (data) {
+                                                    if (data.d.LikesCount > 0)
+                                                    {
+                                                        likesCountInfo = data.d.LikesCount;
+
+                                                        $.each(data.d.LikedBy.results, function (index, item) {
+                                                            if(parseInt(item.ID) === _spPageContextInfo.userId)
+                                                                likeDisplay = false;
+                                                        });
+                                                    }
+                                                        var likebuttonid = "TrendingNewslikebutton" + listItemId;
+                                                        var likecountid = "TrendingNewslikecount" + listItemId;
+                                                        if (likeDisplay) {
+                                                            $("#" + likebuttonid).text('Like');
+                                                        }
+                                                        else {
+                                                            $("#" + likebuttonid).text('Unlike');
+                                                        }
+                                                        var htmlstring = String(likesCountInfo);
+                                                        var htmlstring1 = String(likesCountInfo);
+                                                        if (likesCountInfo > 0)
+                                                        {
+                                                            $("#" + likecountid).html(htmlstring)
+                                                        }
+                                                        else
+                                                        {
+                                                                $("#" + likecountid).html(htmlstring1);
+                                                        }
+
+
+                                                },
+                                                error: function (error) {
+                                                    //alert(JSON.stringify(error));
+                                                    CCI_Common.LogException(_spPageContextInfo.userId, 'News Articles App', _spPageContextInfo.siteAbsoluteUrl, JSON.stringify(error));
+                                                }
+                                });
+                        },
+                        error: function (data, errorCode, errorMessage) {
+                            //alert(errorMessage);
+                            CCI_Common.LogException(_spPageContextInfo.userId, 'News Articles App', _spPageContextInfo.siteAbsoluteUrl, errorMessage);
+                        }
+                            });
+        });
+        }
+        catch(err)
+        {
+            CCI_Common.LogException(_spPageContextInfo.userId, 'Trending Articles App', _spPageContextInfo.siteAbsoluteUrl, err);
+        }
+         _#-->
+        <div class="side_thumb_pro ">
+            <div class="item_box  mobile-custom-space">
+                <a><h3 class="mob_accordian">_#= title =#_</h3></a>
+                <div class="box_accordian">
+                    <img class="image_fit" src="_#= pictureURL =#_" />
+                    <div class="LikeSection">
+                        <a class="likecount" id="TrendingNewslikecount_#= line8.value =#_"></a>
+                        <a href="#" class="like" onclick="javascript: LikePage('_#= line9.value =#_', '_#= line8.value =#_','TrendingNews')">
+                            <i class='fa fa-thumbs-up'></i>
+                            <a href="#" id="TrendingNewslikebutton_#= line8.value =#_" class="LikeButton" style="display:none;"></a>
+                        </a>
+                    </div>
+                    <div class="overlay"> <a href="_#= articlePage =#_" class="expand">_#= NewsShortDescription =#_</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

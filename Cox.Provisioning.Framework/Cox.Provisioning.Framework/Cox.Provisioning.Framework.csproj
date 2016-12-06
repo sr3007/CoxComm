@@ -1,0 +1,1640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BC2381A8-B9A7-421E-A183-685A9E214BFF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cox.Provisioning.Framework</RootNamespace>
+    <AssemblyName>Cox.Provisioning.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Azure.ActiveDirectory.GraphClient, Version=2.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.ActiveDirectory.GraphClient.2.1.0\lib\portable-net4+sl5+win+wpa+wp8\Microsoft.Azure.ActiveDirectory.GraphClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel">
+      <HintPath>..\packages\Microsoft.IdentityModel.6.1.7600.16394\lib\net35\Microsoft.IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=69c3241e6f0468ca, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Client.Policy, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.Office.Client.Policy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Client.TranslationServices, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.Office.Client.TranslationServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.SharePoint.Tools, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.Office.SharePoint.Tools.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Online.SharePoint.Client.Tenant, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.Online.SharePoint.Client.Tenant.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ProjectServer.Client, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.ProjectServer.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.SharePoint.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.DocumentManagement, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.SharePoint.Client.DocumentManagement.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Publishing, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.SharePoint.Client.Publishing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime.Windows, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.SharePoint.Client.Runtime.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Search, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.SharePoint.Client.Search.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Search.Applications, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.SharePoint.Client.Search.Applications.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Taxonomy, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.SharePoint.Client.Taxonomy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.UserProfiles, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.SharePoint.Client.UserProfiles.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.WorkflowServices, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.5521.1200\lib\net45\Microsoft.SharePoint.Client.WorkflowServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.7.0.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OfficeDevPnP.Core, Version=2.6.1608.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SharePointPnPCoreOnline.2.6.1608.0\lib\net45\OfficeDevPnP.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Selectors" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XML-Config\SharePointContext.cs" />
+    <Compile Include="TokenHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bin\Debug\Cox.Provisioning.Framework.exe.config" />
+    <None Include="bin\Debug\Cox.Provisioning.Framework.vshost.exe.config" />
+    <None Include="bin\Debug\Cox.Provisioning.Framework.vshost.exe.manifest" />
+    <None Include="obj\Debug\build.force" />
+    <None Include="obj\Debug\Cox.Provisioning.Framework.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="packages.config" />
+    <None Include="XML-Config\Deployables\Master Page Gallery\coxone\coxone.master">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Master Page Gallery\coxone\coxone_system.master">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="XML-Config\Deployables\Security\DSG\fonts\glyphicons-halflings-regular.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Security\DSG\fonts\glyphicons-halflings-regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Security\DSG\fonts\glyphicons-halflings-regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Security\DSG\fonts\glyphicons-halflings-regular.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Security\SG\fonts\glyphicons-halflings-regular.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Security\SG\fonts\glyphicons-halflings-regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Security\SG\fonts\glyphicons-halflings-regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Security\SG\fonts\glyphicons-halflings-regular.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\fontawesome-webfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\fontawesome-webfont.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\fontawesome-webfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\fontawesome-webfont.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\FontAwesome.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\fontello.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\fontello.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\fontello.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\fontello.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\fontello.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\icomoon.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\icomoon.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\icomoon.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\icomoon.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\selection.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\slick.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\slick.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\slick.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\css\fonts\slick.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Style Library\coxone\js\bootstrap-toggle.min.js.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\WebParts\Accounting\Community Owner.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\Accounting\Projects.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\Accounting\Quick Links.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\Accounting\Team Documents.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\Accounting\Team Task.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\Accounting\Upcoming Events.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\Accounting\YammerFeed.dwp" />
+    <None Include="XML-Config\Deployables\WebParts\Home\Banner.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\Home\Customise.dwp" />
+    <None Include="XML-Config\Deployables\WebParts\Home\FeaturedStories.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\Home\my Opinion.dwp" />
+    <None Include="XML-Config\Deployables\WebParts\Home\NewsGrid.dwp" />
+    <None Include="XML-Config\Deployables\WebParts\Home\Notification.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\Home\Product Information.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\Home\Video App.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\Home\Yammer Feed.dwp" />
+    <None Include="XML-Config\Deployables\WebParts\HumanResources\AuthorListEditForm.dwp" />
+    <None Include="XML-Config\Deployables\WebParts\HumanResources\FAQs.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\HumanResources\Resources.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\HumanResources\Teams.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\HumanResources\What We are Working On.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\MediaRoom\MediaRoom.dwp" />
+    <None Include="XML-Config\Deployables\WebParts\MyHrDashBoard\FAQs.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\MyHrDashBoard\Links.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\MyHrDashBoard\myHR Widgets.dwp" />
+    <None Include="XML-Config\Deployables\WebParts\MyHrDashBoard\MyHRTools.dwp" />
+    <None Include="XML-Config\Deployables\WebParts\MyHrDashBoard\Notification.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\MyHrDashBoard\WhatsNew.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\MyWorkSpace\Followed Counts.dwp" />
+    <None Include="XML-Config\Deployables\WebParts\MyWorkSpace\Links.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\MyWorkSpace\My Documents.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\MyWorkSpace\My Tasks.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\MyWorkSpace\widgets.dwp" />
+    <None Include="XML-Config\Deployables\WebParts\NewsArticle\News.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\NewsArticle\Product News.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\NewsArticle\RecommendedArticles.dwp" />
+    <None Include="XML-Config\Deployables\WebParts\NewsArticle\Script Editor.webpart" />
+    <None Include="XML-Config\Deployables\WebParts\NewsArticle\Trending Articles.webpart" />
+    <None Include="XML-Config\Deployables\Workflows\CCINewsArticleApproval.wsp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XML-Config\Deployables\Workflows\FeedBackWorkflow.wsp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Cox.Provisioning.Framework.vshost.exe" />
+    <Content Include="obj\Debug\Cox.Provisioning.Framework.csproj.FileListAbsolute.txt" />
+    <Content Include="XML-Config\Deployables\CEWP\CommunityNavigation\CCI-NavigationApp.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\FavoritesToolsWP\CCI_FavoritesTools.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\Iamfollowing\CCI-Iamfollowing.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\myHR\CCI-myHR_WidgetPreferences.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\myHR\CCI-myHR_WidgetPreferences.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\myHR\highcharts-more.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\myHR\highcharts.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\myHR\jquery-ui-slider-pips.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\myHR\solid-gauge.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\myWorkspace\CCI-myWorkspace_Widgets.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\myWorkspace\CCI-myWorkspace_Widgets.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\Notifications\CCI-Notifications.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\Notifications\CCI-Notifications.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\Notifications\underscore.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\RollupNewsArticles\CCI-RollupNewsArticles.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\YammerFeed\CCI-YammerFeedAccounting.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\CommunityMembersWP\CCI-Control_Community_Members.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\CommunityMembersWP\CCI-Item_Community_Members.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\11_Fog.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\12_Showers.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\13_Mostly Cloudy w  Showers.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\14_Partly Sunny w Showers.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\15_T-Storms.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\16_Mostly Cloudy w T-Storms.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\17_Partly Sunny w T-Storms.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\18_Rain.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\19_Flurries.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\20_Mostly Cloudy w Flurries.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\21_Partly Sunny w Flurries.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\22_Snow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\23_Mostly Cloudy w Snow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\24_Ice.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\25_Sleet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\26_Freezing Rain.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\29_Rain and Snow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\2_Mostly Sunny.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\30_Hot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\31_Cold.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\32_Windy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\33_Clear.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\34_Mostly Clear.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\35_Partly Cloudy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\36_Intermittent Clouds.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\37_Hazy Moonlight.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\38_Mostly Cloudy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\39_Partly Cloudy w Showers.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\3_Partly Sunny.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\40_Mostly Cloudy w Showers.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\41_Partly Cloudy w T-Storms.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\42_Mostly Cloudy w T-Storms.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\43_Mostly Cloudy w Flurries.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\44_Mostly Cloudy w Snow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\4_Intermittent Clouds.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\5_Hazy Sunshine.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\6_Mostly Cloudy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\7_Cloudy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\AccuWeather\8_Dreary %28Overcast%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\Favorites\Compass.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\Favorites\Contacts.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\Favorites\Forms.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\Favorites\IT.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\Favorites\MyDocs.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\Favorites\Network.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\Favorites\Shout.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\Favorites\Time.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\myHR Tools\AT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\myHR Tools\Benefits.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\myHR Tools\Calendar.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\myHR Tools\CoxTravel.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\myHR Tools\CoxU.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\myHR Tools\Eatery.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\myHR Tools\EmployeeEmergencyService.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\myHR Tools\MyCareerBio.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\myHR Tools\Policies.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\myHR Tools\TimeClock.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\myHR Tools\Timesheet.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\myHR Tools\Vamguard.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\Resources\JobFair.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\Resources\KnowYourNumbers.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\Resources\OpenEnrollment.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\Resources\PCard.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Images\Resources\Performance.PNG">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\CCI-NewsPublisingLayout.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\CCI_Header_ThreeColumn_Footer.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\CCI_ThreeColumn_BigMiddle.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\CCI_ThreeColumn_SkinnyLeft.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\CCI_ThreeColumn_SkinnyRight.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\NewsArticle Forms\EditArticle.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\NewsArticle Forms\NewArticle.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\NewsArticle Forms\ViewArticle.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\AdminLinks.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\Advanced.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\Articles.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\default.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\NewsCommentsIntermediatePage.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\SG.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\DSG.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\FAQs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\MediaRoom.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\Site.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\app.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\Common\common.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\Common\logging.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\config\config.constants.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\config\config.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\config\config.peoplepicker.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\config\config.taxonomy.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\config\sp-peoplepicker.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\controllers\controllers.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\controllers\Security.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\fonts\glyphicons-halflings-regular.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\models\models.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\ngApp_NCO.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\scripts\angular-resource.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\scripts\angular-route.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\scripts\angular-sanitize.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\scripts\angular.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\scripts\jquery-1.9.1.intellisense.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\scripts\jquery-1.9.1.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\scripts\jquery-1.9.1.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\scripts\taxonomypickercontrol - Copy.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\scripts\taxonomypickercontrol.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\scripts\taxonomypickercontrol_resources.en.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\scripts\ui-bootstrap.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\scripts\ui-bootstrap.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\styles\app.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\styles\bootstrap.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\styles\Images\Close.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\styles\Images\EMMCopyTerm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\styles\Images\EMMDoubleTag.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\styles\Images\EMMTerm.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\styles\Images\EMMTermSet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\styles\Images\MDNCollapsed.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\styles\Images\MDNExpanded.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\styles\Images\MDNNo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\styles\Images\menubuttonhover.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\DSG\styles\taxonomypickercontrol.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\SG\app.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\SG\app.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\SG\config\config.peoplepicker.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\SG\controller\controllers.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\SG\controller\UserService.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\SG\fonts\glyphicons-halflings-regular.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\SG\styles\app.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Security\SG\styles\bootstrap.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Site Assets\coxone\js\CCI-DiscoverHomePageMenu.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Site Assets\coxone\js\CCI-NavigationApp.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Site Assets\coxone\js\CCI-NewsComments.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Site Assets\coxone\js\CCI_displayLayover2.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Site Assets\coxone\js\underscore.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\CCI_Header_ThreeColumn.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\CCI_Header_ThreeColumn_Footer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\CCI_Sidebar_Right.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\CCI_ThreeColumn.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\CCI_ThreeColumn_middlebig.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\CCI_ThreeColumn_SkinnyLeft.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\CCI_ThreeColumn_SkinnyRight.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\FooterBG.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\HeaderBG.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\HeaderBG_Large.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\NewsArtifacts.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\DSGTemplate.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\GovernanceSiteTemplate.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\CommunityTemplate.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\CommunityMembersWP\CCI-CommunityMember.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\CommunityMembersWP\CCI-CommunityMember.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\GroupsWP\CCI-AllGroups.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\GroupsWP\CCI-AllGroups.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\myOpinion\CCI-myOpinionFrame.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\HRNotificationWP\CCI-Control_COXONE_HR_Notification.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\HRNotificationWP\CCI-Item_COXONE_HR_Notification.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\MyDocuments\CCI-Control_My_Documents.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\MyDocuments\CCI-Item_My_Documents.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\ProjectsDetailsWP\CCI-Control_CommunityProjects_All.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\ProjectsDetailsWP\CCI-Item_CommunityProjects_All.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\ProjectsWP\CCI-Control_CommunityProjects.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\ProjectsWP\CCI-Item_CommunityProjects.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\TeamTasksWP\CCI-Control_TeamTasks.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\TeamTasksWP\CCI-Item_TeamTasks.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\MediaroomLayout_3column.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\SearchLayout.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\AccountingFPA.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\CustomerExperienceOperations.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\EnterprisePortfolioManagement.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\LawPolicy.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\MarketingSales.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\OperationsProcessManagement.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\ProductDevelopmentManagement.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\PublicAffairs.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\SupplyChain.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\Technology.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Site Assets\coxone\js\AuthorEditForm.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Site Assets\coxone\js\CCI-YammerFeed.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\BusinessIntelligence.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\favicon-ico.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\HeaderBG.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\HeaderBG_Large.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\loading1.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Mediaroom_3columns.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\SearchPage.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\CCI_Common.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\DiscoverTemplate.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\myHRTemplate.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\TaxonomyTemplate.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\COX-Provisioning-Config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\Feedback\CCI-Feedback.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\Media Room\CCI-MediaRoom.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\Media Room\CCI-MediaRoom.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\myHRToolsWP\CCI_MyHRTools.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\myOpinion\CCI-myOpinion.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\myOpinion\CCI-myOpinion.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\Navigation\CCI_Navigation.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\NewsGrid\CCI-NewsGrid.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\NewsGrid\CCI-NewsGrid.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\NewsGrid\owl.carousel.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\NewsPreference\CCI-ModalPopupPreferences.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\NewsPreference\CCI-ModalPreference.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\RecommendedWP\CCI_RecommendedArticles.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\TimeClockWP\CCI_TimeClock.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\WeatherWP\CCI_Weather.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CEWP\WeatherWP\CCI_Weather.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CommonJS\CCI_Common.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\CommonJS\CCI_Preferences.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\BannerWP\CCI-Control_Banner.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\BannerWP\CCI-Item_Banner.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\CarouselNewsWP\CCI-Control_News_Carousel.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\CarouselNewsWP\CCI-Item_News_Carousel.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\CommunityOwnerWP\CCI-Control_Community_Owner.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\CommunityOwnerWP\CCI-Item_Community_Owner.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\DashBoardWP\CCI-Control_COXONE_DashBoard.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\DashBoardWP\CCI-Item_COXONE_DashBoard.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\FAQDetailsWP\CCI-Control_FAQs_Details.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\FAQDetailsWP\CCI-Item_FAQs_Details.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\FAQWP\CCI-Control_FAQs.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\FAQWP\CCI-Item_FAQs.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\HRLinksWP\CCI-Control_COXONE_Links.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\HRLinksWP\CCI-Item_COXONE_Links.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\MyTasksWP\CCI-Control_MyTasks.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\MyTasksWP\CCI-Item_MyTasks.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\NewsArticleChannelWP\CCI_Item_Tech_News_2.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\NewsArticleRollupNewsWP\CCI_Control_List_Tech_News.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\NewsArticleRollupNewsWP\CCI_Item_Tech_News_2.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\NewsArticleWP\CCI_Item_Articles.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\NotificationWP\CCI-Control_COXONE_Note.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\NotificationWP\CCI-Item_COXONE_Note.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\ProductInformationWP\CCI-Control_ProductInformation.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\ProductInformationWP\CCI-Item_ProductInformation.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\QuickLinksWP\CCI-Control_QuickLinks.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\QuickLinksWP\CCI-Item_QuickLinks.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\ResourcesSummaryWP\CCI-Control_COXONE_Resources_All.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\ResourcesSummaryWP\CCI-Item_COXONE_Resources_All.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\ResourcesWP\CCI-Control_COXONE_Resources.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\ResourcesWP\CCI-Item_COXONE_Resources.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\TeamDocumentsWP\CCI-Control_Team_Documents.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\TeamDocumentsWP\CCI-Item_Team_Documents.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\TeamsWP\CCI-Control_Teams.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\TeamsWP\CCI-Item_Teams.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\TrendingArticlesWP\CCI-Control_COXONE_Trending_Articles.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\TrendingArticlesWP\CCI-Item_COXONE_Trending_Articles.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\UpcomingEvents\CCI-Control_Upcoming_Events.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\UpcomingEvents\CCI-Item_Upcoming_Events.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\VideosWP\CCI-Control_Videos.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\VideosWP\CCI-Item_Videos.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\WhatsNewWP\CCI-Control_WhatsNew_Carousel.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\WhatsNewWP\CCI-Item_WhatsNew_Carousel.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\WorkingOnSummaryWP\CCI-Control_COXONE_WorkingOn.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\WorkingOnSummaryWP\CCI-Item_COXONE_WorkingOn.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\WorkingOnWP\CCI-Control_COXONE_Carousel_WorkingOn.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\DisplayTemplates\WorkingOnWP\CCI-Item_COXONE_Carousel_WorkingOn.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\CommunityLayout.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\DepartmentLayout.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\HomepageLayout.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\MediaroomLayout.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\MyHRDashboardLayout.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\MyWorkspaceLayout.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\NewsarticleLayout.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Master Page Gallery\coxone\SinglecolumnLayout.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\Accounting.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\FAQ.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\Home.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\HumanResources.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\myHRDashboard.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\myWorkspace.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\NewsArticle.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\Resources.aspx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="XML-Config\Deployables\Pages\WorkingOn.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\ReferenceScripts\CCI-myHR_ngApp.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\ReferenceScripts\jquery.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\COREV15.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\coxone.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\animate.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\animation.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\bootstrap-toggle.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\bootstrap.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\font-awesome.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\font-awesome.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\fontello-codes.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\fontello-embedded.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\fontello-ie7-codes.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\fontello-ie7.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\fontello.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\fonts.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\global.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\jquery-ui.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\mobile-megamenu.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\mobile-select.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\mobile-toggle.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\slick-theme.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\slick.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\style.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\style_newsgrid.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\css\webpart.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\1 Col.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\2 Cols.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\3 Cols.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\arrow-next.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\arrow-prev.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Basic Project Page.BT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Blank Catalog Item.BT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Blank Webpart Page.BT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Body Only.BT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\BtnBorder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Community.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Department.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\DotBtn.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\DotBtnBorder.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Enterprise Wiki.BT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Error.BT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\favicon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\foot-logo01.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\foot-logo02.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\foot-logo03.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\foot-logo04.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Header left-split.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Header right-split.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Header split.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Header with left sidebar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Header with right sidebar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Header.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\HeaderBG.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\HeaderBG_large.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\HomePage.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Image Left.BT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Image Right.BT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Landing 2 cols.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Landing 3 cols.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Landing Inverted.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Landing with left sidebar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Landing with right sidebar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\loading.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Mediaroom.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\menu-down.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\menu-right.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\MyHRDashboard.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\MyWorkspace.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Newsarticle.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\pagination.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\preferences Gear.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Redirect.BT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\search.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Sidebar left with featured.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Sidebar left.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Sidebar right with featured.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Sidebar right.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Singlecolumn.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\star_img.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Summary Links.BT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\trending icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Welcome Links.BT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\images\Welcome Splash.BT.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\bootstrap-toggle.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\bootstrap.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\bootstrapValidator.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Site Assets\coxone\js\CCI-myOpinion.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Site Assets\coxone\js\CCI-NewsGrid.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\CCI_CommunityNavigation.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\CCI_Footer.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\CCI_Likes.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\CCI_MegaMenu.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\CCI_Navigation.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\CCI_Persona.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Site Assets\coxone\js\CCI_RecommendedArticles.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Site Assets\coxone\js\CCI_TimeClock.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Site Assets\coxone\js\CCI_Weather.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\dialog.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\fix-responsive-WP8.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\Footer.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\html5shiv.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\initilizations.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\jquery-ui.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\jquery.dlmenu.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\jquery.flexisel.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\jquery.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\jquery.nicescroll.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\Likes.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\megamenu.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\MicrosoftAjax.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\modernizr.custom.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\path.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\RecommendedArticlesScript.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\respond.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\slides.min.jquery.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Style Library\coxone\js\webpart.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="XML-Config\Deployables\Styles\CSS\coxone.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="XML-Config\Deployables\Site Assets\coxone\html\" />
+    <Folder Include="XML-Config\Deployables\Site Assets\coxone\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

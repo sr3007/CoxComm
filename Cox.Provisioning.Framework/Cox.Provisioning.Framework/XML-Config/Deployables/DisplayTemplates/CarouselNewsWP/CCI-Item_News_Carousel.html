@@ -1,0 +1,456 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>CCI-COXONE Item Carousel News</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:MasterPageDescription msdt:dt="string">Minimal group display template for using RSWP like CSWP</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#SearchResults;#Content Web Parts;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:ManagedPropertyMapping msdt:dt="string">'Title':'Title','Path':'Path','Description':'Description','Line 4'{Image Name}:'CCI-NewsArticleImageOWSIMGE','Line 6'{Learn More Link}:'CCI-LearnMoreLinkOWSURLH','Line 7'{Number of Likes}:'LikesCount','Line 8'{News Headline}:'CCI-NewsHeadLineOWSTEXT','Line 9'{List ID}:'ListID','Line 10'{Learn more Text}:'CCI-LearnMoreTitleOWSTEXT','Line 11'{List Item ID}:'ListItemID', 'Line 12'{IsNational}:'CCI-TypeNationalOWSBOOL','Line 13'{CCI-PublishedDate}:'CCI-NewsPublishedDateOWSDATE','Line 14'{Expires}:'CCI-ExpirationDate', 'Line 15'{UserLocation}:'CCI-Locations', 'Line 16'{SuppressLearnMore}:'CCI-SuppressLearnMoreOWSBOOL', 'Line 17'{HideLearnMoreLink}:'CCI-HideLearnMoreOWSBOOL'</mso:ManagedPropertyMapping>
+
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://mod174499.sharepoint.com/sites/CoxOne/_catalogs/masterpage/Display Templates/Content Web Parts/CCI-Item_News_Carousel.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+</mso:CustomDocumentProperties>
+  </xml><![endif]-->
+</head>
+<body>
+
+   
+    <div id="Item_SlideImage">
+<!--#_
+var siteURL = SP.PageContextInfo.get_siteServerRelativeUrl();
+var linkURL = $getItemValue(ctx, "Path");
+linkURL.overrideValueRenderer($urlHtmlEncodeValueObject);
+var LinkURL1=linkURL.value;
+
+var UserLocationListValue;
+var isSuppressLearnMore ="";
+var isHideLearnMore="";
+
+var descriptionshort =$getItemValue(ctx, "Description");
+var pictureURL = $getItemValue(ctx, "Line 4");
+//var description = $getItemValue(ctx, "Line 5");
+var learnmore = $getItemValue(ctx, "Line 6");
+var likeunlike = $getItemValue(ctx, "Line 7");
+var title = $getItemValue(ctx, "Line 8");
+var line9 = $getItemValue(ctx, "Line 9");
+var learnmoretitle = $getItemValue(ctx, "Line 10");
+var listitemid = $getItemValue(ctx, "Line 11");
+
+var isNational = $getItemValue(ctx, "Line 12");
+var varPublished = $getItemValue(ctx, "Line 13");
+var strPublished = varPublished.toString();
+var varExpires = $getItemValue(ctx, "Line 14");
+var strExpires = varExpires.toString();
+UserLocationListValue = $getItemValue(ctx, "Line 15");
+isSuppressLearnMore =$getItemValue(ctx, "Line 16");
+isHideLearnMore =$getItemValue(ctx, "Line 17");
+
+
+if(isSuppressLearnMore.inputValue.indexOf("True") !=-1){
+        isSuppressLearnMore="Yes";
+    }
+    else{
+        isSuppressLearnMore="No";
+    }
+
+
+    if(isHideLearnMore.inputValue.indexOf("True") !=-1){
+        isHideLearnMore="Yes";
+    }
+    else{
+        isHideLearnMore="No";
+    }
+
+    if(!isNational.isEmpty){
+     if(isNational.inputValue.indexOf("1") !=-1){
+        isNational="Yes";
+    }
+    else{
+        isNational="No";
+    }
+    }
+    else{
+        isNational="No";
+    }
+
+
+pictureURL.overrideValueRenderer($contentLineText);
+//description.overrideValueRenderer($contentLineText);
+learnmore.overrideValueRenderer($contentLineText);
+likeunlike.overrideValueRenderer($contentLineText);
+title.overrideValueRenderer($contentLineText);
+line9.overrideValueRenderer($contentLineText);
+learnmoretitle.overrideValueRenderer($contentLineText);
+listitemid.overrideValueRenderer($contentLineText);
+
+var learnmoreTitlelimited="";
+
+    
+if(!learnmoretitle.isEmpty)
+{
+if (learnmoretitle.inputValue.length > 20) {
+	    learnmoreTitlelimited = learnmoretitle.inputValue.substring(0,20);
+            if(learnmoreTitlelimited.toString().indexOf(">") ==-1){
+                 learnmoretitle = learnmoreTitlelimited + ">>";
+    
+    }
+}
+    else{
+     if (!learnmoretitle.isEmpty){
+         if(learnmoretitle.inputValue.indexOf(">") ==-1){
+                learnmoretitle = learnmoretitle + ">>";
+           }
+    }
+    }
+}
+
+
+   
+
+
+var descriptionshort =$getItemValue(ctx, "Description");
+var itemurl= siteURL+ "/pages/NewsArticle.aspx?ListItemID=" + listitemid + "&Source=Carousel" + "&NewsChannel=Company"  ;
+//pictureURL = pictureURL + "?RenditionID=8";
+var commonurl="";
+var strTrimmedTitle = "";
+var strTrimmedDesc = "";
+var strInternalUrl="";
+var userLocationUserProfile="";
+
+var currentUserEmail= _spPageContextInfo.userLoginName;
+   
+userLocationUserProfile = CCI_Common.GetOtherUserProfilePropertyValue("SPS-Location",currentUserEmail); 
+
+  if (!userLocationUserProfile.isEmpty){
+                userLocationUserProfile = userLocationUserProfile.toString().replace(/"/g,"");
+            }
+
+    if (userLocationUserProfile==""){
+                userLocationUserProfile = "Error";
+            }
+
+if(!title.isEmpty)
+{
+if (title.inputValue.length > 60) {
+	strTrimmedTitle = title.inputValue.substring(0,60) + "...";
+}
+else {
+	strTrimmedTitle = title;
+}
+}
+
+if(!descriptionshort.isEmpty)
+{
+if (descriptionshort.inputValue.length > 226) {
+	strTrimmedDesc = descriptionshort.inputValue.substring(0,226) + "...";
+}
+else {
+	strTrimmedDesc = descriptionshort;
+}
+}
+
+ 
+if(!learnmore.isEmpty){	
+	commonurl =learnmore.value[0]["entityLabel"];
+} 
+else{
+	commonurl= itemurl;
+}
+
+    
+if(commonurl.indexOf("/sites/") !=-1)
+{
+   var str3 = commonurl.split("/sites/");
+   strInternalUrl = str3[0];
+}
+else
+{
+	strInternalUrl = commonurl;
+}
+
+var NewsPageLibrarySite = CCI_Common.GetConfig(NewsPageLibrarySourceSite); //NewsArtifacts
+
+    if (NewsPageLibrarySite==""){
+        NewsPageLibrarySite ="NewsArtifacts";
+    }
+
+    //endPointUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/search/postquery";
+   // endPointUrl = _spPageContextInfo.webAbsoluteUrl + "/" + NewsPageLibrarySite + "/_api/search/postquery";
+
+
+AddPostRenderCallback(ctx, function(){
+                var listGuid;
+                var listItemId;
+                listGuid = line9.value;
+                listItemId = listitemid.value;
+     $.ajax({
+		url: _spPageContextInfo.webAbsoluteUrl + "/" + NewsPageLibrarySite  + "/_api/contextinfo",
+		type: "POST",
+		headers: { "Accept": "application/json; odata=verbose"},
+		success: function (data) {
+			$('#__REQUESTDIGEST').val(data.d.GetContextWebInformation.FormDigestValue);
+			
+	       
+     var restUrl = _spPageContextInfo.siteAbsoluteUrl + "/" + CCI_Common.GetConfig('NewsPageLibrarySourceSite') + "/_api/web/lists/GetById('" + listGuid + "')/items(" + listItemId + ")?$select=Title,LikesCount,LikedBy/ID,LikedBy/Title&$expand=LikedBy"; 
+     //var restUrl = _spPageContextInfo.webAbsoluteUrl + "/" + NewsPageLibrarySite + "/_api/web/lists/GetById('" + listGuid + "')/GetItems(query=@v1)?@v1={\"ViewXml\":\"<View><Query><Where><Eq><FieldRef Name='ID'/><Value Type='Counter'>" + listItemId + "</Value></Eq></Where></Query><RowLimit>1</RowLimit></View>\"}";
+            var likeDisplay = true;
+            var result = '';
+            var likesCountInfo = 0;
+			$.ajax(
+				{
+					url: restUrl,
+					type: "POST",
+					headers: {
+						"Accept": "application/json; odata=verbose",
+						"X-RequestDigest": $("#__REQUESTDIGEST").val()
+					},
+						success: function (data) {
+									
+                        if (data.d.LikesCount > 0)
+                                            {
+                                                likesCountInfo = data.d.LikesCount;
+
+                                                $.each(data.d.LikedBy.results, function (index, item) {
+                                                    if(parseInt(item.ID) === _spPageContextInfo.userId)
+                                                        likeDisplay = false;
+                                                });
+                                            }
+                                            
+                                                var likebuttonid = "CarouselNewslikebutton" + listItemId;
+                                                var likecountid = "CarouselNewslikecount" + listItemId;
+                                                if (likeDisplay) {
+                                                    $("#" + likebuttonid).text('Like');
+                                                }
+                                                else {
+                                                    $("#" + likebuttonid).text('Unlike');
+                                                }
+                                                var htmlstring = String(likesCountInfo);
+                                                var htmlstring1 = String(likesCountInfo);
+                                                if (likesCountInfo > 0)
+                                                {
+                                                    $("#" + likecountid).html(htmlstring)
+                                                }
+                                                else
+                                                {
+                                                        $("#" + likecountid).html(htmlstring1);
+                                                } 
+								},
+								error: function (error) {
+									CCI_Common.LogException(_spPageContextInfo.userId,'Newscarousel', _spPageContextInfo.siteAbsoluteUrl,JSON.stringify(error));
+    						    }
+				});
+		},
+		error: function (data, errorCode, errorMessage) {
+			
+		}
+            });
+});
+
+
+var showNews = false;
+var dtPublished = new Date(strPublished);
+var dtToday = new Date();
+    if(dtPublished < dtToday)
+    {
+	    if(strExpires != "")
+	    {
+		    dtExpires = new Date(strExpires);
+		    if(dtExpires > dtToday)
+		    {
+			    showNews = true;
+		    }
+	    }
+	    else
+	    {
+		    showNews = true;
+	    }
+    }
+    if(showNews)
+    {
+
+      if(isNational.toString()=="No"){
+     
+
+    if (UserLocationListValue.toString().indexOf(userLocationUserProfile) >= 0)
+    { 
+        if(ctx.isLocationCount < 2)
+	    {
+		
+		    ctx.isLocationCount++;
+
+_#-->
+
+        <div class="slide" data-displaytemplate="ItemSlidePicture">
+            <div class="row">
+                <div class="col-md-7 col-sm-7 col-xs-12">
+                    <div style="float: left; padding: 0px;" class="slideimage">
+                        <!--#_
+                    if(isSuppressLearnMore.toString()=="No")
+                    { 
+                        if(isHideLearnMore.toString()=="No")
+                        { _#-->
+                        <!--#_
+                      if( LinkURL1.indexOf(strInternalUrl) !=-1 )
+                    { _#-->
+                        <a href="_#= commonurl =#_" title="_#= title =#_">
+                            <img src="_#= pictureURL =#_" alt="_#= title =#_" class="img-responsive" />
+                        </a>
+                        <!--#_ }
+                        else{ _#-->
+                        <a href="_#= commonurl =#_" title="_#= title =#_" target="_blank">
+                            <img src="_#= pictureURL =#_" alt="_#= title =#_" class="img-responsive" />
+                        </a>
+                        <!--#_ } 
+                         }
+                            else { _#-->
+                            <img src="_#= pictureURL =#_" alt="_#= title =#_" class="img-responsive" />
+                         <!--#_   } 
+                            } 
+                    else { _#-->
+                        <img src="_#= pictureURL =#_" alt="_#= title =#_" class="img-responsive" />
+                        <!--#_ } _#-->
+						<div class="slide_like">								
+							<a class="likecount" id="CarouselNewslikecount_#= listitemid.value =#_"></a>
+							<a href="#" class="like" onclick="javascript: LikePage('_#= line9.value =#_', '_#= listitemid.value =#_','CarouselNews')">
+								<i class='fa fa-thumbs-up'></i>
+								<a href="#" class="LikeButton" id="CarouselNewslikebutton_#= listitemid.value =#_" style="display:none;"></a>
+							</a>							
+						</div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                    <div class="slidecontent">
+                        <div class="caption_dis">
+                            <p style="font-size: 20px;color: #2757A7;font-weight: bold;margin: 0 0 10px;">_#= strTrimmedTitle =#_</p>
+                        </div>
+                        <div class="caption_dis">
+                            <p>_#= strTrimmedDesc  =#_ </p>
+                        </div>
+                        <div class="LikeSection">							
+                            <!--#_
+                         if(isSuppressLearnMore.toString()=="No")
+                        { 
+                            if(isHideLearnMore.toString()=="No")
+                            { _#-->
+                            <span style="float: right;">
+                                <!--#_
+                             if( LinkURL1.indexOf(strInternalUrl) !=-1 )
+                                  { _#-->
+                                    <a href="_#= commonurl =#_" style="#005495"> _#= learnmoretitle =#_  </a>
+                                <!--#_ }
+                                else{ _#-->
+                                    <a href="_#= commonurl =#_" target="_blank" style="#005495"> _#= learnmoretitle =#_  </a>
+                                 <!--#_ }  _#-->
+                            </span>
+                            <!--#_ } 
+                                } _#-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--#_
+        }
+
+    }
+            }
+    else
+    {
+     if(isNational.toString()=="Yes"){
+            
+        if(ctx.isNationalCount < 5)
+        {
+        ctx.isNationalCount++;
+        _#-->
+
+        <div class="slide" data-displaytemplate="ItemSlidePicture">
+            <div class="row">
+                <div class="col-md-7 col-sm-7 col-xs-12">
+                    <div style="float: left; padding: 0px;" class="slideimage">
+                        <!--#_
+                    if(isSuppressLearnMore.toString()=="No")
+                    {
+                        if(isHideLearnMore.toString()=="No")
+                        { _#-->
+                        <!--#_
+                      if( LinkURL1.indexOf(strInternalUrl) !=-1 )
+                    { _#-->
+                        <a href="_#= commonurl =#_" title="_#= title =#_">
+                            <img src="_#= pictureURL =#_" alt="_#= title =#_" class="img-responsive" />
+                        </a>
+                        <!--#_ }
+                    else{ _#-->
+                        <a href="_#= commonurl =#_" title="_#= title =#_" target="_blank">
+                            <img src="_#= pictureURL =#_" alt="_#= title =#_" class="img-responsive" />
+                        </a>
+                        <!--#_ }
+                     }
+                        else { _#-->
+                        <img src="_#= pictureURL =#_" alt="_#= title =#_" class="img-responsive" />
+                        <!--#_   }
+                            }
+                    else { _#-->
+                        <img src="_#= pictureURL =#_" alt="_#= title =#_" class="img-responsive" />
+                        <!--#_ } _#-->
+						<div class="slide_like">	
+							<a class="likecount" id="CarouselNewslikecount_#= listitemid.value =#_"></a>
+							<a href="#" class="like" onclick="javascript: LikePage('_#= line9.value =#_', '_#= listitemid.value =#_','CarouselNews')">
+								<i class='fa fa-thumbs-up'></i>
+								<a href="#" class="LikeButton" id="CarouselNewslikebutton_#= listitemid.value =#_" style="display:none;"></a>
+							</a>							
+						</div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                    <div class="slidecontent">
+                        <div class="caption_dis">
+                            <p style="font-size: 20px;color: #2757A7;font-weight: bold;margin: 0 0 10px;">_#= strTrimmedTitle =#_</p>
+                        </div>
+                        <div class="caption_dis">
+                            <p>_#= strTrimmedDesc  =#_ </p>
+                        </div>
+                        <div class="LikeSection">                            
+                            <!--#_
+                         if(isSuppressLearnMore.toString()=="No")
+                        {
+                            if(isHideLearnMore.toString()=="No")
+                            { _#-->
+                            <span style="float: right;">
+                                <!--#_
+                                if( LinkURL1.indexOf(strInternalUrl) !=-1 )
+                                     { _#-->
+                                        <a href="_#= commonurl =#_" style="#005495"> _#= learnmoretitle =#_  </a>
+                                        <!--#_ }
+                                else{ _#-->
+                                    <a href="_#= commonurl =#_" target="_blank" style="#005495"> _#= learnmoretitle =#_   </a>
+                                    <!--#_ }  _#-->
+                            </span>
+                            <!--#_ }
+                            } _#-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--#_
+        }
+       }
+        }
+    }
+    _#-->
+
+</div>
+</body>
+</html>

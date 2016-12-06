@@ -1,0 +1,61 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>COXONE Item Banner</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:MasterPageDescription msdt:dt="string">Displays a result tailored for a picture.</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#SearchResults;#Content Web Parts;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:ManagedPropertyMapping msdt:dt="string">&#39;Title&#39;:&#39;Title&#39;,&#39;Path&#39;:&#39;Path&#39;,&#39;Description&#39;:&#39;Description&#39;,&#39;PictureURL&#39;:&#39;PictureURL&#39;, &#39;LearnMoreURL&#39;:&#39;LearnMoreURL&#39;, ,&#39;ItemtID&#39;:&#39;ItemID&#39;,'LearnMoreTitle':'LearnMoreTitle','Line 9'{Line 9}:'ListId' </mso:ManagedPropertyMapping>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://mod223137.sharepoint.com/sites/coxone/_catalogs/masterpage/Display Templates/Search/Item_COXONE_Banner.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    <div id="Item_SlideImage">
+<!--#_
+var siteURL = SP.PageContextInfo.get_siteServerRelativeUrl();
+var linkURL = $getItemValue(ctx, "Path");
+linkURL.overrideValueRenderer($urlHtmlEncode);
+var title = $getItemValue(ctx, "Title");
+var pictureURL = $getItemValue(ctx, "PictureURL");
+var learnmore = $getItemValue(ctx, "CCIImageLinkURL");
+var RenditionpictureURL = pictureURL + "?RenditionID=12"
+
+var commonurl="";
+
+if(!learnmore.isEmpty){	
+	commonurl =learnmore;
+} 
+else{
+	commonurl= "";
+}
+
+
+ _#-->
+
+		
+ <div class="slide" data-displaytemplate="ItemSlidePicture">
+    <div class="row">
+        		    
+			<div style="float: none; padding: 0px;" class="slideimage">
+			        <a href="_#= commonurl =#_" title="_#= title =#_" target="_blank">
+				        <img src="_#= RenditionpictureURL =#_" alt="_#= title =#_" class="img-responsive" />
+			        </a>
+
+                	</div>
+              
+         
+       
+	</div>
+ </div>
+	</div>
+</body>
+</html>
+

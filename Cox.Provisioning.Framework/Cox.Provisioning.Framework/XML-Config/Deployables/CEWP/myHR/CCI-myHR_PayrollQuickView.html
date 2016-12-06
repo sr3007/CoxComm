@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Payroll Quick View</title>
+    <script data-require="angular.js@1.5.9" data-semver="1.5.9" src="https://code.angularjs.org/1.5.8/angular.js"></script>
+    <script type="text/ecmascript" src="https://mod223137.sharepoint.com/sites/coxone/SiteAssets/COXOne/js/CCI-myHR_PayrollQuickView.js"></script>
+</head>
+
+<body data-ng-app="myHRPayrollQuickView" data-ng-cloak>
+    <div id="page" data-ng-controller="ctrlmyHRPayrollQuickView">
+        <div class="inner_pages my_workspace">
+            <div class="container main_warpper">
+                <div class="panel panel-default custom-box-warp mobile-custom-space paycheck-wrap  clearfix">
+                    <h2 class="panel-title mob_accordian">Paycheck Quick View</h2>
+                    <div class="content_row box_accordian clearfix">
+                        <div class="row" data-ng-repeat="item in itemDetails | orderBy: 'Position'">
+                            <div ng-if="$even">
+                                <div class="col-sm-6">
+                                    <div class="paycheck-inner">
+                                        <a target="_blank" href="{{itemDetails[$index].LinkUrl}}"><span class="icon_img"><i class={{itemDetails[$index].ImageUrl}}></i></span></a>
+                                        <a target="_blank" href="{{itemDetails[$index].LinkUrl}}"><h3>{{itemDetails[$index].Title}}</h3></a>
+                                        <p>{{itemDetails[$index].Description}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="paycheck-inner">
+                                        <a target="_blank" href="{{itemDetails[$index+1].LinkUrl}}"><span class="icon_img"><i class={{itemDetails[$index+1].ImageUrl}}></i></span></a>
+                                        <a target="_blank" href="{{itemDetails[$index+1].LinkUrl}}"><h3>{{itemDetails[$index+1].Title}}</h3></a>
+                                        <p>{{itemDetails[$index+1].Description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="payroll-wrap">
+                                    <p>Next Payday - 8/1/16</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="payroll-wrap">
+                                    <p>Payroll Center</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
+  <pnp:Preferences Generator="OfficeDevPnP.Core, Version=2.6.1608.0, Culture=neutral, PublicKeyToken=3751622786b357c2">
+    <!--<pnp:Parameters>
+      <pnp:Parameter Key="O365TenantName"></pnp:Parameter>
+      <pnp:Parameter Key="NewSiteCollectionUrlName"></pnp:Parameter>
+      <pnp:Parameter Key="CodeProvidedParam" Required="true"/>
+      <pnp:Parameter Key="YammerNetwork">cox.com</pnp:Parameter>
+      <pnp:Parameter Key="lcid">1033</pnp:Parameter>
+      <pnp:Parameter Key="CompanyName">COX Inc.</pnp:Parameter>
+      <pnp:Parameter Key="sitecollectiontermstoreid"></pnp:Parameter>
+      <pnp:Parameter Key="AdminUserNameID"></pnp:Parameter>
+      <pnp:Parameter Key="BaseCoxSiteColumnGroup"></pnp:Parameter>
+      <pnp:Parameter Key="SourceID">http://schemas.microsoft.com/sharepoint/v3</pnp:Parameter>
+    </pnp:Parameters>-->
+  </pnp:Preferences>
+  <pnp:Templates ID="Governance-TEMPLATES">
+    <pnp:ProvisioningTemplate ID="COXOneTemplate-Governance" Version="1">
+      <!--<pnp:Features>
+        <pnp:WebFeatures>
+          <pnp:Feature ID="94c94ca6-b32f-4da9-a9e3-1f3d343d7ecb" />
+        </pnp:WebFeatures>
+      </pnp:Features>-->
+      <pnp:Lists>
+        <pnp:ListInstance Title="SubsiteRequests" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/SubsiteRequests" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="AllItems" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="Lists/SubsiteRequests/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="SiteName" />
+                <FieldRef Name="SiteUrl" />
+                <FieldRef Name="TemplateFileName" />
+                <FieldRef Name="TemplateID" />
+                <FieldRef Name="RequestorEmail" />
+                <FieldRef Name="Status" />
+                <FieldRef Name="SiteBaseUrl" />
+                <FieldRef Name="Description" />
+                <FieldRef Name="StatusMessage" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <Aggregations Value="Off" />
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field Type="Text" DisplayName="SiteName" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{155ed0c4-bf3a-41df-b47c-cfc29d21974c}" StaticName="SiteName" Name="SiteName" ColName="nvarchar3" RowOrdinal="0" Version="1" />
+            <Field Type="Text" DisplayName="SiteUrl" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{f0ed99ae-23c2-4d7b-b9f7-51009e89001c}" StaticName="SiteUrl" Name="SiteUrl" ColName="nvarchar3" RowOrdinal="0" Version="1" />
+            <Field Type="Text" DisplayName="TemplateFileName" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{94491638-5841-4cee-8379-dd0d03bc8d71}" StaticName="TemplateFileName" Name="TemplateFileName" ColName="nvarchar3" RowOrdinal="0" Version="1" />
+            <Field Type="Text" DisplayName="TemplateID" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{58fc1391-6fd3-46a2-863e-6e847dfa874d}" StaticName="TemplateID" Name="TemplateID" ColName="nvarchar3" RowOrdinal="0" Version="1" />
+            <Field Type="Text" DisplayName="RequestorEmail" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{16bd72c3-2ddb-44a7-be7e-24036aab2634}" StaticName="RequestorEmail" Name="RequestorEmail" ColName="nvarchar3" RowOrdinal="0" Version="1" />
+            <Field Type="Text" DisplayName="Status" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{4a3c951e-c2ee-44f6-a7c8-5db6b9e721b2}" StaticName="Status" Name="Status" ColName="nvarchar3" RowOrdinal="0" Version="1" />
+            <Field Type="Text" DisplayName="SiteBaseUrl" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{2c1a56f9-1778-46ce-9909-0258b5d900e0}" StaticName="SiteBaseUrl" Name="SiteBaseUrl" ColName="nvarchar3" RowOrdinal="0" Version="1" />
+            <Field Type="Note" DisplayName="Description" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="4" RichText="FALSE" RichTextMode="Compatible" IsolateStyles="FALSE" Sortable="FALSE" ID="{b5d7c0d3-96fd-45bd-a381-7cf5eb6fbb13}" StaticName="Description" Name="Description" ColName="ntext3" RowOrdinal="0" Version="2" RestrictedMode="TRUE" AppendOnly="FALSE" />
+            <Field Type="Note" DisplayName="StatusMessage" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="8" RichText="FALSE" RichTextMode="Compatible" IsolateStyles="FALSE" Sortable="FALSE" ID="{268eb49f-0341-4bf4-9c9a-095177827912}" StaticName="StatusMessage" Name="StatusMessage" ColName="ntext3" RowOrdinal="0" Version="2" RestrictedMode="TRUE" AppendOnly="FALSE" />
+          </pnp:Fields>
+        </pnp:ListInstance>
+      </pnp:Lists>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

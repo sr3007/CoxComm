@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html ng-app="appNotifications">
+<head>
+    <script data-require="angular.js@1.5.9" data-semver="1.5.9" src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.8/angular-sanitize.min.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+    <script type="text/javascript">
+        document.write("<script type='text/javascript' src='" + _spPageContextInfo.siteAbsoluteUrl + "/Style%20Library/coxone/js/slides.min.jquery.js'><" + "/script>");
+        document.write("<script type='text/javascript' src='" + _spPageContextInfo.siteAbsoluteUrl + "/SiteAssets/CoxOne/js/CCI-Notifications.js'><" + "/script>");
+    </script>
+    <script type="text/javascript">
+	$(document).ready(function () {
+	 /*	$('.cross_warp .fa-times').on('click', function () {
+			$(this).parents('.panel').css('display', 'none');
+			$('#Hometoggle.row').css('margin-top', '10px');
+		});
+                  $("#cross_warp").click(function(){
+                       $(this).parents('.panel').css('display', 'none');
+			           $('#Hometoggle.row').css('margin-top', '10px');
+                 });*/
+	});
+    </script>
+    <style>
+        .ms-webpart-zone {
+            background: transparent !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="CoxOneNotifications" data-ng-controller="ctrlNotifications">
+        <div class="panel panel-default note-slider note-image-slider" data-ng-if="DisplayNotifications">
+            <div class="container">
+                <div class="note-slides">
+                    <div>
+                        <div class="slides_container">
+                            <div data-ng-repeat="eachNotification in Notifications | orderBy : 'Rank'">
+                                <div id="Item_SlideImage">
+                                    <div class="slide">
+                                        <div class="row custom_space top_news_close_wrp">
+                                            <div class="col-sm-12 box_warp">
+                                                <div class="panel panel-default custom-box-warp clearfix top_news_box">
+                                                    <span id="dlgTitleBtns" class="ms-dlgTitleBtns">
+                                                        <a href="" ng-click="openNotifications()" data-ng-if="CanIManageLists">
+                                                            <span style="color:#085799;">
+                                                                <img ng-src="{{ImgGearUrl}}" alt="Edit Notifications" />
+                                                            </span>
+                                                        </a>
+                                                        <a id="DlgClosed0eef6fc-af20-493f-88f8-a0d0715c6709" title="Close dialog" href="" ng-click="cancel()" accesskey="C">
+                                                            <span style="padding:8px;height:16px;width:16px;display:inline-block; margin-top:-10px;">
+                                                                <span style="height:16px;width:16px;position:relative;display:inline-block;overflow:hidden;" class="s4-clust">
+                                                                    <img src="/_layouts/15/images/fgimg.png?rev=44" alt="Close dialog" style="left:-0px !important;top:-645px !important;position:absolute;" class="ms-dlgCloseBtnImg">
+                                                                </span>
+                                                            </span>
+                                                        </a>
+                                                    </span>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="left_icon_bx top_newes_slider">
+                                                                    <span class="icon_img date_calender">
+                                                                        <img alt="{{eachNotification.Title}}" ng-src="{{eachNotification.Image}}" style="BORDER: 0px solid; width:60px; height:70px; ">
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="left_icon_bx top_newes_slider">
+                                                                    <h3>{{eachNotification.Title}}</h3>
+                                                                    <div ng-bind-html="getBodyContent(eachNotification.Body)"></div>
+                                                                    <div data-ng-if="NotificationsCount > 1">
+                                                                        <div class="pagingwarp" style="text-align: center; ">{{currentItem}} of <span>{{NotificationsCount}}</span></div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <!-- <div class="col-sm-12">
+                                                        <ul class="left_icon_bx top_newes_slider">
+                                                            <li>
+                                                                <span class="icon_img date_calender">
+                                                                    <img alt="{{eachNotification.Title}}" ng-src="{{eachNotification.Image}}" style="BORDER: 0px solid; width:60px; height:70px; ">
+                                                                </span>
+                                                                <h3>{{eachNotification.Title}}</h3>
+                                                                <div ng-bind-html="getBodyContent(eachNotification.Body)"></div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-12" data-ng-if="NotificationsCount > 1">
+                                                        <div class="pagingwarp" style="text-align: center; ">{{currentItem}} of <span>{{NotificationsCount}}</span></div>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" style="width:20px;" class="prev" data-ng-if="NotificationsCount > 1"><i class="fa fa-angle-left" style="font-size: 40px; color:#BBB"></i></a>
+                    <a href="#" style="width:20px;" class="next" data-ng-if="NotificationsCount > 1"><i class="fa fa-angle-right" style="font-size: 40px; color:#BBB"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+

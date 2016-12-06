@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html ng-app="appNotifications">
+<head>
+    <script data-require="angular.js@1.5.9" data-semver="1.5.9" src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.8/angular-sanitize.min.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+   
+ <!--   <script>
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = _spPageContextInfo.siteAbsoluteUrl + "/Style%20Library/coxone/js/slides.min.jquery.js"
+
+        document.getElementsByTagName('head')[0].appendChild(script);
+    </script>
+
+    <script>
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = _spPageContextInfo.siteAbsoluteUrl + "/SiteAssets/CoxOne/js/CCI-Notifications.js"
+
+        document.getElementsByTagName('head')[1].appendChild(script);
+    </script>
+    <script src="../Style%20Library/coxone/js/slides.min.jquery.js"></script>
+    <script src="../SiteAssets/CoxOne/js/CCI-Notifications.js"></script>-->
+    <script type="text/javascript">
+        document.write("<script type='text/javascript' src='" + _spPageContextInfo.siteAbsoluteUrl + "/Style%20Library/coxone/js/slides.min.jquery.js'><" + "/script>");
+        document.write("<script type='text/javascript' src='" + _spPageContextInfo.siteAbsoluteUrl + "/SiteAssets/CoxOne/js/CCI-Notifications.js'><" + "/script>");
+    </script>
+
+    <style>
+        .ms-webpart-zone {
+            background: transparent !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+    <div class="note-slider" id="note-image-slider" data-ng-controller="ctrlNotifications">
+        <div class="container" data-ng-if="DisplayNotifications">
+            <div class="note-slides">
+
+                <div class="slides_container" data-ng-repeat="eachNotification in Notifications">
+                    <div id="Item_SlideImage">
+                        <div class="slide">
+                            <div class="row custom_space top_news_close_wrp">
+                                <div class="col-sm-12 box_warp">
+                                    <div class="panel panel-default custom-box-warp clearfix top_news_box">
+                                        <div class="cross_warp"><i class="fa fa-times" aria-hidden="true"></i></div>
+                                        <div class="col-sm-12">
+                                            <ul class="left_icon_bx top_newes_slider">
+                                                <li>
+                                                    <span class="icon_img date_calender">
+                                                        <img alt="{{eachNotification.Title}}" src="{{eachNotification.Image}}" style="BORDER: 0px solid; ">
+                                                    </span>
+                                                    <h3>{{eachNotification.Title}}</h3>
+                                                    <p><div ng-bind-html="getBodyContent(eachNotification.Body)"></div></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12" data-ng-if="NotificationsCount > 1">
+                                            <div class="pagingwarp" style="text-align: center; ">{{currentItem}} of <span>{{NotificationsCount}}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="prev" data-ng-if="NotificationsCount > 1"><i class="fa fa-angle-left" style="font-size: 40px; color:#BBB"></i></a>
+                <a href="#" class="next" data-ng-if="NotificationsCount > 1"><i class="fa fa-angle-right" style="font-size: 40px; color:#BBB"></i></a>                
+            </div>
+        </div>
+        <div class="inner_pages my_workspace" data-ng-if="DisplayNotifications == false">
+            <div class="panel panel-default custom-box-warp mobile-custom-space paycheck-wrap clearfix">
+                <center><h3>Not Available</h3></center>
+            </div>
+        </div>
+    </div>
+    -->
+    <div data-ng-controller="ctrlNotifications">
+        <div class="note-slider note-image-slider" data-ng-if="DisplayNotifications">
+            <div class="container">
+                <div class="note-slides">
+                    <div>
+                        <div class="slides_container">
+                            <div data-ng-repeat="eachNotification in Notifications | orderBy : 'Rank'">
+                                <div id="Item_SlideImage">
+                                    <div class="slide">
+                                        <div class="row custom_space top_news_close_wrp">
+                                            <div class="col-sm-12 box_warp">
+                                                <div class="panel panel-default custom-box-warp clearfix top_news_box">
+                                                    <div class="cross_warp"><i class="fa fa-times" aria-hidden="true"></i></div>
+                                                    <div class="col-sm-12">
+                                                        <ul class="left_icon_bx top_newes_slider">
+                                                            <li>
+                                                                <span class="icon_img date_calender">
+                                                                    <img alt="{{eachNotification.Title}}" src="{{eachNotification.Image}}" style="BORDER: 0px solid; ">
+                                                                </span>
+                                                                <h3>{{eachNotification.Title}}</h3>
+                                                                <p><div ng-bind-html="getBodyContent(eachNotification.Body)"></div></p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-12" data-ng-if="NotificationsCount > 1">
+                                                        <div class="pagingwarp" style="text-align: center; ">{{currentItem}} of <span>{{NotificationsCount}}</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="prev" data-ng-if="NotificationsCount > 1"><i class="fa fa-angle-left" style="font-size: 40px; color:#BBB"></i></a>
+                    <a href="#" class="next" data-ng-if="NotificationsCount > 1"><i class="fa fa-angle-right" style="font-size: 40px; color:#BBB"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+<!--
+<script>
+    ExecuteOrDelayUntilBodyLoaded(loadScripts);
+    function loadScripts() {
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = _spPageContextInfo.siteAbsoluteUrl + "/Style%20Library/coxone/js/slides.min.jquery.js"
+
+        document.getElementsByTagName('head')[0].appendChild(script);
+
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = _spPageContextInfo.siteAbsoluteUrl + "/SiteAssets/CoxOne/js/CCI-Notifications.js"
+
+        document.getElementsByTagName('head')[0].appendChild(script);
+    }
+</script>
+
+
+    -->
+
+
+
+

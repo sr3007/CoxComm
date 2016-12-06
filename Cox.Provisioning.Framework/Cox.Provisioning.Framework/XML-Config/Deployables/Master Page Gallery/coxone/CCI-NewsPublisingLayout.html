@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--SPG:
+
+This HTML file has been associated with a SharePoint Page Layout (.aspx file) carrying the same name.  While the files remain associated, you will not be allowed to edit the .aspx file, and any rename, move, or deletion operations will be reciprocated.
+
+To build the page layout directly from this HTML file, simply fill in the contents of content placeholders.  Use the Snippet Generator at https://mod174499.sharepoint.com/sites/CoxOne/_layouts/15/ComponentHome.aspx?Url=https%3A%2F%2Fmod174499%2Esharepoint%2Ecom%2Fsites%2FCoxOne%2F%5Fcatalogs%2Fmasterpage%2FCCI%2DNewsPublisingLayout%2Easpx to create and customize additional content placeholders and other useful SharePoint entities, then copy and paste them as HTML snippets into your HTML code.   All updates to this file within content placeholders will automatically sync to the associated page layout.
+
+-->
+<!-- _lcid="1033" _version="16.0.5708" _dal="1" -->
+<!-- _LocalBinding -->
+<!--SPM:<%@Master language="C#"%>-->
+<!--SPM:<%@ Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>-->
+<!--SPM:<%@ Register Tagprefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>-->
+<!--SPM:<%@ Import Namespace="Microsoft.SharePoint" %>-->
+<!--SPM:<%@ Assembly Name="Microsoft.Web.CommandUI, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>-->
+<!--SPM:<%@ Import Namespace="Microsoft.SharePoint.ApplicationPages" %>-->
+<!--SPM:<%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>-->
+<!--SPM:<%@ Register TagPrefix="wssuc" TagName="Welcome" src="~/_controltemplates/15/Welcome.ascx" %>-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" []>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head runat="server">
+    <!--MS:<asp:ContentPlaceHolder id="PlaceHolderPageTitle" runat="server">-->
+    <!--ME:</asp:ContentPlaceHolder>-->
+    <link href="https://mod174499.sharepoint.com/_layouts/15/1033/styles/corev15.css" type="text/css" rel="stylesheet" />
+    <link href="https://mod174499.sharepoint.com/_layouts/15/1033/styles/searchv15.css" type="text/css" rel="stylesheet" />
+    <!--MS:<asp:ContentPlaceHolder id="PlaceHolderAdditionalPageHead" runat="server">-->
+    <!--CS: Start Edit Mode Panel Snippet-->
+    <!--SPM:<%@Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+    <!--SPM:<%@Register Tagprefix="Publishing" Namespace="Microsoft.SharePoint.Publishing.WebControls" Assembly="Microsoft.SharePoint.Publishing, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+    <!--MS:<Publishing:EditModePanel runat="server" id="editmodestyles">-->
+    <!--MS:<SharePoint:CssRegistration name="&#60;% $SPUrl:~sitecollection/Style Library/~language/Themable/Core Styles/editmode15.css %&#62;" After="&#60;% $SPUrl:~sitecollection/Style Library/~language/Themable/Core Styles/pagelayouts15.css %&#62;" runat="server">-->
+    <!--ME:</SharePoint:CssRegistration>-->
+    <!--ME:</Publishing:EditModePanel>-->
+    <!--MS:<style type="text/css">-->
+    <!--
+    .editmode .ms-formfieldvaluecontainer {border: none;margin-bottom: 0px;max-width: 412px;}
+    .editmode .ms-formfieldvaluecontainer input[type=text] {height: 10px;}
+    .editmode .edit-mode-panel,.editmode #s4-workspace{background:#fff;}
+    .editmode .edit-mode-panel div.ms-rte-border-field {margin: 0px 5px;padding: 5px;border: 1px solid #ccc !important;border-radius: 5px;min-height: 100px;width: 400px;}
+    .editmode .edit-mode-panel .ms-rtestate-field p {margin-bottom: 0px;}
+    .editmode .edit-mode-panel .ms-rtestate-field p:last-child {margin-bottom: 10px;}
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{color: rgb(53, 53, 55);}
+    .editmode .edit-mode-panel h3.ms-standardheader.Abstract {margin-top: 10px;}
+    .editmode .edit-mode-panel .ms-taxonomy .ms-taxonomy-browser-button{    margin-right: 30px;}
+    .editmode .edit-mode-panel> table h3.section-Header {padding-top: 30px;font-size: 20px;font-weight: 700;}
+    .editmode .edit-mode-panel [data-name="EditModePanelShowInRead"] .panel:first-child {padding: 10px;}
+    .editmode .TitleInput .ms-formfieldvaluecontainer input[type=text] {width: 386px;}
+    .editmode .edit-mode-panel .Thumbnail .ms-formfieldvaluecontainer.ms-rte-border-field {border: 0 !important;min-height: auto;margin-left: 0px;padding-left: 0px;width: 412px;}
+    .editmode .edit-mode-panel .Thumbnail .ms-formfieldvaluecontainer.ms-rte-border-field img {max-width: 411px !important;padding-left: 1px;}
+    .editmode .edit-mode-panel .Thumbnail span[id*=RichImageField]>div {text-align: left;}
+    .editmode .edit-mode-panel .Thumbnail span[id*=RichImageField]>div a {color: #008DCD;margin-left: 1px;}
+    .editmode .edit-mode-panel .Thumbnail span.ms-formvalidation {margin-left: 5px;}
+    .editmode .edit-mode-panel tr.LearnLink + tr + tr span[id*="DateTimeField"] {color: #bf0000;}
+    .editmode .edit-mode-panel td .ms-formfieldcontainer {float: left;}
+    .editmode .edit-mode-panel i.fa.fa-info-circle {color: #ccc;font-size: 20px;margin-top: 5px;}
+    .editmode .edit-mode-panel .Learn input[type=text], .LearnLink input[type=text] {width: 384px;}
+    .editmode .edit-mode-panel .LearnLink td:last-child>h3 {float: left;margin-top: 8px;margin-right: 10px;}
+    .editmode .edit-mode-panel input[id*=DateTimeFieldDate] {padding: 12px;width: 140px;}
+    .editmode .edit-mode-panel .ms-standardheader{font-size: 13px;}
+    .editmode .edit-mode-panel .Comments h3{margin-top:35px;font-size: 13px;}
+    .editmode .edit-mode-panel .Comments td>div {margin-top: 20px;}
+    .editmode .edit-mode-panel tr.Thumbnail td:first-child h3 {margin-top: 10px;}
+    .editmode .edit-mode-panel i.fa.fa-star {font-weight: bold; color: #a80000;}
+    .fa-star:before{content: ' *';}
+    #Newsarticle .col-md-9>.panel {padding: 10px;}
+    .article_bo .ms-formfieldcontainer {PADDING: 5px 0px;}
+    .ms-formfieldvaluecontainer{padding: 5px;}
+    .ms-formfieldcontainer br{display:none;}
+    .editmode .edit-mode-panel td a {position: relative;display: inline;cursor:pointer;}
+    .editmode .edit-mode-panel td a span {position: absolute;color: #FFFFFF;background: #0B346E;min-height: 30px;line-height: 20px;text-align: center;visibility: hidden;border-radius: 6px;box-shadow: 3px 4px 3px #DDDDDD;min-width: 200px;padding: 5px;}
+    .editmode .edit-mode-panel td a span:after {content: '';position: absolute;top: 36%;right: 100%;margin-left: -8px;width: 0;height: 0;border-right: 8px solid #0B346E;border-top: 8px solid transparent;border-bottom: 8px solid transparent;}
+    .editmode .edit-mode-panel td a:hover span {visibility: visible;opacity: 1;top: 50%;left: 100%;margin-left: 9px;z-index: 999;margin-top: -30px;}
+    .editmode .edit-mode-panel .article_bo td a:hover span {display: none;}
+    tr.Departments td:nth-child(2)>div>div {width: 450px;}
+    .article_bo h3.ms-standardheader {margin-top: 13px;}
+    .edit-mode-panel tr.Tags td h3, .edit-mode-panel tr.Tags td>div {margin-top: 20px;}
+    -->
+    <!--ME: </style>-->
+    <!--CE: End Edit Mode Panel Snippet-->
+    <!--ME:</asp:ContentPlaceHolder>-->
+    <style type="text/css">
+        //<![CDATA[ .ms-core-animation-transparent {
+            opacity: 0;
+        }
+
+        .ms-isBot .ms-core-animation-transparent {
+            opacity: 1;
+        }
+
+        //]] >
+    </style>
+    <script type="text/javascript">
+//<![CDATA[
+        var g_pageLoadAnimationParams = { elementSlideIn : "sideNavBox", elementSlideInPhase2 : "contentBox" };
+
+
+        //]]>
+    </script>
+    <link href="https://mod174499.sharepoint.com/_layouts/15/1033/styles/Themable/oslo.css" type="text/css" rel="stylesheet" />
+    <!--[if gte mso 9]><xml>
+    <mso:CustomDocumentProperties>
+    <mso:ContentPlaceHolderHashPlaceHolderMain msdt:dt="string">1</mso:ContentPlaceHolderHashPlaceHolderMain>
+    <mso:HtmlDesignStatusAndPreview msdt:dt="string">https://mod174499.sharepoint.com/sites/CoxOne/_catalogs/masterpage/CCI-NewsPublisingLayout.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+    <mso:ContentTypeId msdt:dt="string">0x01010007FF3E057FA8AB4AA42FCB67B453FFC100E214EEE741181F4E9F7ACC43278EE8110003D357F861E29844953D5CAA1D4D8A3B</mso:ContentTypeId>
+    <mso:ContentPlaceHolderHashPlaceHolderAdditionalPageHead msdt:dt="string">1</mso:ContentPlaceHolderHashPlaceHolderAdditionalPageHead>
+    <mso:HtmlDesignFromMaster msdt:dt="string">https://mod174499.sharepoint.com/sites/CoxOne/_catalogs/masterpage/oslo.html, https://mod174499.sharepoint.com/sites/CoxOne/_catalogs/masterpage/oslo.html</mso:HtmlDesignFromMaster>
+    <mso:PublishingAssociatedContentType msdt:dt="string">;#CCI-News;#0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF3900242457EFB8B24247815D688C526CD44D003E057F0689E932429BB7A82D37FB5154;#</mso:PublishingAssociatedContentType>
+    <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+    <mso:ContentPlaceHolderChangedPlaceHolderPageTitle msdt:dt="string">True</mso:ContentPlaceHolderChangedPlaceHolderPageTitle>
+    <mso:ContentPlaceHolderChangedPlaceHolderSiteName msdt:dt="string">True</mso:ContentPlaceHolderChangedPlaceHolderSiteName>
+    <mso:ContentPlaceHolderHashPlaceHolderFormDigest msdt:dt="string">1833940137</mso:ContentPlaceHolderHashPlaceHolderFormDigest>
+    <mso:ContentPlaceHolderChangedPlaceHolderAdditionalPageHead msdt:dt="string">True</mso:ContentPlaceHolderChangedPlaceHolderAdditionalPageHead>
+    <mso:ContentPlaceHolderChangedPlaceHolderMain msdt:dt="string">True</mso:ContentPlaceHolderChangedPlaceHolderMain>
+    <mso:ContentPlaceHolderChangedPlaceHolderFormDigest msdt:dt="string">True</mso:ContentPlaceHolderChangedPlaceHolderFormDigest>
+    <mso:ContentPlaceHolderHashPlaceHolderPageTitleInTitleArea msdt:dt="string">1246097457</mso:ContentPlaceHolderHashPlaceHolderPageTitleInTitleArea>
+    <mso:ContentPlaceHolderChangedPlaceHolderSearchArea msdt:dt="string">True</mso:ContentPlaceHolderChangedPlaceHolderSearchArea>
+    <mso:ContentPlaceHolderHashPlaceHolderLeftNavBar msdt:dt="string">1257334571</mso:ContentPlaceHolderHashPlaceHolderLeftNavBar>
+    <mso:ContentPlaceHolderHashPlaceHolderSearchArea msdt:dt="string">50717157</mso:ContentPlaceHolderHashPlaceHolderSearchArea>
+    <mso:ContentPlaceHolderChangedPlaceHolderLeftNavBar msdt:dt="string">True</mso:ContentPlaceHolderChangedPlaceHolderLeftNavBar>
+    <mso:ContentPlaceHolderHashPlaceHolderPageTitle msdt:dt="string">-2000245934</mso:ContentPlaceHolderHashPlaceHolderPageTitle>
+    <mso:ContentPlaceHolderHashPlaceHolderSiteName msdt:dt="string">1042386704</mso:ContentPlaceHolderHashPlaceHolderSiteName>
+    <mso:ContentPlaceHolderChangedPlaceHolderPageTitleInTitleArea msdt:dt="string">True</mso:ContentPlaceHolderChangedPlaceHolderPageTitleInTitleArea>
+    <mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+    <mso:ContentPlaceHolderHashPlaceHolderLeftActions msdt:dt="string">1058275813</mso:ContentPlaceHolderHashPlaceHolderLeftActions>
+    <mso:ContentPlaceHolderHashPlaceHolderQuickLaunchBottom msdt:dt="string">-2103894998</mso:ContentPlaceHolderHashPlaceHolderQuickLaunchBottom>
+    <mso:ContentPlaceHolderChangedPlaceHolderLeftActions msdt:dt="string">True</mso:ContentPlaceHolderChangedPlaceHolderLeftActions>
+    <mso:ContentPlaceHolderChangedPlaceHolderQuickLaunchBottom msdt:dt="string">True</mso:ContentPlaceHolderChangedPlaceHolderQuickLaunchBottom>
+    <mso:ContentPlaceHolderHashPlaceHolderCalendarNavigator msdt:dt="string">-519894250</mso:ContentPlaceHolderHashPlaceHolderCalendarNavigator>
+    <mso:ContentPlaceHolderChangedPlaceHolderQuickLaunchTop msdt:dt="string">True</mso:ContentPlaceHolderChangedPlaceHolderQuickLaunchTop>
+    <mso:ContentPlaceHolderChangedPlaceHolderLeftNavBarDataSource msdt:dt="string">True</mso:ContentPlaceHolderChangedPlaceHolderLeftNavBarDataSource>
+    <mso:ContentPlaceHolderHashPlaceHolderQuickLaunchTop msdt:dt="string">-1851688272</mso:ContentPlaceHolderHashPlaceHolderQuickLaunchTop>
+    <mso:ContentPlaceHolderChangedPlaceHolderCalendarNavigator msdt:dt="string">True</mso:ContentPlaceHolderChangedPlaceHolderCalendarNavigator>
+    <mso:ContentPlaceHolderChangedPlaceHolderLeftNavBarTop msdt:dt="string">True</mso:ContentPlaceHolderChangedPlaceHolderLeftNavBarTop>
+    <mso:ContentPlaceHolderHashPlaceHolderLeftNavBarDataSource msdt:dt="string">-2002793775</mso:ContentPlaceHolderHashPlaceHolderLeftNavBarDataSource>
+    <mso:ContentPlaceHolderHashPlaceHolderLeftNavBarTop msdt:dt="string">-2030005069</mso:ContentPlaceHolderHashPlaceHolderLeftNavBarTop>
+    <mso:PublishingPreviewImage msdt:dt="string"></mso:PublishingPreviewImage>
+    <mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+    <mso:MasterPageDescription msdt:dt="string"></mso:MasterPageDescription>
+    <mso:PublishingAssociatedVariations msdt:dt="string"></mso:PublishingAssociatedVariations>
+    <mso:PublishingHidden msdt:dt="string">0</mso:PublishingHidden>
+    </mso:CustomDocumentProperties>
+    </xml><![endif]-->
+    <title>CCI-NewsPublisingLayout </title>
+
+</head>
+<body>
+    <script type="text/javascript">
+//<![CDATA[ var submitHook = function () { return false; }; theForm._spOldSubmit = theForm.submit; theForm.submit = function () { if (!submitHook()) { this._spOldSubmit(); } };
+
+        //]]>
+    </script>
+    <!--MS:<asp:ContentPlaceHolder id="PlaceHolderSiteName" runat="server">-->
+    <!--SPM:<SharePoint:SPLinkButton runat="server" NavigateUrl="~site/" id="onetidProjectPropertyTitle1">-->
+    <!--SPM:<SharePoint:ProjectProperty Property="Title" runat="server"/>-->
+    <!--PS: Start of READ-ONLY PREVIEW (do not modify)-->Default Publishing Site<!--PE: End of READ-ONLY PREVIEW-->
+    <!--SPM:</SharePoint:SPLinkButton>-->
+    <!--ME:</asp:ContentPlaceHolder>-->
+    <!--MS:<asp:ContentPlaceHolder id="PlaceHolderSearchArea" runat="server">-->
+    <div id="searchInputBox">
+        <!--SPM:<SharePoint:DelegateControl runat="server" ControlId="SmallSearchInputBox"/>-->
+        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div class="ms-webpart-chrome "><div WebPartID="00000000-0000-0000-0000-000000000000" HasPers="true" id="WebPart" width="100%" class="ms-WPBody noindex " OnlyForMePart="true" allowDelete="false" style=""><div componentid="ctl00_SmallSearchInputBox1_csr" id="ctl00_SmallSearchInputBox1_csr"><div id="SearchBox" name="Control"><div class="ms-srch-sb ms-srch-sb-border" id="ctl00_SmallSearchInputBox1_csr_sboxdiv"><input type="text" value="Search This Site..." maxlength="2048" accessKey="S" title="Search This Site..." id="ctl00_SmallSearchInputBox1_csr_sbox" autocomplete="off" autocorrect="off" class="ms-srch-sb-prompt ms-helperText" /><a title="Search" class="ms-srch-sb-searchLink" id="ctl00_SmallSearchInputBox1_csr_SearchLink" href="javascript: {}"><img src="https://mod174499.sharepoint.com/_layouts/15/images/searchresultui.png" class="ms-srch-sb-searchImg" id="searchImg" alt="Search" /></a></div></div></div><div componentid="ctl00_SmallSearchInputBox1_csr" id="ctl00_SmallSearchInputBox1_csr"></div><div id="ctl00_SmallSearchInputBox1"></div><div class="ms-clear"></div></div></div><!--PE: End of READ-ONLY PREVIEW-->
+    </div>
+    <!--ME:</asp:ContentPlaceHolder>-->
+    <!--MS:<asp:ContentPlaceHolder id="PlaceHolderLeftNavBar" Visible="true" runat="server">-->
+    <!--MS:<asp:ContentPlaceHolder id="PlaceHolderLeftNavBarTop" Visible="true" runat="server">-->
+    <!--ME:</asp:ContentPlaceHolder>-->
+    <!--MS:<asp:ContentPlaceHolder id="PlaceHolderQuickLaunchTop" Visible="true" runat="server">-->
+    <!--ME:</asp:ContentPlaceHolder>-->
+    <!--MS:<asp:ContentPlaceHolder id="PlaceHolderLeftNavBarDataSource" Visible="true" runat="server">-->
+    <!--ME:</asp:ContentPlaceHolder>-->
+    <!--MS:<asp:ContentPlaceHolder id="PlaceHolderCalendarNavigator" Visible="true" runat="server">-->
+    <!--ME:</asp:ContentPlaceHolder>-->
+    <!--MS:<asp:ContentPlaceHolder id="PlaceHolderLeftActions" Visible="true" runat="server">-->
+    <!--ME:</asp:ContentPlaceHolder>-->
+    <!--MS:<asp:ContentPlaceHolder id="PlaceHolderQuickLaunchBottom" Visible="true" runat="server">-->
+    <!--ME:</asp:ContentPlaceHolder>-->
+    <!--ME:</asp:ContentPlaceHolder>-->
+    <!--MS:<asp:ContentPlaceHolder id="PlaceHolderPageTitleInTitleArea" runat="server">-->
+    <!--SPM:<SharePoint:SPTitleBreadcrumb runat="server" RenderCurrentNodeAsLink="true" SiteMapProvider="SPContentMapProvider" WelcomePageUsesWebTitle="false">-->
+    <!--SPM:<PATHSEPARATORTEMPLATE>-->
+    <!--SPM:<SharePoint:ClusteredDirectionalSeparatorArrow runat="server"/>-->
+    <!--SPM:</PATHSEPARATORTEMPLATE>-->
+    <!--SPM:</SharePoint:SPTitleBreadcrumb>-->
+    <script>
+//<![CDATA[
+						var currentUser;
+						var userGroups;
+
+			            $(document).ready(function(){
+			            //some code
+			            //alert('JQuery Loaded!!!');
+							CheckCurrentUserMembership();
+							//alert(CCI_Common.GetConfig('COXONENationalGroup'));
+							//alert($('input[title="Title"]').val());
+//							$('input[title="CCI-NewsHeadLine Required Field"]').val($('input[title="Title"]').val());
+							$('input[title*="HeadLine"]').val($('input[title="Title"]').val());
+							$('input[title*="Title"]').parentsUntil('tbody').hide();
+							$('input[title*="HeadLine"]').on('input', function() {
+								var dInput = this.value;
+								$('input[title*="Title"]').val(dInput);
+							});
+							$('.ms-formfieldlabelcontainer').hide();
+							$('.ms-formdescription').hide();
+							$('input[title="Description"]').hide();
+
+							$('#Headline').html(CCI_Common.GetConfig('NewsArticleHeadlineHelp'));
+							$('#Byline').html(CCI_Common.GetConfig('NewsArticleBylineHelp'));
+							$('#Thumbnail').html(CCI_Common.GetConfig('NewsArticleThumbnailHelp'));
+							$('#Abstract').html(CCI_Common.GetConfig('NewsArticleAbstractHelp'));
+							$('#LearnMoreLink').html(CCI_Common.GetConfig('NewsArticleLearnMoreLinkHelp'));
+							$('#LearnMoreLinkText').html(CCI_Common.GetConfig('NewsArticleLearnMoreLinkTextHelp'));
+							$('#InternalComments').html(CCI_Common.GetConfig('NewsArticleInternalCommentsHelp'));
+							$('#SupressTrending').html(CCI_Common.GetConfig('NewsArticleSupressTrendingHelp'));
+							$(".LearnLink, .LearnLink [valign='top'], .LearnLink #divLinkText, .LearnLink .ms-formfieldcontainer, .LearnLink .ms-formfieldvaluecontainer, .LearnLink .ms-formfieldvaluecontainer>span").removeAttr('style');
+			            });
+
+function CheckCurrentUserMembership() {
+
+    var clientContext = new SP.ClientContext.get_current();
+    currentUser = clientContext.get_web().get_currentUser();
+    clientContext.load(this.currentUser);
+
+    userGroups = this.currentUser.get_groups();
+    clientContext.load(this.userGroups);
+    clientContext.executeQueryAsync(OnQuerySucceeded);
+}
+
+function OnQuerySucceeded() {
+         var isMember = 'Not Member';
+         var groupsEnumerator = userGroups.getEnumerator();
+          while (groupsEnumerator.moveNext()) {
+             var group= groupsEnumerator.get_current();
+             if(group.get_title() == CCI_Common.GetConfig('COXONELocalGroup')) {
+                 isMember = 'Local';
+                 break;
+             }
+             if(group.get_title() == CCI_Common.GetConfig('COXONENationalGroup')) {
+                 isMember = 'National';
+                 break;
+             }
+          }
+
+          OnResult(isMember);
+}
+
+function OnQueryFailed() {
+          OnResult('Failed.');
+}
+
+function OnResult(result)
+{
+//alert(result);
+if(result === 'Local')
+{
+$('#divTypeNational').hide();
+}
+/*
+if(result === 'National')
+{
+$("#divTypeNational").on("click",function(event) {
+    var target = $(event.target);
+    //if (target.is('input:checkbox')) return;
+
+    var checkbox = $(this).find("input[type='checkbox']");
+	if(checkbox.prop("checked"))
+	{
+		$('#divLocations').hide();
+		$('#divLocationLable').hide();
+	}
+	else
+	{
+		$('#divLocations').show();
+		$('#divLocationLable').show();
+	}
+});
+}
+*/
+}
+			//]]>
+    </script>
+
+    <!--ME:</asp:ContentPlaceHolder>-->
+    <!--MS:<asp:ContentPlaceHolder ID="PlaceHolderMain" runat="server">-->
+    <div data-name="EditModePanelShowInEdit">
+        <!--CS: Start Edit Mode Panel Snippet-->
+        <!--SPM:<%@Register Tagprefix="Publishing" Namespace="Microsoft.SharePoint.Publishing.WebControls" Assembly="Microsoft.SharePoint.Publishing, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+        <!--MS:<Publishing:EditModePanel runat="server" CssClass="edit-mode-panel">-->
+        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><!--PE: End of READ-ONLY PREVIEW-->
+
+        <table border="0" cellspacing="0">
+            <tr>
+                <td colspan="2"><div class="ms-formfieldlabel"><h2>News Article</h2></div></td>
+            </tr>
+            <tr>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Title</nobr>
+                    </H3>
+                </td>
+                <td valign="top" class="TitleInput" colspan="5">
+                    <div>
+                        <!--CS: Start Page Field: Title Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldTextField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldTextField:TextField FieldName="fa564e0f-0c70-4ab9-b863-0177e6ddd247" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">Title</span></div><div class="ms-formfieldvaluecontainer">Title field value.</div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldTextField:TextField>-->
+                        <!--CE: End Page Field: Title Snippet-->
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Headline</nobr>
+                        <sup><i class="fa fa-star" aria-hidden="true"></i></sup>
+                    </H3>
+                </td>
+                <td class="TitleInput" colspan="5">
+                    <div>
+                        <!--CS: Start Page Field: CCI-NewsHeadLine Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldTextField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldTextField:TextField FieldName="c8140bca-e410-4786-b922-89edbc3ad65b" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-NewsHeadLine</span></div><div class="ms-formfieldvaluecontainer">CCI-NewsHeadLine field value. </div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldTextField:TextField>-->
+                        <!--CE: End Page Field: CCI-NewsHeadLine Snippet-->
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Byline</nobr>
+                    </H3>
+                </td>
+                <td colspan="5">
+                    <div>
+                        <!--CS: Start Page Field: CCI-Byline Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldTextField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldTextField:TextField FieldName="bdd70c7d-0b79-4999-9ec9-0e3fd8300e77" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-Byline</span></div><div class="ms-formfieldvaluecontainer">CCI-Byline field value.</div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldTextField:TextField>-->
+                        <!--CE: End Page Field: CCI-Byline Snippet-->
+                        <a><i class="fa fa-info-circle" aria-hidden="true"></i><span id="Byline"></span></a>
+                    </div>
+                </td>
+            </tr>
+            <tr class="article_bo">
+                <td valign="top">
+                    <H3 class="ms-standardheader">
+                        <nobr>Article Body</nobr>
+                        <sup><i class="fa fa-star" aria-hidden="true"></i></sup>
+                    </H3>
+                </td>
+                <td valign="top" colspan="5">
+                    <div>
+                        <!--CS: Start Page Field: Page Content Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldRichHtmlField" Namespace="Microsoft.SharePoint.Publishing.WebControls" Assembly="Microsoft.SharePoint.Publishing, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldRichHtmlField:RichHtmlField FieldName="f55c4d88-1f2e-4ad9-aaa8-819af4ee7ee8" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div id="ctl02_label" style="display:none">Article Body</div><div id="ctl02__ControlWrapper_RichHtmlField" class="ms-rtestate-field" style="display:inline" aria-labelledby="ctl02_label"><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">Article Body</span></div><div class="ms-formfieldvaluecontainer"><div class="ms-rtestate-field">Page Content field value. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div></div></div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldRichHtmlField:RichHtmlField>-->
+                        <!--CE: End Page Field: Page Content Snippet-->
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6"><h3 class="section-Header">Summary Information</h3></td>
+            </tr>
+            <tr class="Thumbnail">
+                <td valign="top">
+                    <H3 class="ms-standardheader">
+                        <nobr>Thumbnail</nobr>
+                        <sup><i class="fa fa-star" aria-hidden="true"></i></sup>
+                    </H3>
+                </td>
+                <td valign="top" colspan="5">
+                    <div>
+                        <!--CS: Start Page Field: CCI-NewsArticleImage Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldRichImageField" Namespace="Microsoft.SharePoint.Publishing.WebControls" Assembly="Microsoft.SharePoint.Publishing, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldRichImageField:RichImageField FieldName="1cf5d76e-d117-4e0c-b46a-9d8ae4803768" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div id="ctl02_label" style="display:none">CCI-NewsArticleImage</div><div id="ctl02__ControlWrapper_RichImageField" class="ms-rtestate-field" style="display:inline" aria-labelledby="ctl02_label"><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-NewsArticleImage</span></div><div class="ms-formfieldvaluecontainer"><div class="ms-rtestate-field"><img alt="" src="/_layouts/images/home.gif" style="BORDER: px solid; " /></div></div></div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldRichImageField:RichImageField>-->
+                        <!--CE: End Page Field: CCI-NewsArticleImage Snippet-->
+                        <a><i class="fa fa-info-circle" aria-hidden="true"></i><span id="Thumbnail"></span></a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td valign="top">
+                    <H3 class="ms-standardheader Abstract">
+                        <nobr>Abstract</nobr>
+                        <sup><i class="fa fa-star" aria-hidden="true"></i></sup>
+                    </H3>
+                </td>
+                <td valign="top" colspan="5">
+                    <div>
+                        <!--CS: Start Page Field: Description Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldNoteField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldNoteField:NoteField FieldName="e357446e-3b91-4a35-8ef5-a1a5e06b71d2" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">Description</span></div><div class="ms-formfieldvaluecontainer">Description field value.</div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldNoteField:NoteField>-->
+                        <!--CE: End Page Field: Description Snippet-->
+                        <a><i class="fa fa-info-circle" aria-hidden="true"></i><span id="Abstract"></span></a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Feature In Carousel</nobr>
+                    </H3>
+                </td>
+                <td valign="top" colspan="5">
+                    <div>
+                        <!--CS: Start Page Field: CCI-FeaturedArticle Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldBooleanField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldBooleanField:BooleanField FieldName="d5789c5a-f497-4edd-97d1-4089212ffb09" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-FeaturedArticle</span></div><div class="ms-formfieldvaluecontainer">Yes</div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldBooleanField:BooleanField>-->
+                        <!--CE: End Page Field: CCI-FeaturedArticle Snippet-->
+                    </div>
+                </td>
+            </tr>
+            <tr class="Learn">
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Learn More Link</nobr>
+                    </H3>
+                </td>
+                <td valign="top" colspan="5">
+                    <div>
+                        <!--CS: Start Page Field: CCI-LearnMoreLink Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldUrlField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldUrlField:UrlField FieldName="0c32169c-9d28-4525-b4a0-35ddf5fc58c0" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-LearnMoreLink</span></div><div class="ms-formfieldvaluecontainer"><a href="http://www.example.com">Link to sample web site.</a></div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldUrlField:UrlField>-->
+                        <!--CE: End Page Field: CCI-LearnMoreLink Snippet-->
+                        <a><i class="fa fa-info-circle" aria-hidden="true"></i><span id="LearnMoreLink"></span></a>
+                    </div>
+                </td>
+            </tr>
+            <tr class="LearnLink">
+                <td>
+                    <div id="divLinkTextLable">
+                        <H3 class="ms-standardheader">
+                            <nobr>Link Text For Carousel</nobr>
+                        </H3>
+                    </div>
+                </td>
+                <td valign="top" colspan="2">
+                    <div id="divLinkText">
+                        <!--CS: Start Page Field: CCI-LearnMoreTitle Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldTextField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldTextField:TextField FieldName="94807cbf-c474-474f-8102-7a7aceffb338" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-LearnMoreTitle</span></div><div class="ms-formfieldvaluecontainer">CCI-LearnMoreTitlefield value.</div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldTextField:TextField>-->
+                        <!--CE: End Page Field: CCI-LearnMoreTitle Snippet-->
+                        <a><i class="fa fa-info-circle" aria-hidden="true"></i><span id="LearnMoreLinkText"></span></a>
+                    </div>
+                </td>
+                <td colspan="2">
+                    <H3 class="ms-standardheader">
+                        <nobr>Hide Link Text From Carousel</nobr>
+                    </H3>
+                    <div id="divHideLearnMore">
+                        <!--CS: Start Page Field: CCI-HideLearnMore Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldBooleanField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldBooleanField:BooleanField FieldName="8d6c4a65-39c7-4553-a1f1-b30b53523850" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-HideLearnMore</span></div><div class="ms-formfieldvaluecontainer">Yes</div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldBooleanField:BooleanField>-->
+                        <!--CE: End Page Field: CCI-HideLearnMore Snippet-->
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="6"><h3 class="section-Header">Publishing Information</h3></td>
+            </tr>
+            <tr>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Publish On</nobr>
+                        <sup><i class="fa fa-star" aria-hidden="true"></i></sup>
+                    </H3>
+                </td>
+                <td>
+                    <div>
+                        <!--CS: Start Page Field: CCI-NewsPublishedDate Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldDateTimeField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldDateTimeField:DateTimeField FieldName="0dc5253a-fe8e-4fe9-8d1a-723357945f2c" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-NewsPublishedDate</span></div><div class="ms-formfieldvaluecontainer">11/11/2016</div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldDateTimeField:DateTimeField>-->
+                        <!--CE: End Page Field: CCI-NewsPublishedDate Snippet-->
+                    </div>
+                </td>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Expires On</nobr>
+                    </H3>
+                </td>
+                <td valign="top">
+                    <div>
+                        <!--CS: Start Page Field: CCI-ExpirationDate Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldDateTimeField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldDateTimeField:DateTimeField FieldName="9095f990-1e62-4d1a-8b29-335e6fcb7188" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-ExpirationDate</span></div><div class="ms-formfieldvaluecontainer">11/11/2016</div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldDateTimeField:DateTimeField>-->
+                        <!--CE: End Page Field: CCI-ExpirationDate Snippet-->
+                    </div>
+                </td>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <!--<nobr>Supress Learn More</nobr>-->
+                    </H3>
+                </td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Supress in Trending Articles</nobr>
+                    </H3>
+                </td>
+                <td>
+                    <div>
+                        <!--CS: Start Page Field: CCI-TrendingSuppression Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldBooleanField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldBooleanField:BooleanField FieldName="1e295712-fae7-4d63-b3d3-5c9bec649f18" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-TrendingSuppression</span></div><div class="ms-formfieldvaluecontainer">Yes</div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldBooleanField:BooleanField>-->
+                        <!--CE: End Page Field: CCI-TrendingSuppression Snippet-->
+                        <a><i class="fa fa-info-circle" aria-hidden="true"></i><span id="SupressTrending"></span></a>
+                    </div>
+                </td>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>National</nobr>
+                    </H3>
+                </td>
+                <td valign="top">
+                    <div id="divTypeNational">
+                        <!--CS: Start Page Field: CCI-TypeNational Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldBooleanField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldBooleanField:BooleanField FieldName="8b3494b0-72fc-46b2-ad9a-98711c756762" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-TypeNational</span></div><div class="ms-formfieldvaluecontainer">Yes</div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldBooleanField:BooleanField>-->
+                        <!--CE: End Page Field: CCI-TypeNational Snippet-->
+                    </div>
+                </td>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Do Not Archive</nobr>
+                    </H3>
+                </td>
+                <td valign="top">
+                    <div>
+                        <!--CS: Start Page Field: CCI-DoNotArchive Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldBooleanField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldBooleanField:BooleanField FieldName="eba68525-26a0-4c78-9146-7589c7a34162" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-DoNotArchive</span></div><div class="ms-formfieldvaluecontainer">Yes</div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldBooleanField:BooleanField>-->
+                        <!--CE: End Page Field: CCI-DoNotArchive Snippet-->
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <td colspan="6"><h3 class="section-Header">Tagging Information</h3></td>
+            </tr>
+            <tr>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Company</nobr>
+                    </H3>
+                </td>
+                <td>
+                    <div>
+                        <!--CS: Start Page Field: CCI-Companies Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldTaxonomyFieldControl" Namespace="Microsoft.SharePoint.Taxonomy" Assembly="Microsoft.SharePoint.Taxonomy, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldTaxonomyFieldControl:TaxonomyFieldControl FieldName="373ef8f5-fa2c-491e-bc74-d7f9fe066f59" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-Companies</span></div><div class="ms-formfieldvaluecontainer"></div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldTaxonomyFieldControl:TaxonomyFieldControl>-->
+                        <!--CE: End Page Field: CCI-Companies Snippet-->
+                    </div>
+                </td>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Divisions</nobr>
+                    </H3>
+                </td>
+                <td colspan="3">
+                    <div>
+                        <!--CS: Start Page Field: CCI-Division Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldTaxonomyFieldControl" Namespace="Microsoft.SharePoint.Taxonomy" Assembly="Microsoft.SharePoint.Taxonomy, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldTaxonomyFieldControl:TaxonomyFieldControl FieldName="0e0e4eb5-569f-4719-9cff-cf74bf85b973" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-Division</span></div><div class="ms-formfieldvaluecontainer"></div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldTaxonomyFieldControl:TaxonomyFieldControl>-->
+                        <!--CE: End Page Field: CCI-Division Snippet-->
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Product</nobr>
+                    </H3>
+                </td>
+                <td>
+                    <div>
+                        <!--CS: Start Page Field: CCI-Product Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldTaxonomyFieldControl" Namespace="Microsoft.SharePoint.Taxonomy" Assembly="Microsoft.SharePoint.Taxonomy, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldTaxonomyFieldControl:TaxonomyFieldControl FieldName="1fd9021c-93fa-4c39-8473-dc10663899cc" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-Product</span></div><div class="ms-formfieldvaluecontainer"></div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldTaxonomyFieldControl:TaxonomyFieldControl>-->
+                        <!--CE: End Page Field: CCI-Product Snippet-->
+                    </div>
+                </td>
+                <td>
+                    <div id="divLocationLable">
+                        <H3 class="ms-standardheader">
+                            <nobr>Locations</nobr>
+                        </H3>
+                    </div>
+                </td>
+                <td colspan="3">
+                    <div id="divLocations">
+                        <!--CS: Start Page Field: CCI-Locations Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldTaxonomyFieldControl" Namespace="Microsoft.SharePoint.Taxonomy" Assembly="Microsoft.SharePoint.Taxonomy, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldTaxonomyFieldControl:TaxonomyFieldControl FieldName="c2d96589-6611-42ba-b92a-c9c8867627f8" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-Locations</span></div><div class="ms-formfieldvaluecontainer"></div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldTaxonomyFieldControl:TaxonomyFieldControl>-->
+                        <!--CE: End Page Field: CCI-Locations Snippet-->
+                    </div>
+                </td>
+            </tr>
+            <tr class="Departments">
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Departments</nobr>
+                    </H3>
+                </td>
+                <td>
+                    <div>
+                        <!--CS: Start Page Field: CCI-Departments Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldTaxonomyFieldControl" Namespace="Microsoft.SharePoint.Taxonomy" Assembly="Microsoft.SharePoint.Taxonomy, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldTaxonomyFieldControl:TaxonomyFieldControl FieldName="5caa3bc0-78ef-4dee-94db-4dfa6173aa58" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-Departments</span></div><div class="ms-formfieldvaluecontainer"></div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldTaxonomyFieldControl:TaxonomyFieldControl>-->
+                        <!--CE: End Page Field: CCI-Departments Snippet-->
+                    </div>
+                </td>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Topics</nobr>
+                    </H3>
+                </td>
+                <td colspan="3">
+                    <div>
+                        <!--CS: Start Page Field: CCI-Topics Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldTaxonomyFieldControl" Namespace="Microsoft.SharePoint.Taxonomy" Assembly="Microsoft.SharePoint.Taxonomy, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldTaxonomyFieldControl:TaxonomyFieldControl FieldName="ee810cbf-661e-4d65-9d88-050b168eac08" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-Topics</span></div><div class="ms-formfieldvaluecontainer"></div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldTaxonomyFieldControl:TaxonomyFieldControl>-->
+                        <!--CE: End Page Field: CCI-Topics Snippet-->
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Industry News</nobr>
+                    </H3>
+                </td>
+                <td>
+                    <div>
+                        <!--CS: Start Page Field: CCI-Industry Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldTaxonomyFieldControl" Namespace="Microsoft.SharePoint.Taxonomy" Assembly="Microsoft.SharePoint.Taxonomy, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldTaxonomyFieldControl:TaxonomyFieldControl FieldName="7772ca5b-3ded-4944-90b6-008945581720" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-Industry</span></div><div class="ms-formfieldvaluecontainer"></div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldTaxonomyFieldControl:TaxonomyFieldControl>-->
+                        <!--CE: End Page Field: CCI-Industry Snippet-->
+                    </div>
+                </td>
+                <!--COE-->
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>COE</nobr>
+                    </H3>
+                </td>
+                <td colspan="3">
+                    <div>
+                        <!--CS: Start Page Field: CCI-COE Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldTaxonomyFieldControl" Namespace="Microsoft.SharePoint.Taxonomy" Assembly="Microsoft.SharePoint.Taxonomy, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldTaxonomyFieldControl:TaxonomyFieldControl FieldName="C4BA2AAB-00D1-496B-812A-5B3AF3DCB3FE" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-COE</span></div><div class="ms-formfieldvaluecontainer"></div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldTaxonomyFieldControl:TaxonomyFieldControl>-->
+                        <!--CE: End Page Field: CCI-COE Snippet-->
+                    </div>
+                </td>
+
+
+            </tr>
+            <tr class="Tags">
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Tags</nobr>
+                    </H3>
+                </td>
+                <td colspan="5">
+                    <div>
+                        <!--CS: Start Page Field: CCI-NewsTags Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldTaxonomyFieldControl" Namespace="Microsoft.SharePoint.Taxonomy" Assembly="Microsoft.SharePoint.Taxonomy, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldTaxonomyFieldControl:TaxonomyFieldControl FieldName="338bcb93-ee06-4f43-8cb3-e0be1e7056fd" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-NewsTags</span></div><div class="ms-formfieldvaluecontainer"></div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldTaxonomyFieldControl:TaxonomyFieldControl>-->
+                        <!--CE: End Page Field: CCI-NewsTags Snippet-->
+                    </div>
+                </td>
+            </tr>
+            <tr valign="top" class="Comments">
+                <td>
+                    <H3 class="ms-standardheader">
+                        <nobr>Internal Comments</nobr>
+                    </H3>
+                </td>
+                <td colspan="5">
+                    <div>
+                        <!--CS: Start Page Field: CCI-NewsComments Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldNoteField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldNoteField:NoteField FieldName="7b740403-8036-4d4d-9314-e7c0d46b776d" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-NewsComments</span></div><div class="ms-formfieldvaluecontainer">CCI-NewsCommentsfield value.</div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldNoteField:NoteField>-->
+                        <!--CE: End Page Field: CCI-NewsComments Snippet-->
+                    </div>
+                </td>
+            </tr>
+
+        </table>
+
+        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><!--PE: End of READ-ONLY PREVIEW-->
+        <!--ME:</Publishing:EditModePanel>-->
+        <!--CE: End Edit Mode Panel Snippet-->
+    </div>
+    <div data-name="EditModePanelShowInRead">
+        <!--CS: Start Edit Mode Panel Snippet-->
+        <!--SPM:<%@Register Tagprefix="Publishing" Namespace="Microsoft.SharePoint.Publishing.WebControls" Assembly="Microsoft.SharePoint.Publishing, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+        <!--MS:<Publishing:EditModePanel runat="server" PageDisplayMode="Display">-->
+        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><!--PE: End of READ-ONLY PREVIEW-->
+        <div class="row" id="Newsarticle">
+            <div class="col-md-9">
+                <div class="panel panel-default clearfix">
+                    <div class="row news_box top-new-box">
+                        <div class="box_accordian padd_comon">
+                            <div class="share_like_row">
+                                <div class="left_side">
+
+                                    <h3>
+                                        <div>
+                                            <!--CS: Start Page Field: CCI-NewsHeadLine Snippet-->
+                                            <!--SPM:<%@Register Tagprefix="PageFieldTextField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                                            <!--MS:<PageFieldTextField:TextField FieldName="c8140bca-e410-4786-b922-89edbc3ad65b" runat="server">-->
+                                            <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-NewsHeadLine</span></div><div class="ms-formfieldvaluecontainer">CCI-NewsHeadLine field value.</div></div><!--PE: End of READ-ONLY PREVIEW-->
+                                            <!--ME:</PageFieldTextField:TextField>-->
+                                            <!--CE: End Page Field: CCI-NewsHeadLine Snippet-->
+                                        </div>
+                                    </h3>
+                                    <div>
+                                        <h5>
+                                            <div>
+                                                <!--CS: Start Page Field: CCI-Byline Snippet-->
+                                                <!--SPM:<%@Register Tagprefix="PageFieldTextField" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                                                <!--MS:<PageFieldTextField:TextField FieldName="bdd70c7d-0b79-4999-9ec9-0e3fd8300e77" runat="server">-->
+                                                <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">CCI-Byline</span></div><div class="ms-formfieldvaluecontainer">CCI-Byline field value.</div></div><!--PE: End of READ-ONLY PREVIEW-->
+                                                <!--ME:</PageFieldTextField:TextField>-->
+                                                <!--CE: End Page Field: CCI-Byline Snippet-->
+                                            </div>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content_row">
+                                <p>
+                                    Here comes my content row!!!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <!--CS: Start Page Field: Page Content Snippet-->
+                        <!--SPM:<%@Register Tagprefix="PageFieldRichHtmlField" Namespace="Microsoft.SharePoint.Publishing.WebControls" Assembly="Microsoft.SharePoint.Publishing, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                        <!--MS:<PageFieldRichHtmlField:RichHtmlField FieldName="f55c4d88-1f2e-4ad9-aaa8-819af4ee7ee8" runat="server">-->
+                        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><div id="ctl02_label" style="display:none">Article Body</div><div id="ctl02__ControlWrapper_RichHtmlField" class="ms-rtestate-field" style="display:inline" aria-labelledby="ctl02_label"><div align="left" class="ms-formfieldcontainer"><div class="ms-formfieldlabelcontainer" nowrap="nowrap"><span class="ms-formfieldlabel" nowrap="nowrap">Article Body</span></div><div class="ms-formfieldvaluecontainer"><div class="ms-rtestate-field">Page Content field value. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div></div></div></div><!--PE: End of READ-ONLY PREVIEW-->
+                        <!--ME:</PageFieldRichHtmlField:RichHtmlField>-->
+                        <!--CE: End Page Field: Page Content Snippet-->
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="col-md-4">
+                <div class="panel panel-default clearfix">
+                    Recommended and
+                    Trending
+                </div>
+            </div>
+            -->
+        </div>
+        <!--PS: Start of READ-ONLY PREVIEW (do not modify)--><!--PE: End of READ-ONLY PREVIEW-->
+        <!--ME:</Publishing:EditModePanel>-->
+        <!--CE: End Edit Mode Panel Snippet-->
+    </div>
+    <!--ME:</asp:ContentPlaceHolder>-->
+    <!--MS:<asp:ContentPlaceHolder id="PlaceHolderFormDigest" runat="server">-->
+    <!--SPM:<SharePoint:FormDigest runat="server"/>-->
+    <!--ME:</asp:ContentPlaceHolder>-->
+</body>
+</html>

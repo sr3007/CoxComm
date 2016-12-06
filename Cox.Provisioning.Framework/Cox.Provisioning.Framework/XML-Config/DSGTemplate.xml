@@ -1,0 +1,265 @@
+﻿<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
+  <pnp:Preferences Generator="OfficeDevPnP.Core, Version=2.6.1608.0, Culture=neutral, PublicKeyToken=3751622786b357c2">
+    <pnp:Parameters>
+      <pnp:Parameter Key="O365TenantName"></pnp:Parameter>
+      <pnp:Parameter Key="NewSiteCollectionUrlName"></pnp:Parameter>
+      <pnp:Parameter Key="CodeProvidedParam" Required="true"/>
+      <pnp:Parameter Key="YammerNetwork">cox.com</pnp:Parameter>
+      <pnp:Parameter Key="lcid">1033</pnp:Parameter>
+      <pnp:Parameter Key="CompanyName">COX Inc.</pnp:Parameter>
+      <pnp:Parameter Key="sitecollectiontermstoreid"></pnp:Parameter>
+      <pnp:Parameter Key="AdminUserNameID"></pnp:Parameter>
+      <pnp:Parameter Key="BaseCoxSiteColumnGroup"></pnp:Parameter>
+      <pnp:Parameter Key="SourceID">http://schemas.microsoft.com/sharepoint/v3</pnp:Parameter>
+    </pnp:Parameters>
+  </pnp:Preferences>
+  <pnp:Templates ID="COXOne-Provisioning-TEMPLATES">
+    <pnp:ProvisioningTemplate ID="COXOneTemplate-DSG" Version="1">
+      <pnp:Features>
+        <pnp:WebFeatures>
+          <pnp:Feature ID="94c94ca6-b32f-4da9-a9e3-1f3d343d7ecb" />
+        </pnp:WebFeatures>
+      </pnp:Features>
+
+      <pnp:Lists>
+        <pnp:ListInstance Title="Config" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Config" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0100D8CF431C88E442BC91F39EF37560DB01" Default="true" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{19890023-5434-4254-BF9D-936C812F9A16}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/Config/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="Key" />
+                <FieldRef Name="Value" />
+                <FieldRef Name="Comments" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <Aggregations Value="Off" />
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field Type="Text" DisplayName="Key" Required="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{4F95A984-C1B3-4B52-86F4-38EF5E0B0324}" StaticName="Key" Name="Key" ColName="nvarchar3" RowOrdinal="0" Version="1" />
+            <Field Type="Text" DisplayName="Value" Required="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{C19FE9C7-6FE3-47E0-A100-FCFC7F5E8678}" StaticName="Value" Name="Value" ColName="nvarchar4" RowOrdinal="0" Version="1" />
+            <Field Type="Note" DisplayName="Comments" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="4" RichText="FALSE" RichTextMode="Compatible" IsolateStyles="FALSE" Sortable="FALSE" ID="{6F9662CD-7A8B-4CA7-9D93-537014A06564}" StaticName="Comments" Name="Comments" ColName="ntext3" RowOrdinal="0" Version="2" RestrictedMode="TRUE" AppendOnly="FALSE" />
+          </pnp:Fields>
+        </pnp:ListInstance>
+
+        <pnp:ListInstance Title="Dynamic Security Groups" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/DSG" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0100D8CF431C88E442BC91F39EF37560DB01" Default="true" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{290E8A9F-7CE2-4D0D-9740-4E6674C3B4C9}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/DSG/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=44">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="GroupName" />
+                <FieldRef Name="DSG" />
+                <FieldRef Name="SG" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <Aggregations Value="Off" />
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field Type="Text" DisplayName="GroupName" Required="TRUE" EnforceUniqueValues="FALSE" Indexed="FALSE" MaxLength="255" ID="{A44B9237-C34C-46C2-9878-CD1FC996A8F2}" StaticName="Key" Name="Key" ColName="nvarchar3" RowOrdinal="0" Version="1" />
+            <Field Type="Note" DisplayName="DSG" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="4" RichText="FALSE" RichTextMode="Compatible" IsolateStyles="FALSE" Sortable="FALSE" ID="{9D7B688B-9AD1-4D6A-B9C5-9CC912309D0A}" StaticName="Comments" Name="Comments" ColName="ntext3" RowOrdinal="0" Version="2" RestrictedMode="TRUE" AppendOnly="FALSE" />
+            <Field Type="Note" DisplayName="SG" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="4" RichText="FALSE" RichTextMode="Compatible" IsolateStyles="FALSE" Sortable="FALSE" ID="{3E95709B-4C2D-456A-9F1D-DE78CEA8D435}" StaticName="Comments" Name="Comments" ColName="ntext3" RowOrdinal="0" Version="2" RestrictedMode="TRUE" AppendOnly="FALSE" />
+          </pnp:Fields>
+        </pnp:ListInstance>
+
+        <pnp:ListInstance Title="Assets" Description="" DocumentTemplate="" TemplateType="101" Url="Lists/Assets" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00BFEA71-E717-4E80-AA17-D0C71B360101" >
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{F1F2DBFE-4242-4A68-9DB1-9C645C0F9B73}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Documents" Url="{site}/Assets/Forms/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/dlicon.png?rev=44">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="DocIcon" />
+                <FieldRef Name="LinkFilename" />
+                <FieldRef Name="Modified" />
+                <FieldRef Name="Editor" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <Aggregations Value="Off" />
+              <JSLink>clienttemplates.js</JSLink>
+              <XslLink Default="TRUE">main.xsl</XslLink>
+              <Toolbar Type="Standard" />
+            </View>
+          </pnp:Views>
+        </pnp:ListInstance>
+      </pnp:Lists>
+      
+      <pnp:Files>
+        <pnp:File Src="Deployables\Security\DSG\app.js" Folder="{site}/Assets/DSG" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\ngApp_NCO.html" Folder="{site}/Assets/DSG" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\Common\common.js" Folder="{site}/Assets/DSG/Common" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\Common\logging.js" Folder="{site}/Assets/DSG/Common" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\config\config.constants.js" Folder="{site}/Assets/DSG/config" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\config\config.js" Folder="{site}/Assets/DSG/config" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\config\config.peoplepicker.js" Folder="{site}/Assets/DSG/config" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\config\config.taxonomy.js" Folder="{site}/Assets/DSG/config" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\config\sp-peoplepicker.js" Folder="{site}/Assets/DSG/config" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\controllers\controllers.js" Folder="{site}/Assets/DSG/controllers" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\controllers\Security.js" Folder="{site}/Assets/DSG/controllers" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\fonts\glyphicons-halflings-regular.eot" Folder="{site}/Assets/DSG/fonts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\fonts\glyphicons-halflings-regular.svg" Folder="{site}/Assets/DSG/fonts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\fonts\glyphicons-halflings-regular.ttf" Folder="{site}/Assets/DSG/fonts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\fonts\glyphicons-halflings-regular.woff" Folder="{site}/Assets/DSG/fonts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\fonts\glyphicons-halflings-regular.woff2" Folder="{site}/Assets/DSG/fonts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\models\models.js" Folder="{site}/Assets/DSG/models" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\scripts\angular.min.js" Folder="{site}/Assets/DSG/scripts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\scripts\angular-resource.min.js" Folder="{site}/Assets/DSG/scripts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\scripts\angular-route.min.js" Folder="{site}/Assets/DSG/scripts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\scripts\angular-sanitize.min.js" Folder="{site}/Assets/DSG/scripts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\scripts\jquery-1.9.1.intellisense.js" Folder="{site}/Assets/DSG/scripts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\scripts\jquery-1.9.1.js" Folder="{site}/Assets/DSG/scripts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\scripts\jquery-1.9.1.min.js" Folder="{site}/Assets/DSG/scripts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\scripts\taxonomypickercontrol.js" Folder="{site}/Assets/DSG/scripts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\scripts\taxonomypickercontrol_resources.en.js" Folder="{site}/Assets/DSG/scripts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\scripts\ui-bootstrap.js" Folder="{site}/Assets/DSG/scripts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\scripts\ui-bootstrap.min.js" Folder="{site}/Assets/DSG/scripts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\styles\app.js" Folder="{site}/Assets/DSG/styles" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\styles\bootstrap.js" Folder="{site}/Assets/DSG/styles" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\styles\taxonomypickercontrol.js" Folder="{site}/Assets/DSG/styles" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\styles\Images\Close.png" Folder="{site}/Assets/DSG/styles/Images" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\styles\Images\EMMCopyTerm.png" Folder="{site}/Assets/DSG/styles/Images" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\styles\Images\EMMDoubleTag.png" Folder="{site}/Assets/DSG/styles/Images" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\styles\Images\EMMTerm.png" Folder="{site}/Assets/DSG/styles/Images" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\styles\Images\EMMTermSet.png" Folder="{site}/Assets/DSG/styles/Images" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\styles\Images\MDNCollapsed.png" Folder="{site}/Assets/DSG/styles/Images" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\styles\Images\MDNExpanded.png" Folder="{site}/Assets/DSG/styles/Images" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\styles\Images\MDNNo.png" Folder="{site}/Assets/DSG/styles/Images" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\DSG\styles\Images\menubuttonhover.gif" Folder="{site}/Assets/DSG/styles/Images" Overwrite="true" />
+
+        <pnp:File Src="Deployables\Security\SG\app.js" Folder="{site}/Assets/SG" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\SG\app.html" Folder="{site}/Assets/SG" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\SG\config\config.peoplepicker.js" Folder="{site}/Assets/SG/config" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\SG\controller\controllers.js" Folder="{site}/Assets/SG/controller" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\SG\controller\UserService.js" Folder="{site}/Assets/SG/controller" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\SG\fonts\glyphicons-halflings-regular.eot" Folder="{site}/Assets/SG/fonts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\SG\fonts\glyphicons-halflings-regular.svg" Folder="{site}/Assets/SG/fonts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\SG\fonts\glyphicons-halflings-regular.ttf" Folder="{site}/Assets/SG/fonts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\SG\fonts\glyphicons-halflings-regular.woff" Folder="{site}/Assets/SG/fonts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\SG\fonts\glyphicons-halflings-regular.woff2" Folder="{site}/Assets/SG/fonts" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\SG\styles\app.css" Folder="{site}/Assets/SG/styles" Overwrite="true" />
+        <pnp:File Src="Deployables\Security\SG\styles\bootstrap.css" Folder="{site}/Assets/SG/styles" Overwrite="true" />
+
+        <pnp:File Src="Deployables\Pages\DSG.aspx" Folder="{site}/Pages" Overwrite="true">
+          <pnp:Properties>
+            <pnp:Property Key="ContentTypeId" Value="{contenttypeid:System Page Layout}" />
+            <pnp:Property Key="Title" Value="Dynamic Security Groups" />
+            <pnp:Property Key="PublishingPageLayout" Value="{sitecollection}/_catalogs/masterpage/coxone/SinglecolumnLayout.aspx, {sitecollection}/_catalogs/masterpage/coxone/SinglecolumnLayout.aspx" />
+            <pnp:Property Key="PublishingIsFurlPage" Value="False" />
+            <pnp:Property Key="RobotsNoIndex" Value="False" />
+            <pnp:Property Key="BSN" Value="Microsoft.SharePoint.Client.FieldLookupValue" />
+          </pnp:Properties>
+          <pnp:WebParts>
+            <pnp:WebPart Title="DSG" Zone="x9853544536734a27966453d90fe94f87" Order="0">
+              <pnp:Contents>
+                <WebPart xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/WebPart/v2">
+                  <Title>DSG</Title>
+                  <FrameType>None</FrameType>
+                  <Description>Allows authors to enter rich text content.</Description>
+                  <IsIncluded>true</IsIncluded>
+                  <ZoneID>x9853544536734a27966453d90fe94f87</ZoneID>
+                  <PartOrder>0</PartOrder>
+                  <FrameState>Normal</FrameState>
+                  <Height />
+                  <Width />
+                  <AllowRemove>true</AllowRemove>
+                  <AllowZoneChange>true</AllowZoneChange>
+                  <AllowMinimize>true</AllowMinimize>
+                  <AllowConnect>true</AllowConnect>
+                  <AllowEdit>true</AllowEdit>
+                  <AllowHide>true</AllowHide>
+                  <IsVisible>true</IsVisible>
+                  <DetailLink />
+                  <HelpLink />
+                  <HelpMode>Modeless</HelpMode>
+                  <Dir>Default</Dir>
+                  <PartImageSmall />
+                  <MissingAssembly>Cannot import this Web Part.</MissingAssembly>
+                  <PartImageLarge>/_layouts/15/images/mscontl.gif</PartImageLarge>
+                  <IsIncludedFilter />
+                  <Assembly>Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c</Assembly>
+                  <TypeName>Microsoft.SharePoint.WebPartPages.ContentEditorWebPart</TypeName>
+                  <ContentLink xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor">../DSG/Assets/DSG/ngApp_NCO.html</ContentLink>
+                  <Content xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor" />
+                  <PartStorage xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor" />
+                </WebPart>
+              </pnp:Contents>
+            </pnp:WebPart>
+
+          </pnp:WebParts>
+        </pnp:File>
+
+        <pnp:File Src="Deployables\Pages\SG.aspx" Folder="{site}/Pages" Overwrite="true">
+          <pnp:Properties>
+            <pnp:Property Key="ContentTypeId" Value="{contenttypeid:System Page Layout}" />
+            <pnp:Property Key="Title" Value="Dynamic Security Groups" />
+            <pnp:Property Key="PublishingPageLayout" Value="{sitecollection}/_catalogs/masterpage/coxone/SinglecolumnLayout.aspx, {sitecollection}/_catalogs/masterpage/coxone/SinglecolumnLayout.aspx" />
+            <pnp:Property Key="PublishingIsFurlPage" Value="False" />
+            <pnp:Property Key="RobotsNoIndex" Value="False" />
+            <pnp:Property Key="BSN" Value="Microsoft.SharePoint.Client.FieldLookupValue" />
+          </pnp:Properties>
+          <pnp:WebParts>
+            <pnp:WebPart Title="DSG" Zone="x9853544536734a27966453d90fe94f87" Order="0">
+              <pnp:Contents>
+                <WebPart xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/WebPart/v2">
+                  <Title>SG</Title>
+                  <FrameType>None</FrameType>
+                  <Description>Allows authors to enter rich text content.</Description>
+                  <IsIncluded>true</IsIncluded>
+                  <ZoneID>x9853544536734a27966453d90fe94f87</ZoneID>
+                  <PartOrder>0</PartOrder>
+                  <FrameState>Normal</FrameState>
+                  <Height />
+                  <Width />
+                  <AllowRemove>true</AllowRemove>
+                  <AllowZoneChange>true</AllowZoneChange>
+                  <AllowMinimize>true</AllowMinimize>
+                  <AllowConnect>true</AllowConnect>
+                  <AllowEdit>true</AllowEdit>
+                  <AllowHide>true</AllowHide>
+                  <IsVisible>true</IsVisible>
+                  <DetailLink />
+                  <HelpLink />
+                  <HelpMode>Modeless</HelpMode>
+                  <Dir>Default</Dir>
+                  <PartImageSmall />
+                  <MissingAssembly>Cannot import this Web Part.</MissingAssembly>
+                  <PartImageLarge>/_layouts/15/images/mscontl.gif</PartImageLarge>
+                  <IsIncludedFilter />
+                  <Assembly>Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c</Assembly>
+                  <TypeName>Microsoft.SharePoint.WebPartPages.ContentEditorWebPart</TypeName>
+                  <ContentLink xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor">../DSG/Assets/SG/app.html</ContentLink>
+                  <Content xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor" />
+                  <PartStorage xmlns="http://schemas.microsoft.com/WebPart/v2/ContentEditor" />
+                </WebPart>
+              </pnp:Contents>
+            </pnp:WebPart>
+
+          </pnp:WebParts>
+        </pnp:File>
+        
+      </pnp:Files>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

@@ -1,0 +1,204 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>COXONE Item Carousel News</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:MasterPageDescription msdt:dt="string">Displays a result tailored for a picture.</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#SearchResults;#Content Web Parts;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:ManagedPropertyMapping msdt:dt="string">&#39;Title&#39;:&#39;Title&#39;,&#39;Path&#39;:&#39;Path&#39;,&#39;Description&#39;:&#39;Description&#39;,&#39;EditorOWSUSER&#39;:&#39;EditorOWSUSER&#39;,&#39;LastModifiedTime&#39;:&#39;LastModifiedTime&#39;,&#39;CollapsingStatus&#39;:&#39;CollapsingStatus&#39;,&#39;DocId&#39;:&#39;DocId&#39;,&#39;HitHighlightedSummary&#39;:&#39;HitHighlightedSummary&#39;,&#39;HitHighlightedProperties&#39;:&#39;HitHighlightedProperties&#39;,&#39;FileExtension&#39;:&#39;FileExtension&#39;,&#39;ViewsLifeTime&#39;:&#39;ViewsLifeTime&#39;,&#39;ParentLink&#39;:&#39;ParentLink&#39;,&#39;FileType&#39;:&#39;FileType&#39;,&#39;IsContainer&#39;:&#39;IsContainer&#39;,&#39;SecondaryFileExtension&#39;:&#39;SecondaryFileExtension&#39;,&#39;DisplayAuthor&#39;:&#39;DisplayAuthor&#39;,&#39;PictureHeight&#39;:&#39;PictureHeight&#39;,&#39;PictureWidth&#39;:&#39;PictureWidth&#39;,&#39;ImageDateCreated&#39;:&#39;ImageDateCreated&#39;,&#39;PictureThumbnailURL&#39;:&#39;PictureThumbnailURL&#39;,&#39;PictureURL&#39;:&#39;PictureURL&#39;, &#39;LikesCount&#39;:&#39;LikesCount&#39;, &#39;LearnMoreURL&#39;:&#39;LearnMoreURL&#39;, ,&#39;ItemtID&#39;:&#39;ItemID&#39;,'LearnMoreTitle':'LearnMoreTitle','Line 9'{Line 9}:'ListId' </mso:ManagedPropertyMapping>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://mod223137.sharepoint.com/sites/coxone/_catalogs/masterpage/Display Templates/Search/Item_COXONE_Carousel_News.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    <div id="Item_SlideImage">
+<!--#_
+var siteURL = SP.PageContextInfo.get_siteServerRelativeUrl();
+var linkURL = $getItemValue(ctx, "Path");
+linkURL.overrideValueRenderer($urlHtmlEncode);
+var title = $getItemValue(ctx, "Title");
+var description = $getItemValue(ctx, "Description");
+var pictureURL = $getItemValue(ctx, "PictureURL");
+var likeunlike = $getItemValue(ctx, "LikesCount");
+var learnmore = $getItemValue(ctx, "LearnMoreLink");
+var listitemid = $getItemValue(ctx, "ListItemID");
+var itemurl= siteURL+ "/pages/NewsArticle.aspx?ListItemID=" + listitemid;
+var RenditionpictureURL = pictureURL + "?RenditionID=8"
+var learnmoretitle = $getItemValue(ctx, "LearnMoreTitle");
+var line9 = $getItemValue(ctx, "Line 9");
+line9.overrideValueRenderer($contentLineText);
+
+var commonurl="";
+
+
+var strTrimmedTitle = "";
+var strTrimmedDesc = "";
+
+if(!title.isEmpty)
+{
+if (title.toString().length > 60) {
+	strTrimmedTitle = title.toString().substring(0,60) + "...";
+}
+else {
+	strTrimmedTitle = title;
+}
+}
+
+if(!description.isEmpty)
+{
+if (description.toString().length > 60) {
+	strTrimmedDesc = description.toString().substring(0,60) + "...";
+}
+else {
+	strTrimmedDesc = description;
+}
+}
+
+
+if(!learnmore.isEmpty){	
+	commonurl =learnmore;
+} 
+else{
+	commonurl= itemurl;
+}
+
+
+
+AddPostRenderCallback(ctx, function(){
+                var listGuid;
+                var listItemId;
+                listGuid = line9.value;
+                listItemId = listitemid.value;
+    //alert(itemId);
+    $.ajax({
+		url: _spPageContextInfo.webAbsoluteUrl + "/_api/contextinfo",
+		type: "POST",
+		headers: { "Accept": "application/json; odata=verbose"},
+		success: function (data) {
+			$('#__REQUESTDIGEST').val(data.d.GetContextWebInformation.FormDigestValue);
+			
+	        var restUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetById('" + listGuid + "')/GetItems(query=@v1)?@v1={\"ViewXml\":\"<View><Query><Where><Eq><FieldRef Name='ID'/><Value Type='Counter'>" + listItemId + "</Value></Eq></Where></Query><RowLimit>1</RowLimit></View>\"}";
+
+			$.ajax(
+				{
+					url: restUrl,
+					type: "POST",
+					headers: {
+						"Accept": "application/json; odata=verbose",
+						"X-RequestDigest": $("#__REQUESTDIGEST").val()
+					},
+						success: function (data) {
+									if (data.d.results.length > 0)
+									{
+                                        var likeDisplay = true;
+                                        var result = '';
+                                        var likesCountInfo = 0;
+										$.each(data.d.results, function (index, item) {
+											if(item.LikedByStringId != null)
+                                            {
+                                                likesCountInfo = item.LikesCount;
+                                                var members = item.LikedByStringId.results;
+                                                if (members != null) {
+                                                    for (i = 0; i < members.length; i++) {
+                                                        var member = members[i];
+                                                        if(parseInt(member) === _spPageContextInfo.userId)
+                                                            likeDisplay = false;
+                                                    }
+                                                }
+                                            }
+										});
+
+                                        var likebuttonid = "CarouselNewslikebutton" + listItemId;
+                                        var likecountid = "CarouselNewslikecount" + listItemId;
+                                        
+                                        if (likeDisplay) {
+                                            $("#" + likebuttonid).text('Like');
+                                        }
+                                        else {
+                                            $("#" + likebuttonid).text('Unlike');
+                                        }
+
+                                        var htmlstring = "(" + String(likesCountInfo) + ") " + "<i class='fa fa-thumbs-up'></i>";
+                                        var htmlstring1 = "(" + String(likesCountInfo) + ") " + "<i class='fa fa-thumbs-up'></i>";
+                                        if (likesCountInfo > 0)
+                                        {
+                                            $("#" + likecountid).html(htmlstring)
+                                        }
+                                        else
+                                        {
+                                                $("#" + likecountid).html(htmlstring1);
+                                        }
+									}
+									
+								},
+								error: function (error) {
+									alert(JSON.stringify(error));
+								}
+				});
+		},
+		error: function (data, errorCode, errorMessage) {
+			alert(errorMessage)
+		}
+            });
+});
+
+
+ _#-->
+
+		
+ <div class="slide" data-displaytemplate="ItemSlidePicture">
+    <div class="row">
+        <div class="col-md-8 col-xs-12">
+			   <div style="float: left; padding: 0px;" class="slideimage">
+			        <a href="_#= commonurl =#_" title="_#= title =#_" target="_blank">
+				        <img src="_#= RenditionpictureURL =#_" alt="_#= title =#_" class="img-responsive" />
+			        </a>
+                </div>
+        </div> 
+        <div class="col-md-4 col-xs-12">
+            <div class="slidecontent">			
+			    <div class="caption_dis">
+				    <p style="font-size: 18px;color: #353537;font-weight: bold;margin: 0 0 10px;">_#= strTrimmedTitle =#_</p>
+					
+<!-- 					<div class="LikeSection visible-xs-block">
+                         <a href="#" class="like">
+                             <span class="likecount" id="CarouselNewslikecount_#= listitemid.value =#_" onclick="javascript: LikePage('_#= line9.value =#_', '_#= listitemid.value =#_', 					'CarouselNews')">
+							 </span>
+                             <a href="#" id="CarouselNewslikebutton_#= listitemid.value =#_" class="LikeButton" style="display:none;"></a>
+                         </a>
+                    </div> -->
+			    </div> 			
+			    <div class="caption_dis">
+				    <p>_#= strTrimmedDesc  =#_ </p>
+			    </div> 
+
+ 			<div class="LikeSection">
+                         <a href="#" class="like">
+                             <span class="likecount" id="CarouselNewslikecount_#= listitemid.value =#_" onclick="javascript: LikePage('_#= line9.value =#_', '_#= listitemid.value =#_', 					'CarouselNews')">
+			     </span>
+                             <a href="#" id="CarouselNewslikebutton_#= listitemid.value =#_" class="LikeButton" style="display:none;">
+			     </a>
+			 
+                         </a>
+			<span style="float: right;">
+                        	<a href="_#= commonurl =#_" style="#005495"> _#= learnmoretitle =#_  </a> 
+                   	 </span>
+                     </div>
+
+
+			   
+             </div> 
+         </div>
+	</div>
+ </div>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,235 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>COXONE Item Carousel Whats New</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:MasterPageDescription msdt:dt="string">Displays a result tailored for a picture.</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#SearchResults;#Content Web Parts;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:ManagedPropertyMapping msdt:dt="string">'Title':'Title','Path':'Path','Description':'Description','Line 4'{Image Name}:'CCI-NewsArticleImageOWSIMGE','Line 5'{Description}:'CCI-DescriptionOWSMTXT','Line 6'{Learn More Link}:'CCI-URLOWSURLH','Line 7'{Number of Likes}:'LikesCount','Line 8'{Whats New Heading}:'Title','Line 9'{List ID}:'ListID','Line 10'{Learn more Text}:'CCI-LearnMoreTitleOWSTEXT','Line 11'{List Item ID}:'ListItemID'</mso:ManagedPropertyMapping>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://mod223137.sharepoint.com/sites/coxone/_catalogs/masterpage/CCI-Item_WhatsNew_Carousel.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+<mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    <div id="Item_SlideImage">
+<!--#_
+var siteURL = SP.PageContextInfo.get_siteServerRelativeUrl();
+
+var webUrl = SP.PageContextInfo.get_webServerRelativeUrl();
+
+
+var linkURL = $getItemValue(ctx, "Path");
+linkURL.overrideValueRenderer($urlHtmlEncode);
+
+var pictureURL = $getItemValue(ctx, "Line 4");
+var description = $getItemValue(ctx, "Line 5");
+var learnmore = $getItemValue(ctx, "Line 6");
+var likeunlike = $getItemValue(ctx, "Line 7");
+var title = $getItemValue(ctx, "Line 8");
+var line9 = $getItemValue(ctx, "Line 9");
+var learnmoretitle = $getItemValue(ctx, "Line 10");
+var listitemid = $getItemValue(ctx, "Line 11");
+
+pictureURL.overrideValueRenderer($contentLineText);
+description.overrideValueRenderer($contentLineText);
+//learnmore.overrideValueRenderer($contentLineText);
+learnmore.overrideValueRenderer($urlHtmlEncode);
+likeunlike.overrideValueRenderer($contentLineText);
+title.overrideValueRenderer($contentLineText);
+line9.overrideValueRenderer($contentLineText);
+learnmoretitle.overrideValueRenderer($contentLineText);
+listitemid.overrideValueRenderer($contentLineText);
+
+var itemurl= siteURL+ "/pages/WhatsNew.aspx?ListItemID=" + listitemid;
+var RenditionpictureURL = pictureURL;
+var commonurl="";
+var strTrimmedTitle = "";
+var strTrimmedDesc = "";
+
+if(!title.isEmpty)
+{
+if (title.toString().length > 60) {
+	strTrimmedTitle = title.toString().substring(0,60) + "...";
+}
+else {
+	strTrimmedTitle = title;
+}
+}
+
+if(!description.isEmpty)
+{
+if (description.toString().length > 226) {
+	strTrimmedDesc = description.toString().substring(0,226) + "...";
+}
+else {
+	strTrimmedDesc = description;
+}
+}
+
+if(!learnmore.isEmpty){	
+	commonurl = learnmore.value[0]["entityLabel"];
+} 
+else{
+	commonurl= "";
+}
+
+
+AddPostRenderCallback(ctx, function(){
+                var listGuid;
+                var listItemId;
+                listGuid = line9.value;
+                listItemId = listitemid.value;
+     $.ajax({
+		url: _spPageContextInfo.siteAbsoluteUrl + "/_api/contextinfo",
+		type: "POST",
+		headers: { "Accept": "application/json; odata=verbose"},
+		success: function (data) {
+			$('#__REQUESTDIGEST').val(data.d.GetContextWebInformation.FormDigestValue);
+			
+	        var restUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/GetById('" + listGuid + "')/GetItems(query=@v1)?@v1={\"ViewXml\":\"<View><Query><Where><Eq><FieldRef Name='ID'/><Value Type='Counter'>" + listItemId + "</Value></Eq></Where></Query><RowLimit>1</RowLimit></View>\"}";
+			
+			$.ajax(
+				{
+					url: restUrl,
+					type: "POST",
+					headers: {
+						"Accept": "application/json; odata=verbose",
+						"X-RequestDigest": $("#__REQUESTDIGEST").val()
+					},
+						success: function (data) {
+									if (data.d.results.length > 0)
+									{
+                                        var likeDisplay = true;
+                                        var result = '';
+                                        var likesCountInfo = 0;
+										$.each(data.d.results, function (index, item) {
+											if(item.LikedByStringId != null)
+                                            {
+                                                likesCountInfo = item.LikesCount;
+												
+                                                var members = item.LikedByStringId.results;
+                                                if (members != null) {
+                                                    for (i = 0; i < members.length; i++) {
+                                                        var member = members[i];
+                                                        if(parseInt(member) === _spPageContextInfo.userId)
+                                                            likeDisplay = false;
+                                                    }
+                                                }
+                                            }
+										});
+
+                                        var likebuttonid = "CarouselNewslikebutton" + listItemId;
+                                        var likecountid = "CarouselNewslikecount" + listItemId;
+                                        
+                                        if (likeDisplay) {
+                                            $("#" + likebuttonid).text('Like');
+                                        }
+                                        else {
+                                            $("#" + likebuttonid).text('Unlike');
+                                        }
+
+                                        var htmlstring =  String(likesCountInfo);// + "  " + "<i class='fa fa-thumbs-up'></i>";
+                                        var htmlstring1 =  String(likesCountInfo);// + "  " + "<i class='fa fa-thumbs-up'></i>";
+                                        if (likesCountInfo > 0)
+                                        {
+                                            $("#" + likecountid).html(htmlstring)
+                                        }
+                                        else
+                                        {
+                                                $("#" + likecountid).html(htmlstring1);
+                                        }
+									}
+									
+								},
+								error: function (error) {
+									CCI_Common.LogException(_spPageContextInfo.userId,'Newscarousel', _spPageContextInfo.siteAbsoluteUrl,JSON.stringify(error));
+    						    }
+				});
+		},
+		error: function (data, errorCode, errorMessage) {
+			
+		}
+            });
+});
+
+
+_#-->
+
+		
+ <div class="slide" data-displaytemplate="ItemSlidePicture">
+    <div class="row">
+        <div class="col-md-7 col-sm-7 col-xs-12">
+			   <div style="float: left; padding: 0px;" class="slideimage">
+			        
+                     <!--#_
+                      if( commonurl=="")
+                    { _#-->
+                            <img src="_#= RenditionpictureURL =#_" alt="_#= title =#_" class="img-responsive" />
+                        <!--#_ }
+                        else{ _#-->
+                          <a href="_#= commonurl =#_" title="_#= title =#_" target="_blank">
+                              <img src="_#= RenditionpictureURL =#_" alt="_#= title =#_" class="img-responsive" />
+                          </a>
+                        <!--#_ } _#-->
+					 <div class="slide_like">
+						<a class="likecount" id="CarouselNewslikecount_#= listitemid.value =#_"></a>
+						<a href="#" class="like" onclick="javascript: LikePage('_#= line9.value =#_', '_#= listitemid.value =#_','CarouselNews')">
+							<i class='fa fa-thumbs-up'></i>
+							<a href="#" class="LikeButton" id="CarouselNewslikebutton_#= listitemid.value =#_" style="display:none;"></a>
+						</a>
+					</div> 
+			   </div>
+        </div> 
+        <div class="col-md-5 col-sm-5 col-xs-12">
+            <div class="slidecontent">			
+			        <div class="caption_dis">
+				        <p style="font-size: 20px;color: #2757A7;font-weight: bold;margin: 0 0 10px;">_#= strTrimmedTitle =#_</p>
+					
+    <!-- 					<div class="LikeSection visible-xs-block">
+                             <a href="#" class="like">
+                                 <span class="likecount" id="CarouselNewslikecount_#= listitemid.value =#_" onclick="javascript: LikePage('_#= line9.value =#_', '_#= listitemid.value =#_','CarouselNews')">
+							     </span>
+                                 <a href="#" id="CarouselNewslikebutton_#= listitemid.value =#_" class="LikeButton" style="display:none;"></a>
+                             </a>
+                        </div> -->
+			        </div> 			
+			        <div class="caption_dis">
+				        <p>_#= strTrimmedDesc  =#_ </p>
+			        </div> 
+
+ 			        <!--<div class="LikeSection">
+                                 <a href="#" class="like">
+                                     <span class="likecount" id="CarouselNewslikecount_#= listitemid.value =#_" onclick="javascript: LikePage('_#= line9.value =#_', '_#= listitemid.value =#_','CarouselNews')">
+			                         </span>
+                                     <a href="#" id="CarouselNewslikebutton_#= listitemid.value =#_" class="LikeButton" style="display:none;">
+			                          </a>
+			 
+                                 </a>
+			                <span style="float: right;">
+                        	        <a href="_#= commonurl =#_" style="#005495"> _#= learnmoretitle =#_  </a> 
+                   	        </span>
+							
+                      </div>-->
+            <div class="LikeSection">
+                   <!--#_  if( commonurl!="")
+                        { _#-->
+                        <span style="float: right;">
+                            <a href="_#= commonurl =#_" style="#005495"> _#= learnmoretitle =#_  </a>
+                        </span>
+                        <!--#_ }
+                     _#-->
+                    </div>
+                </div> 
+	        </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

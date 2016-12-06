@@ -1,0 +1,1 @@
+$(document).ready(function(b){if($(".ms-ToolPaneOuter").size()>0){$(".ms-ToolPaneOuter").parent().width("0px");tpHeight=parseInt($(window).height())-300;$(".ms-ToolPaneBody").css("max-height",tpHeight+"px");$(".ms-ToolPaneOuter").draggable({handle:"#MSOTlPn_ToolPaneCaption"})}});

@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html ng-app="appNotifications">
+<head>
+    <script data-require="angular.js@1.5.9" data-semver="1.5.9" src="https://code.angularjs.org/1.5.8/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+    
+    <!--For Yammer Groups-->
+    <script type="text/javascript" data-app-id="egV3bLu2GR3zZzBdoKchCA" src="https://c64.assets-yammer.com/assets/platform_js_sdk.js"></script>
+<!--
+    <script src="../SiteAssets/CoxOne/js/CCI-myWorkspace_Widgets.js"></script>
+
+    <script src="../Style%20Library/coxone/js/jquery-ui.min.js"></script>
+    <script src="../SiteAssets/coxone/js/jquery-ui-slider-pips.js"></script>
+    <link rel="stylesheet" href="../Style%20Library/coxone/css/jquery-ui.css">
+    -->
+    <script type="text/javascript">
+        document.write("<script type='text/javascript' src='" + _spPageContextInfo.siteAbsoluteUrl + "/SiteAssets/CoxOne/js/CCI-myWorkspace_Widgets.js'><" + "/script>");
+        document.write("<script type='text/javascript' src='" + _spPageContextInfo.siteAbsoluteUrl + "/Style%20Library/coxone/js/jquery-ui.min.js'><" + "/script>");
+        document.write("<script type='text/javascript' src='" + _spPageContextInfo.siteAbsoluteUrl + "/SiteAssets/coxone/js/jquery-ui-slider-pips.js'><" + "/script>");
+        document.write("<link rel='stylesheet' href='" + _spPageContextInfo.siteAbsoluteUrl + "/Style%20Library/coxone/css/jquery-ui.css'><" + "/link>");
+    </script>
+    
+    <style>
+        .ms-webpart-zone {
+            background: transparent !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div ng-controller="ModalDemoCtrl">
+        <script type="text/ng-template" id="WidgetPreferences.html">
+            <div class="ms-dlgContent white">
+                <span id="dlgTitleBtns" class="ms-dlgTitleBtns">
+                    <a id="DlgClosed0eef6fc-af20-493f-88f8-a0d0715c6709" class="ms-dlgCloseBtn" title="Close dialog" href="" ng-click="cancel()" accesskey="C">
+                        <span style="padding:8px;height:16px;width:16px;display:inline-block">
+                            <span style="height:16px;width:16px;position:relative;display:inline-block;overflow:hidden;" class="s4-clust">
+                                <img src="/_layouts/15/images/fgimg.png?rev=44" alt="Close dialog" style="left:-0px !important;top:-645px !important;position:absolute;" class="ms-dlgCloseBtnImg">
+                            </span>
+                        </span>
+                    </a>
+                </span>
+                <div class="ms-dlgFrameContainer">
+                    <h3 title="Widget Preferences" class="ms-dlgTitleText ms-accentText ms-dlg-heading">Widget Preferences</h3>
+                    <p>Customized your Preferences with the widgets that matter most to you</p>
+                    <p>Toogle widgets on an off to select what you want, and use the order dropdowns to select the order you want the widgets to display.</p>
+                </div>
+                <div class="ms-dlgFrameContainer">
+                    <div id="preferenceDiv">
+                        <div class="row">
+                            <div class="col-sm-12 box_warp">
+                                <div class="panel panel-default clearfix">
+                                    <div id="NewsPopup" data-popup="popup-1">
+                                        <div class="row" id="NewsPreference">
+                                            <div class="col-sm-12">
+                                                <div class="widgetHeader">
+                                                    <h4>Widget</h4>
+                                                    <h4>Order</h4>
+                                                </div>
+                                                <ul id="companyDiv">
+                                                    <!--Start BI Dashboard-->
+                                                    <li class="MR20 pull-left width40per">
+                                                        <label class="switch">
+                                                            <input type="checkbox" ng-model="chkBIDashboard" ng-change="checkUniqueOrder();" title="Product">
+                                                            <div class="slider round"></div>
+                                                        </label>
+                                                        <label>BI Dashboard</label>
+                                                    </li>
+                                                    <li class="pull-left width40per">
+                                                        <select ng-model="ddlBIDashboard" ng-change="checkUniqueOrder();" ng-options="orderNumber for orderNumber in orderNumbers">
+                                                        </select>
+                                                    </li>
+                                                    <!--End BI Dashboard-->
+                                                    <!--Start Groups-->
+                                                    <li class="MR20 pull-left width40per">
+                                                        <label class="switch">
+                                                            <input type="checkbox" ng-model="chkGroups" ng-change="checkUniqueOrder();" title="Product">
+                                                            <div class="slider round"></div>
+                                                        </label>
+                                                        <label>Groups</label>
+                                                    </li>
+                                                    <li class="pull-left width40per">
+                                                        <select ng-model="ddlGroups" ng-change="checkUniqueOrder();" ng-options="orderNumber for orderNumber in orderNumbers">
+                                                        </select>
+                                                    </li>
+                                                    <!--End Groups-->
+                                                    <!--Start My Documents-->
+                                                    <li class="MR20 pull-left width40per">
+                                                        <label class="switch">
+                                                            <input type="checkbox" ng-model="chkMyDocs" ng-change="checkUniqueOrder();" title="Product2">
+                                                            <div class="slider round"></div>
+                                                        </label>
+                                                        <label>My Documents</label>
+                                                    </li>
+                                                    <li class="pull-left width40per">
+                                                        <select ng-model="ddlMyDocs" ng-change="checkUniqueOrder();" ng-options="orderNumber for orderNumber in orderNumbers">
+                                                        </select>
+                                                    </li>
+                                                    <!--End My Documents-->
+                                                    <!--Start My Tasks-->
+                                                    <li class="MR20 pull-left width40per">
+                                                        <label class="switch">
+                                                            <input type="checkbox" ng-model="chkMyTasks" ng-change="checkUniqueOrder();" title="Product1">
+                                                            <div class="slider round"></div>
+                                                        </label>
+                                                        <label>My Tasks</label>
+                                                    </li>
+                                                    <li class="pull-left width40per">
+                                                        <select ng-model="ddlMyTasks" ng-change="checkUniqueOrder();" ng-options="orderNumber for orderNumber in orderNumbers">
+                                                            <!--<option value="">--</option>-->
+                                                        </select>
+                                                    </li>
+                                                    <!--End My Tasks-->
+                                                </ul>
+                                            </div>
+                                            <br /> <br />
+
+                                            <div class="col-sm-12">
+                                                <span class="width40per" style="float:left">&nbsp;</span>
+                                                <span class="width40per" style="float:left">
+                                                    <button class="btn" ng-click="ok()" ng-if="DisplaySave">Apply</button>
+                                                    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                                                    <span style="font-weight:bold" ng-if="DisplaySave == false">&nbsp;{{UniqueOrderMessage}}</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+        <!-- <button type="button" class="btn btn-default" ng-click="open()">Open me!</button>-->
+        <div class="panel panel-default clearfix">
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="height:35px">
+                        <div class="Newsbtn">
+                            <a class="btn" ng-click="open()">Customize Your Widgets   <img src="../Style Library/coxone/images/preferences Gear.png" alt="Customize Your Widgets"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/ng-template" id="Groups.html">
+            <div id="page" data-ng-controller="ctrlGroups">
+                <div class="panel panel-default custom-box-warp clearfix Groups">
+                    <h2 class="panel-title mob_accordian">Groups</h2>
+                    <div class="GroupMenu">
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/ng-template" id="BIDashboard.html">
+            <div id="page" data-ng-controller="ctrlBIDashboard">
+                <div class="panel panel-default custom-box-warp clearfix BiDashboard">
+                    <div class="BiDashboardImg"><img src="{{ImagePath}}" alt="Business Intelligence" /></div>
+                    <div class="MyHRlinks">
+                        <h2> BI Charts </h2>
+                        <ul>
+                            <li data-ng-repeat="BIDataItem in BIData"><a href="{{BIDataItem.CCI_x002d_URL.Url}}" target="_blank">{{BIDataItem.Title}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/ng-template" id="MyTasks.html">
+            <div id="page" data-ng-controller="ctrlMyTasks">
+                <div class="inner_pages my_workspace" data-ng-if="displayMyTasks">
+                    <div class="panel panel-default custom-box-warp mobile-custom-space paycheck-wrap clearfix">
+                        <h2 class="panel-title mob_accordian">{{AppTitle}}</h2>
+                        <div class="my_doc" data-ng-if="displayMyTasks">
+                            <div class="document_table">
+                              <!--  <div class="img_sec">
+                                    <img class="cbs-Thumbnail" src="../Style%20Library/coxone/images/star_img.jpg">
+                                </div>-->
+                                <div class="TaskName">Name</div>
+                                <div class="DueDate">Due Date</div>
+                                <div class="DueDate">Assigned To</div>
+                            </div>
+                            <!--<div data-ng-repeat="MyTask in MyTasks | filter:{StatusOWSCHCS: '!Completed'} | orderBy: 'TaskDueDate' | limitTo: 10" class="cbs-Item">-->
+                            <div data-ng-repeat="MyTask in MyTasks | orderBy: 'TaskDueDate' | limitTo: 10" class="cbs-Item">    
+                               <!-- <div class="img_sec">
+                                    <img class="cbs-Thumbnail" src="../Style%20Library/coxone/images/star_img.jpg">
+                                </div>-->
+                                <div class="cbs-Detail TaskName">
+                                    <a class="cbs-Line1Link ms-noWrap ms-displayBlock" target="_blank" href="{{MyTask.TaskPath}}">{{MyTask.TaskTitle}}</a>
+                                </div>
+                                <div class="cbs-Line2 ms-noWrap DueDate">
+                                    <span ng-bind="MyTask.TaskDueDate | date:'MM/dd/yyyy'"></span>
+                                </div>
+                                <div class="cbs-Line2 ms-noWrap AssignedTo">
+                                    {{MyTask.TaskAssignedTo}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/ng-template" id="MyDocuments.html">
+            <div id="page" data-ng-controller="ctrlMyWSDocuments">
+                <div class="inner_pages my_workspace">
+                    <div class="panel panel-default custom-box-warp mobile-custom-space paycheck-wrap clearfix">
+                        <h2 class="panel-title mob_accordian">{{AppTitle}}</h2>
+                        <div class="my_doc" data-ng-if="displayTable">
+                        	<div class="document_table">
+                        		<div class="img_sec">
+                        			<img class="cbs-Thumbnail" src="../Style%20Library/coxone/images/star_img.jpg">
+                        		 </div>
+                        		 <div class="TaskName">Name</div>  
+                        		 <div class="DueDate">Modified</div> 
+                        		 <div class="DueDate">Modified By</div> 
+                        	</div>
+		                    <div data-ng-repeat="MyDocument in MyDocuments | orderBy: 'FileModified':true" class="cbs-Item">
+		                        <div class="img_sec">
+		                            <img class="cbs-Thumbnail" src="{{MyDocument.FileType}}" />
+		                        </div>
+		                        <div class="cbs-Detail TaskName">
+		                            <a class="cbs-Line1Link ms-noWrap ms-displayBlock" target="_blank" href="{{MyDocument.FilePath}}">{{MyDocument.FileTitle}}</a>
+		                        </div>
+		                        <div class="cbs-Line2 ms-noWrap DueDate">
+		                            <span ng-bind="MyDocument.FileModified | date:'MM/dd/yyyy'"></span>
+		                        </div>
+		                        <div class="cbs-Line2 ms-noWrap AssignedTo">
+		                            {{MyDocument.FileModifiedBy}}
+		                        </div>
+		                    </div>
+	                    </div>
+                   </div>
+                </div>
+            </div>
+        </script>
+
+        <div ng-include src="firstTemplate"></div>
+        <div ng-include src="secondTemplate"></div>
+        <div ng-include src="thirdTemplate"></div>
+        <div ng-include src="fourthTemplate"></div>
+        <div ng-include src="fifthTemplate"></div>
+    </div>
+</body>
+</html>
+
+

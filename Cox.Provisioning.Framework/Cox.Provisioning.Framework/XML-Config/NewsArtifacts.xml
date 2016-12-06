@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
+  <pnp:Preferences Generator="OfficeDevPnP.Core, Version=2.6.1608.0, Culture=neutral, PublicKeyToken=3751622786b357c2">
+    <pnp:Parameters>
+      <pnp:Parameter Key="O365TenantName"></pnp:Parameter>
+      <pnp:Parameter Key="NewSiteCollectionUrlName"></pnp:Parameter>
+      <pnp:Parameter Key="CodeProvidedParam" Required="true"/>
+      <pnp:Parameter Key="YammerNetwork">cox.com</pnp:Parameter>
+      <pnp:Parameter Key="lcid">1033</pnp:Parameter>
+      <pnp:Parameter Key="CompanyName">COX Inc.</pnp:Parameter>
+      <pnp:Parameter Key="sitecollectiontermstoreid"></pnp:Parameter>
+      <pnp:Parameter Key="AdminUserNameID"></pnp:Parameter>
+      <pnp:Parameter Key="BaseCoxSiteColumnGroup"></pnp:Parameter>
+      <pnp:Parameter Key="SourceID">http://schemas.microsoft.com/sharepoint/v3</pnp:Parameter>
+    </pnp:Parameters>
+  </pnp:Preferences>
+  <pnp:Templates ID="COXOne-Provisioning-TEMPLATES">
+    <pnp:ProvisioningTemplate ID="COXOneTemplate-NewsArtifacts" Version="1">
+      <pnp:Features>
+         <pnp:WebFeatures>   
+           <pnp:Feature ID="94c94ca6-b32f-4da9-a9e3-1f3d343d7ecb" />
+           <pnp:Feature ID="00bfea71-d8fe-4fec-8dad-01c19a6e4053" />
+      </pnp:WebFeatures>
+      </pnp:Features>    
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

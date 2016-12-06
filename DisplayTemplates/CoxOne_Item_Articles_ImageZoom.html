@@ -1,0 +1,434 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <style>
+        ul.cbs-List {
+            display: block !important;
+        }
+    </style>
+    <title>CoxOne Image ups</title>
+
+    <!--[if gte mso 9]><xml>
+    <mso:CustomDocumentProperties>
+    <mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+    <mso:ManagedPropertyMapping msdt:dt="string">'Picture URL'{Picture URL}:'PubImage;PublishingImage;PictureURL;PictureThumbnailURL;CCI-NewsArticleImageOWSIMGE','Link URL'{Link URL}:'Path','Work Email'{Work Email}:'WorkEmail','MainAuthor'{MainAuthor}:'AuthorOWSUSER','Line 1'{Line 1}:'Title','Line 2'{Line 2}:'RefinableString08','Line 3'{Line 3}:'ModifiedDateTime','Line 4'{Line 4}:'ReplyCount','Line 5'{Line 5}:'LikesCount','Line 6'{Line 6}:'LastReplyByOWSUSER','Line 7'{Line 7}:'DisplayAuthor','Line 8'{Line 8}:'ListItemId','Line 9'{Line 9}:'NewsCommentsOWSMTXT','Line 10'{Line 10}:'ListId','Line 11'{Line 11}:'RefinableString107',</mso:ManagedPropertyMapping>
+    <mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a 100x100 picture of the item on the left. The title and the default item description will display to the right of the picture with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
+    <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+    <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
+    <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+    <mso:HtmlDesignStatusAndPreview msdt:dt="string">https://mod223137.sharepoint.com/sites/coxone/_catalogs/masterpage/Display%20Templates/Content%20Web%20Parts/CoxOne_Item_Articles.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+    <mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+    <mso:CrawlerXSLFile msdt:dt="string"></mso:CrawlerXSLFile>
+    <mso:HtmlDesignPreviewUrl msdt:dt="string"></mso:HtmlDesignPreviewUrl>
+    </mso:CustomDocumentProperties>
+    </xml><![endif]-->
+</head>
+
+<body>
+
+    <!--
+            Warning: Do not try to add HTML to this section. Only the contents of the first <div>
+            inside the <body> tag will be used while executing Display Template code. Any HTML that
+            you add to this section will NOT become part of your Display Template.
+    -->
+    <script>
+        $includeLanguageScript(this.url, "~sitecollection/_catalogs/masterpage/Display Templates/Language Files/{Locale}/CustomStrings.js");
+    </script>
+
+    <!--
+        Use the div below to author your Display Template. Here are some things to keep in mind:
+        * Surround any JavaScript logic as shown below using a "pound underscore" (#_ ... _#) token
+        inside a comment.
+
+        * Use the values assigned to your variables using an "underscore pound equals"
+        (_#= ... =#_) token.
+    -->
+
+    <div id="Item_Picture3Lines">
+
+        <!--#_
+        var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_picture3Lines_");
+
+        var linkURL = $getItemValue(ctx, "Link URL");
+        linkURL.overrideValueRenderer($urlHtmlEncode);
+
+        var line1 = $getItemValue(ctx, "Line 1");
+        var line2 = $getItemValue(ctx, "Line 2");
+        var line3 = $getItemValue(ctx, "Line 3");
+        var line4 = $getItemValue(ctx, "Line 4");
+        var line5 = $getItemValue(ctx, "Line 5");
+        var line6 = $getItemValue(ctx, "Line 6");
+        var line7 = $getItemValue(ctx, "Line 7");
+        var line8 = $getItemValue(ctx, "Line 8");
+        var line9 = $getItemValue(ctx, "Line 9");
+        var line10 = $getItemValue(ctx, "Line 10");
+        var liked = '';
+        var pictureURL = $getItemValue(ctx, "Picture URL");
+
+        var pictureId = encodedId + "picture";
+        var pictureMarkup = Srch.ContentBySearch.getPictureMarkup(pictureURL, 100, 100, ctx.CurrentItem, "cbs-picture3LinesImg", line1, pictureId);
+
+        line1.overrideValueRenderer($contentLineText);
+        line2.overrideValueRenderer($contentLineText);
+        line3.overrideValueRenderer($contentLineText);
+        line4.overrideValueRenderer($contentLineText);
+        line5.overrideValueRenderer($contentLineText);
+        line6.overrideValueRenderer($contentLineText);
+        line7.overrideValueRenderer($contentLineText);
+        line8.overrideValueRenderer($contentLineText);
+        line9.overrideValueRenderer($contentLineText);
+        line10.overrideValueRenderer($contentLineText);
+
+        var containerId = encodedId + "container";
+        var pictureLinkId = encodedId + "pictureLink";
+        var pictureContainerId = encodedId + "pictureContainer";
+        var dataContainerId = encodedId + "dataContainer";
+        var line1LinkId = encodedId + "line1Link";
+        var line1Id = encodedId + "line1";
+        var line2Id = encodedId + "line2";
+        var line3Id = encodedId + "line3";
+        var line4Id = encodedId + "line4";
+        var line5Id = encodedId + "line5";
+        var line6Id = encodedId + "line6";
+        var line7Id = encodedId + "line7";
+        var line8Id = encodedId + "line8";
+        var line9Id = encodedId + "line9";
+        var line10Id = encodedId + "line10";
+
+        if(!line5.value)
+        {
+            line5.value = 0;
+        }
+        if(!line4.value)
+        {
+            line4.value = 0;
+        }
+        if(line6.value)
+        {
+            line6.value = 'Last Reply by: ' + line6.value;
+        }
+        else
+        {
+            line6.value = '';
+        }
+        //alert(line9.value);
+        var authors2=line7.value;
+        var author =authors2.split(";", 1);
+        var dataDisplayTemplateTitle = "ItemPicture3Lines";
+        var parseDate = new Date(line3.value);
+        var formattedDate = parseDate.format('MMM dd, yyyy') + ' at ' + parseDate.format('hh:mm tt');
+        //alert(line7.value);
+                    if(!$isNull(ctx.CurrentItem) && !$isNull(ctx.ClientControl))
+                    {
+                        var NoOfLikes = 0;
+                        var NoOfReplies = 0;
+                        if(ctx.CurrentItem.LikesCount != null)
+                        {
+                            NoOfLikes=ctx.CurrentItem.LikesCount;
+                        }
+                        if(ctx.CurrentItem.ReplyCount != null)
+                        {
+                            NoOfReplies=ctx.CurrentItem.ReplyCount;
+                        }
+                    }
+            NoOfReplies=0;
+            if(line9.value != null)
+            {
+                NoOfReplies = String(line9.value).split('<div>').length-1;
+            }
+            var listGuid;
+            var listItemId;
+            listGuid = line10.value;
+            listItemId = line8.value;
+            
+            AddPostRenderCallback(ctx, function(){
+                //getLikes(line9.value, line8.value);
+                //alert(line8.value);
+            $("#Comments"+listItemId).hide();
+	        $("#lnkViewComments"+listItemId).click(function(){
+		        $("#Comments"+listItemId).toggle();
+	        });
+            if(String(listGuid).indexOf("{") > -1)
+                listGuid = listGuid.substring(1,listGuid.length-1);
+            
+    $.ajax({
+		url: _spPageContextInfo.webAbsoluteUrl + "/_api/contextinfo",
+		type: "POST",
+		headers: { "Accept": "application/json; odata=verbose"},
+		success: function (data) {
+			$('#__REQUESTDIGEST').val(data.d.GetContextWebInformation.FormDigestValue);
+			
+			var restUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetById('" + listGuid + "')/GetItems(query=@v1)?@v1={\"ViewXml\":\"<View><Query><Where><Eq><FieldRef Name='ID'/><Value Type='Counter'>" + listItemId + "</Value></Eq></Where></Query><RowLimit>1</RowLimit></View>\"}";
+            //alert(restUrl);
+
+            //var restUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetById('" + listGuid + "')/items(" + listItemId + ")?$select=Title,LikesCount,LikedBy/ID,LikedBy/Title&$expand=LikedBy";
+            
+			$.ajax(
+				{
+					url: restUrl,
+					type: "POST",
+					headers: {
+						"Accept": "application/json; odata=verbose",
+						"X-RequestDigest": $("#__REQUESTDIGEST").val()
+					},
+						success: function (data) {
+									if (data.d.results.length > 0)
+									{
+                                        var likeDisplay = true;
+                                        var result = '';
+                                        var likesCountInfo = 0;
+                                        
+										$.each(data.d.results, function (index, item) {
+											likesCountInfo = item.LikesCount;
+                                            var members = item.LikedByStringId.results;
+                                            //alert(members);
+                                            //alert(_spPageContextInfo.userId);
+                                            if (members != null) {
+                                                for (i = 0; i < members.length; i++) {
+                                                    var member = members[i];
+                                                    if(parseInt(member) === _spPageContextInfo.userId)
+                                                        likeDisplay = false;
+                                                    /*
+                                                    alert(member.get_email().trim().toLowerCase());
+                                                    if (member.get_email().trim().toLowerCase() === _spPageContextInfo.userLoginName) {
+                                                        //display unlike  
+                                                        likeDisplay = false;
+                                                    }
+                                                    result += member.get_lookupValue() + '\n';
+                                                    //  alert(result);
+                                                    */
+                                                }
+                                            }
+										});
+										//ChangeLikeText(likeDisplay, likesCountInfo);
+                                        var likebuttonid = "likebutton" + listItemId;
+                                        var likecountid = "likecount" + listItemId;
+                                        //alert(likebuttonid);
+                                        //alert(likecountid);
+                                        //alert(likeDisplay);
+                                        if (likeDisplay) {
+                                            //$("a.LikeButton").text('Like');
+                                            $("#" + likebuttonid).text('Like');
+                                        }
+                                        else {
+                                            $("#" + likebuttonid).text('Unlike');
+                                        }
+                                        //var htmlstring = "(" + String(count) + ") " + "<img alt=\"\" src=\"/_layouts/15/images/LikeFull.11x11x32.png\" />";
+                                        //var htmlstring1 = "(" + String(count) + ") " + "<img alt=\"\" src=\"/_layouts/15/images/formatmap16x16.png\" />";
+                                        var htmlstring = "(" + String(likesCountInfo) + ") " + "<i class='fa fa-thumbs-up'></i>";
+                                        var htmlstring1 = "(" + String(likesCountInfo) + ") " + "<i class='fa fa-thumbs-up'></i>";
+                                        if (likesCountInfo > 0)
+                                        {
+                                            //$(".likecount").html(htmlstring)
+                                            $("#" + likecountid).html(htmlstring)
+                                        }
+                                        else
+                                        {
+                                                //$(".likecount").html(htmlstring1);
+                                                $("#" + likecountid).html(htmlstring1);
+                                        }
+									}
+									
+								},
+								error: function (error) {
+									alert(JSON.stringify(error));
+                                    CCI_Common.LogException(_spPageContextInfo.userId, 'News Articles Image Zoom App', _spPageContextInfo.siteAbsoluteUrl, JSON.stringify(error));
+								}
+				});
+		},
+		error: function (data, errorCode, errorMessage) {
+			alert(errorMessage);
+            CCI_Common.LogException(_spPageContextInfo.userId, 'News Articles Image Zoom App', _spPageContextInfo.siteAbsoluteUrl, errorMessage);
+		}
+            });
+});
+         _#-->
+
+
+        <div class="row news_box top-new-box">
+            <div class="box_accordian padd_comon">
+                <div class="share_like_row">
+                    <div class="left_side">
+
+                        <h3>_#= line1.value =#_<span> by _#= author =#_</span></h3>
+                    </div>
+                    <ul>
+                        <br>
+                        <!--<li class="userName" id="username_#= line8.value =#_"></li>-->
+                        <br>
+                        <li class="userTitle" id="department_#= line8.value =#_"></li>
+
+                    </ul>
+                    <div class="share_social">
+                        <ul>
+                            <!--<li> <a href="#" class="like"><span> (_#= NoOfLikes =#_)</span> <i class="fa fa-thumbs-up"></i></a></li>-->
+                            <li>
+                            <div class="LikeSection">
+                                <a href="#" class="like">
+                                    <span class="likecount" id="likecount_#= line8.value =#_" onclick="javascript: LikePage('_#= line10.value =#_', '_#= line8.value =#_')"></span>
+                                    <a href="#" class="LikeButton" id="likebutton_#= line8.value =#_"></a>
+                                </a>
+                            </div>
+                            </li>
+                            <li><a href="#" class="share_icon"><i class="fa fa-share-alt"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content_row">
+				
+                    <div id="myImg_#= listItemId =#_" class="img_data left_side_img"> _#= pictureMarkup =#_</div>
+					<p> _#= line2.value =#_</p>
+					
+<!-- The Modal -->
+<div id="myModal_#= listItemId =#_" class="modal">
+  <span id="closeBtn_#= listItemId =#_" class="close">×</span>
+  <img class="modal-content" id="img01_#= listItemId =#_">
+  <div id="caption_#= listItemId =#_"></div>
+</div>
+
+<!--#_
+AddPostRenderCallback(ctx, function(){
+               
+	        
+var modal = document.getElementById("myModal"+listItemId);
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg"+listItemId);
+var modalImg = document.getElementById("img01"+listItemId);
+var captionText = document.getElementById("caption"+listItemId);
+img.onclick = function(){
+    modal.style.display = "block";
+    
+	
+	var someimage = document.getElementById("myImg"+listItemId);
+	var myimg = someimage.getElementsByTagName('img')[0];
+	var mysrc = myimg.src;
+	var newsrc =mysrc.split("?", 1);
+
+    modalImg.src = newsrc;
+    
+    
+}
+
+// Get the <span> element that closes the 
+var span = document.getElementById("closeBtn"+listItemId);
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+});
+					 _#-->
+					
+                    
+
+                    <div class="clearfix"></div>
+                    <a href="#">products  loremipsum  justovitae</a>
+                    <div class="clearfix"></div>
+                    <a href="#" id="lnkViewComments_#= listItemId =#_" class="comments-view"> Comments (_#= NoOfReplies =#_)</a>
+                    <div id="Comments_#= listItemId =#_" class="comments">_#= line9.value =#_</div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        <!--#_
+        var accountName = line7.value;
+        EnsureScriptFunc('jquery.js', 'jQuery', function () {
+            // Replace the next line with a function call
+            //console.log('jQuery ready');
+
+
+        $.ajax({
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/contextinfo",
+            type: "POST",
+            headers: { "Accept": "application/json; odata=verbose"},
+            success: function (data) {
+                $('#__REQUESTDIGEST').val(data.d.GetContextWebInformation.FormDigestValue);
+                //alert($("#__REQUESTDIGEST").val());
+                ensureUser(accountName)
+                .done(function(data)
+                {
+                    console.log('Done.');
+                    //alert(data.d.LoginName);
+                    console.log(data.d.LoginName);
+
+                    var requestHeaders = {
+                        "Accept": "application/json;odata=verbose",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                    };
+                    shortAccountName = data.d.LoginName.split("|")[1];
+                    //alert(shortAccountName);
+                    console.log(shortAccountName);
+                    jQuery.ajax({
+                        url:_spPageContextInfo.webAbsoluteUrl + "/_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='" + shortAccountName + "'",
+                        type:"POST",
+                        contentType : "application/json;odata=verbose",
+                        headers: requestHeaders,
+                        success:function(data){
+                            console.log(data);
+                            //alert(data.d.PictureUrl);
+                            console.log(data.d.PictureUrl);
+                            if(!data.d.PictureUrl)
+                                pictureURL = _spPageContextInfo.webAbsoluteUrl + '/_layouts/15/images/PersonPlaceholder.96x96x32.png';
+                            else
+                                pictureURL = data.d.PictureUrl;
+
+                            pictureId = '#picture' + line8.value;
+                            $(pictureId).attr("src",pictureURL);
+                            $("#username" + line8.value).text(accountName);
+                            //alert(data.d.UserProfileProperties.results[11].Value);
+                            //console.log(data.d.UserProfileProperties.results[11].Value);
+                            setUserProfilePropertyToControl(data.d.UserProfileProperties, "Department", '#department' + line8.value);
+                        },
+                        error:function(jqxr,errorCode,errorThrown){
+                            console.log(jqxr.responseText);
+                            CCI_Common.LogException(_spPageContextInfo.userId, 'News Articles Image Zoom App', _spPageContextInfo.siteAbsoluteUrl, jqxr.responseText);
+                        }
+                    });
+                })
+                .fail(function(error){
+                    console.log(JSON.stringify(error));
+                    CCI_Common.LogException(_spPageContextInfo.userId, 'News Articles Image Zoom App', _spPageContextInfo.siteAbsoluteUrl, JSON.stringify(error));
+                });
+            },
+            error: function (data, errorCode, errorMessage) {
+                alert(errorMessage);
+                CCI_Common.LogException(_spPageContextInfo.userId, 'News Articles Image Zoom App', _spPageContextInfo.siteAbsoluteUrl, errorMessage);
+            }
+        });
+
+        function setUserProfilePropertyToControl(userProfileCollection, userProfileKey, controlId)
+        {
+            if (userProfileCollection.results.length > 0) {
+                for (var i = 0; i < userProfileCollection.results.length; i++) {
+                    if (userProfileCollection.results[i].Key === userProfileKey) {
+                        $(controlId).text(userProfileCollection.results[i].Value);
+                    }
+                }
+            }
+        }
+
+            function ensureUser(accountName)
+            {
+                var endpointUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/ensureUser('" + encodeURIComponent(accountName) + "')";
+                return $.ajax({
+                   url: endpointUrl,
+                   type: "POST",
+                   contentType: "application/json;odata=verbose",
+                   headers: {
+                      "Accept": "application/json;odata=verbose",
+                      "X-RequestDigest": $("#__REQUESTDIGEST").val()
+                   }
+                });
+            }
+            });
+
+            //getLikes(line10.value, line8.value);
+        _#-->
+    </div>
+</body>
+</html>
